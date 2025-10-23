@@ -12,41 +12,73 @@ date: 2025-06-23 22:12:52
 
 ### Update Log
 
+Below are the latest 10 commits to this blog's repository. For more details, visit the [root repository](https://github.com/MingchenDai/mingchendai.github.io).
+
+<ul id="commit-history">
+  <li>Loading commit history...</li>
+</ul>
+
 <script>
   async function fetchCommits() {
-    const username = "YOUR_USERNAME";
-    const repo = "YOUR_REPO_NAME";
-    const url = `https://api.github.com/repos/${username}/${repo}/commits`;
+    const username = "MingchenDai";
+    const repo = "mingchendai.github.io";
+    
+    const url = `https://api.github.com/repos/${username}/${repo}/commits?per_page=10`;
+    const listElement = document.getElementById("commit-history");
+
+    if (!listElement) {
+      console.error("Error: Element with ID 'commit-history' not found.");
+      return;
+    }
 
     try {
       const response = await fetch(url);
       if (!response.ok) {
         throw new Error(`GitHub API error: ${response.status}`);
       }
+      
       const commits = await response.json();
-      const listElement = document.getElementById("commit-history");
-
-      // Clear "Loading..." text
       listElement.innerHTML = "";
 
-      // Get the latest 5 commits
-      commits.slice(0, 5).forEach(commit => {
+      commits.forEach(commit => {
         const li = document.createElement("li");
-        const message = commit.commit.message.split('\n')[0]; // Get first line of message
-        const date = new Date(commit.commit.author.date).toLocaleDateString();
-        const commitLink = document.createElement("a");
 
+        const dateStr = new Date(commit.commit.author.date);
+        const year = dateStr.getFullYear();
+        const month = String(dateStr.getMonth() + 1).padStart(2, '0');
+        const day = String(dateStr.getDate()).padStart(2, '0');
+        const hours = String(dateStr.getHours()).padStart(2, '0');
+        const minutes = String(dateStr.getMinutes()).padStart(2, '0');
+        const formattedDate = `${year}-${month}-${day} ${hours}:${minutes}`;
+        li.append(`${formattedDate} - @`);
+
+        if (commit.author && commit.author.login) {
+          const committerLink = document.createElement("a");
+          committerLink.href = commit.author.html_url;
+          committerLink.target = "_blank";
+          committerLink.rel = "noopener noreferrer";
+          committerLink.textContent = `${commit.author.login}`;
+          li.appendChild(committerLink);
+        } else {
+          li.append(document.createTextNode(commit.commit.author.name));
+        }
+
+        li.append(" : ");
+
+        const message = commit.commit.message.split('\n')[0];
+        const commitLink = document.createElement("a");
         commitLink.href = commit.html_url;
         commitLink.target = "_blank";
+        commitLink.rel = "noopener noreferrer";
         commitLink.textContent = message;
-
         li.appendChild(commitLink);
-        li.append(` - ${date}`);
+
+        
+
         listElement.appendChild(li);
       });
 
     } catch (error) {
-      const listElement = document.getElementById("commit-history");
       listElement.innerHTML = "<li>Could not load commit history.</li>";
       console.error(error);
     }
