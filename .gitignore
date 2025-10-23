@@ -7,3 +7,5 @@ public/
 .deploy*/
 _multiconfig.yml
 build.sh
+.idea
+.vscode
