@@ -8,8 +8,8 @@ MIT
 
 ## Features
 
-- Postcard display page, see [Demo](https://dimethyl.online/postcard/)
+- Postcard display page, see [Demo](https://dimethyl.online/Postcards/)
 
 ## Update Log
 
-See [About Blog](https://dimethyl.online/about).
+See [About Blog](https://dimethyl.online/About).
