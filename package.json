@@ -31,5 +31,8 @@
     "hexo-word-counter": "^0.2.1",
     "leaflet": "^1.9.4",
     "strip-ansi": "6.0.1"
+  },
+  "overrides": {
+    "strip-ansi": "6.0.1"
   }
 }
