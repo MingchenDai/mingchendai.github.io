@@ -3,7 +3,7 @@ title: CPP-STL
 date: 2025-09-20 18:30:57
 tags: 
 - CS DIY
-- Programming Language
+- Program Language
 - C++
 categories: Exploration
 mathjax: true
@@ -11,9 +11,11 @@ mathjax: true
 
 Some notes on C++ STL.
 
+<!-- more -->
+
 ## `std::vector`
 
-> https://en.cppreference.com/w/cpp/container/vector
+> <https://en.cppreference.com/w/cpp/container/vector>
 
 ```C++
 template<
@@ -26,10 +28,9 @@ template<
 
 `push_back()`: Add an element to the end.
 
-
 ## `std::unordered_map`
 
-> https://en.cppreference.com/w/cpp/container/unordered_map
+> <https://en.cppreference.com/w/cpp/container/unordered_map>
 
 ```C++
 template<

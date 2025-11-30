@@ -13,6 +13,8 @@ mathjax:
 
 **Engines** are programs that can process regular expressions, trying to match the pattern to the given string. Different engines may have different syntax and features.
 
+<!-- more -->
+
 ## Literal Characters and Special Characters
 
 ### Literal Characters

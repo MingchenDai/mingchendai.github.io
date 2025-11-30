@@ -9,6 +9,8 @@ mathjax: true
 
 One of explorations in winter holiday is learning the usage of git by [Learn Git Branching](https://learngitbranching.js.org/), which provides a visualized way to learn.
 
+<!-- more -->
+
 ### Introduction to git commits
 
 #### Commits

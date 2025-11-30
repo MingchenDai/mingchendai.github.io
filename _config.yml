@@ -96,7 +96,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: redefine
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
@@ -126,3 +126,13 @@ leaflet:
   baseLayer: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
   # Set the attribution text displayed on the map
   attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+
+tag_generator:
+  enable_index_page: false
+
+# Local Search
+search:
+  path: search.xml
+  field: post
+  content: true
+  format: html

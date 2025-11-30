@@ -5,7 +5,7 @@ date : 2025-08-26 10:33:43
 
 > I use [Postcrossing](https://www.postcrossing.com/) to swap postcards with people all over the world. Click [here](https://www.postcrossing.com/user/Tresol) to visit my Postcrossing homepage.
 
-Here is an interactive map of all the postcards I've sent and received. Last update time of this page is 2025-10-13 22:12, BJT.
+Here is an interactive map of all the postcards I've sent and received. Last update time of this page is 2025-11-28 18:32, BJT.
 <script src="leaflet.js"></script>
 <script src="leaflet.curve.js"></script>
 <div id="postcard-map" style="height: 600px; width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></div>
@@ -15,4 +15,4 @@ Here is an interactive map of all the postcards I've sent and received. Last upd
 
 Blue tracks and icons are for received postcards while those red for sent ones. You can check detailed information of a postcard by clicking on the icon.
 
-JavaScript map framework is provided by [Leaflet](https://leafletjs.com/) and map data from [OpenStreetMap](https://www.openstreetmap.org/).
+JavaScript map framework is provided by [Leaflet](https://leafletjs.com/) and map data is from [OpenStreetMap](https://www.openstreetmap.org/).

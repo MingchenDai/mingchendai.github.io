@@ -9,6 +9,8 @@ mathjax:  true
 
 This post is aimed to record some interesting LeetCode problems.
 
+<!-- more -->
+
 ## Algorithms
 
 ### 6. Zigzag Conversion

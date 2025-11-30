@@ -2,16 +2,16 @@
 title: "C++ Review"
 subtitle: Key Points For CS1501
 date: 2025-02-02
-section: Explorations
+categories: Exploration
 tags: 
-- Explorations
 - Program Language
 - SJTU Courses
-mathjax: true
 type: Post
 ---
 
 This is a document I organized while reviewing for my C++ final exam, focusing only on the key points.
+
+<!-- more -->
 
 # Introduction
 

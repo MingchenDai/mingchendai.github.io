@@ -1,0 +1,116 @@
+[
+  {
+    "date": "2025-06-22",
+    "tags": ["food", "friends"],
+    "locationDetailed": "Xinhai Plaza",
+    "locationCity": "Suzhou",
+    "locationProvince": "Jiangsu",
+    "description": "Meeting with friends from Soochow University.",
+    "layout": "5-4",
+    "images": [
+      "Mango-Pomelo-Sago.png",
+      "Suzhou-Omurice.JPG",
+      "Suzhou-Pork-Chop.JPG",
+      "Suzhou-Salad-Drinks.JPG",
+      "Suzhou-Vermicelli.JPG"
+    ],
+    "link": ""
+  },
+  {
+    "date": "2025-06-24",
+    "tags": ["food","family"],
+    "locationDetailed": "Tianyaoqiao Road",
+    "locationCity": "Xuhui",
+    "locationProvince": "Shanghai",
+    "description": "",
+    "layout": "4-3",
+    "images": [
+      "Carp.JPG",
+      "Chicken.JPG",
+      "Squid.JPG",
+      "Tenderloin.JPG"
+    ],
+    "link": ""
+  },
+  {
+    "date": "2025-08-07",
+    "tags": ["citywalk", "hometown", "friends"],
+    "locationDetailed": "Xindu Road",
+    "locationCity": "Yancheng",
+    "locationProvince": "Jiangsu",
+    "description": "Revisiting Downtown Yancheng and meeting high school classmates.",
+    "layout": "3-3",
+    "images": [
+      "Julong-Lake-West.png",
+      "Julong-Lake.png",
+      "Yancheng-Library.png"
+    ],
+    "link": ""
+  },
+  {
+    "date": "2025-08-10",
+    "tags": ["books", "cats", "temple","trip"],
+    "locationDetailed": "Nanchan Temple",
+    "locationCity": "Wuxi",
+    "locationProvince": "Jiangsu",
+    "description": "Bookstores, cats and temples.",
+    "layout": "4-2",
+    "images": [
+      "Cats-Huishan.png",
+      "Black-Cat.png",
+      "Steps-Huishan.png",
+      "Nanchan-Temple.png"
+    ],
+    "link": ""
+  },
+  {
+    "date": "2025-08-12",
+    "tags": ["travel","transit"],
+    "locationDetailed": "CRT Jiaochangkou Station",
+    "locationCity": "Yuzhong",
+    "locationProvince": "Chongqing",
+    "description": "5-day trip to Chongqing.",
+    "layout": "7-4",
+    "images": [
+      "Cableway.png",
+      "Qiansimen-Bridge.png",
+      "South-Chongqing-Hills.png",
+      "Wujiang.png",
+      "Yujiang.png",
+      "Hotpot.png",
+      "Hongyadong.png"
+    ],
+    "link": ""
+  },
+  {
+    "date": "2025-08-16",
+    "tags": ["work","tech"],
+    "locationDetailed": "Huawei",
+    "locationCity": "Qingpu",
+    "locationProvince": "Shanghai",
+    "description": "Visiting Huawei Lianqiu Lake R&D Center.",
+    "layout": "4-2",
+    "images": [
+      "Bridge.png",
+      "Huawei.png",
+      "Lianqiu-Lake.png",
+      "Sky.png"
+    ],
+    "link": ""
+  },
+  {
+    "date": "2025-09-20",
+    "tags": ["citywalk", "coffee", "friends"],
+    "locationDetailed": "South Wanping Road",
+    "locationCity": "Xuhui",
+    "locationProvince": "Shanghai",
+    "description": "City walk with friends from Zhongshan Park to Xujiahui, near FDU Fenglin Campus.",
+    "layout": "3-3",
+    "images": [
+      "Banana-Split.png",
+      "Nice-Coffee.png",
+      "Salad.png"
+    ],
+    "link": ""
+  }
+]

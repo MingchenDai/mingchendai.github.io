@@ -202,26 +202,27 @@ navbar:
     # Home: 
     #   path: / 
     #   icon: fa-regular fa-house # can be empty
-    Exploration:
-      path: /categories/Exploration/
+    Posts:
       icon: fa-regular fa-microchip
+      submenus:
+        Exploration: /category/Exploration/
+        Post: /category/Post/
     Diary:
       icon: fa-regular fa-newspaper
       submenus: 
-        Essays: /Essays
-        Posts: /categories/Posts/
-        Masonry: /Masonry
-        Bookmarks: /Bookmarks
-        Postcards: /Postcards
+        Essay: /essay
+        Masonry: /masonry
+        Bookmark: /bookmark
+        Postcard: /postcard
     About:
-      path: /About
+      path: /about
       icon: fa-regular fa-user
     Archive:
       icon: fa-solid fa-tags
       submenus: 
-        Articles: /archives
-        Tags: /tags
-        Categories: /categories
+        Article: /archive
+        Tag: /tag
+        Category: /category
     # Archives: 
     #   path: /archives 
     #   icon: fa-regular fa-archive # can be empty
@@ -372,7 +373,7 @@ comment:
     # Waline comment system. See https://waline.js.org/
     waline:
       serverUrl: https://example.example.com # Waline server URL. e.g. https://example.example.com
-      lang: zh-CN # Waline language. e.g. zh-CN, en-US. See https://waline.js.org/guide/client/i18n.html
+      lang: en-US # Waline language. e.g. zh-CN, en-US. See https://waline.js.org/guide/client/i18n.html
       emoji: [] # Waline emojis, see https://waline.js.org/guide/features/emoji.html
       recaptchaV3Key: # Google reCAPTCHA v3 key. See https://waline.js.org/reference/client/props.html#recaptchav3key
       turnstileKey: # Turnstile key. See https://waline.js.org/reference/client/props.html#turnstilekey
