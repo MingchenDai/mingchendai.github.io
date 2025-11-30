@@ -1,233 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords" content="Dimethyl, Blog">
-    
-    <meta name="author" content="Dimethyl">
-    
-    <!-- Completely eliminate flash of wrong theme -->
-    <script>
-        (function() {
-            const THEME_KEY = "REDEFINE-THEME-STATUS";
-            const DARK = "dark", LIGHT = "light";
-            
-            // Get preferred theme
-            function getTheme() {
-                try {
-                    const saved = localStorage.getItem(THEME_KEY);
-                    if (saved) {
-                        const { isDark } = JSON.parse(saved);
-                        return isDark ? DARK : LIGHT;
-                    }
-                } catch (e) {}
-                
-                return matchMedia("(prefers-color-scheme: dark)").matches ? DARK : LIGHT;
-            }
-            
-            // Apply theme to document
-            function applyTheme(theme) {
-                const isDark = theme === DARK;
-                const root = document.documentElement;
-                
-                // Set data attribute for CSS variables
-                root.setAttribute("data-theme", theme);
-                
-                // Set classes for compatibility
-                root.classList.add(theme);
-                root.classList.remove(isDark ? LIGHT : DARK);
-                root.style.colorScheme = theme;
-            }
-            
-            // Initial application
-            const theme = getTheme();
-            applyTheme(theme);
-            
-            // Listen for system preference changes
-            matchMedia("(prefers-color-scheme: dark)").addEventListener("change", ({ matches }) => {
-                // Only update if using system preference (no localStorage entry)
-                if (!localStorage.getItem(THEME_KEY)) {
-                    applyTheme(matches ? DARK : LIGHT);
-                }
-            });
-            
-            // Set body classes once DOM is ready
-            if (document.readyState !== "loading") {
-                document.body.classList.add(theme + "-mode");
-            } else {
-                document.addEventListener("DOMContentLoaded", () => {
-                    document.body.classList.add(theme + "-mode");
-                    document.body.classList.remove((theme === DARK ? LIGHT : DARK) + "-mode");
-                });
-            }
-        })();
-    </script>
-    
-    <!-- Critical CSS to prevent flash -->
-    <style>
-        :root[data-theme="dark"] {
-            --background-color: #202124;
-            --background-color-transparent: rgba(32, 33, 36, 0.6);
-            --second-background-color: #2d2e32;
-            --third-background-color: #34353a;
-            --third-background-color-transparent: rgba(32, 33, 36, 0.6);
-            --primary-color: #0066CC;
-            --first-text-color: #ffffff;
-            --second-text-color: #eeeeee;
-            --third-text-color: #bebec6;
-            --fourth-text-color: #999999;
-            --default-text-color: #bebec6;
-            --invert-text-color: #373D3F;
-            --border-color: rgba(255, 255, 255, 0.08);
-            --selection-color: #0066CC;
-            --shadow-color-1: rgba(255, 255, 255, 0.08);
-            --shadow-color-2: rgba(255, 255, 255, 0.05);
-        }
-        
-        :root[data-theme="light"] {
-            --background-color: #fff;
-            --background-color-transparent: rgba(255, 255, 255, 0.6);
-            --second-background-color: #f8f8f8;
-            --third-background-color: #f2f2f2;
-            --third-background-color-transparent: rgba(241, 241, 241, 0.6);
-            --primary-color: #0066CC;
-            --first-text-color: #16171a;
-            --second-text-color: #2f3037;
-            --third-text-color: #5e5e5e;
-            --fourth-text-color: #eeeeee;
-            --default-text-color: #373D3F;
-            --invert-text-color: #bebec6;
-            --border-color: rgba(0, 0, 0, 0.08);
-            --selection-color: #0066CC;
-            --shadow-color-1: rgba(0, 0, 0, 0.08);
-            --shadow-color-2: rgba(0, 0, 0, 0.05);
-        }
-        
-        body {
-            background-color: var(--background-color);
-            color: var(--default-text-color);
-        }
-        
-        /* Apply body classes as soon as DOM is ready */
-        :root[data-theme="dark"] body {
-            background-color: var(--background-color);
-            color: var(--default-text-color);
-        }
-    </style>
-    
-    <!-- preconnect -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.1">
 
-    
-    <!--- Seo Part-->
-    
-    <link rel="canonical" href="http://dimethyl.online/2025/02/01/cpp-review/"/>
-    <meta name="robots" content="index,follow">
-    <meta name="googlebot" content="index,follow">
-    <meta name="revisit-after" content="1 days">
-    
-    
-    
-        
-        <meta name="description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
+  <link rel="apple-touch-icon" sizes="180x180" href="/avatar.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/avatar.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/avatar.jpg">
+  <link rel="mask-icon" href="/avatar.jpg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"dimethyl.online","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":"flat","style":null},"fold":{"enable":true,"height":500},"language":true},"bookmark":{"enable":true,"color":"#222","save":"manual"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="This is a document I organized while reviewing for my C++ final exam, focusing only on the key points.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C++ Review">
 <meta property="og:url" content="http://dimethyl.online/2025/02/01/CPP-Review/index.html">
 <meta property="og:site_name" content="Dimethyl Blog">
-<meta property="og:description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
+<meta property="og:description" content="This is a document I organized while reviewing for my C++ final exam, focusing only on the key points.">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://dimethyl.online/images/redefine-og.webp">
 <meta property="article:published_time" content="2025-02-01T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-10-23T10:18:44.592Z">
+<meta property="article:modified_time" content="2025-11-30T05:40:19.652Z">
 <meta property="article:author" content="Dimethyl">
-<meta property="article:tag" content="Explorations">
 <meta property="article:tag" content="Program Language">
 <meta property="article:tag" content="SJTU Courses">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://dimethyl.online/images/redefine-og.webp">
-    
-    
-        <!-- Google tag (gtag.js) -->
-        <script src="https://www.googletagmanager.com/gtag/js?id=G-4VWYK5HQ0M"></script>
-        <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-4VWYK5HQ0M');
-        </script>
-    
-    <!--- Icon Part-->
-    <link rel="icon" type="image/png" href="/favicon.ico" sizes="192x192">
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
-    <meta name="theme-color" content="#A31F34">
-    <link rel="shortcut icon" href="/favicon.ico">
-    <!--- Page Info-->
-    
-    <title>
-        
-            C++ Review | Dimethyl Blog
-        
-    </title>
-
-    
-<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
 
 
-    <!--- Inject Part-->
-    
-
-    
-<link rel="stylesheet" href="/css/style.css">
+<link rel="canonical" href="http://dimethyl.online/2025/02/01/CPP-Review/">
 
 
-    
-        
-<link rel="stylesheet" href="/css/build/tailwind.css">
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://dimethyl.online/2025/02/01/CPP-Review/","path":"2025/02/01/CPP-Review/","title":"C++ Review"}</script>
 
-    
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>C++ Review | Dimethyl Blog</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4VWYK5HQ0M"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-4VWYK5HQ0M","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js" defer></script>
 
-    
-<link rel="stylesheet" href="/fonts/GeistMono/geist-mono.css">
 
-    
-<link rel="stylesheet" href="/fonts/Geist/geist.css">
 
-    <!--- Font Part-->
-    
-    
-    
-    
-    
-    
 
-    <script id="hexo-configurations">
-    window.config = {"hostname":"dimethyl.online","root":"/","language":"en","path":"search.json"};
-    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":true,"link_icon":true,"delete_mask":true,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":false,"auto":false,"list":[]},"code_block":{"copy":true,"style":"simple","highlight_theme":{"light":"github","dark":"vs2015"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":true,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"pangu_js":false,"recommendation":{"enable":false,"title":"Recommended Articles","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":{"enable":false,"custom_message":null},"side_tools":{"gear_rotation":true,"auto_expand":false},"open_graph":{"enable":true,"image":"/images/redefine-og.webp","description":"Hexo Theme Redefine, Redefine Your Hexo Journey."},"google_analytics":{"enable":true,"id":"G-4VWYK5HQ0M"}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"Dimethyl Blog","subtitle":{"text":["sudo vi /var/log/dimethyl.log"],"hitokoto":{"enable":false,"show_author":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"style":"default","links":{"github":"https://github.com/MingchenDai","instagram":null,"zhihu":"https://www.zhihu.com/people/dimecarb","twitter":null,"email":"mailto:mingchendai@outlook.com"},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":true,"version":"11.4.1"}},"version":"2.8.5","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Exploration":{"path":"/categories/Exploration/","icon":"fa-regular fa-microchip"},"Diary":{"icon":"fa-regular fa-newspaper","submenus":{"Essays":"/Essays","Posts":"/categories/Posts/","Masonry":"/Masonry","Bookmarks":"/Bookmarks","Postcards":"/Postcards"}},"About":{"path":"/About","icon":"fa-regular fa-user"},"Archive":{"icon":"fa-solid fa-tags","submenus":{"Articles":"/archives","Tags":"/tags","Categories":"/categories"}}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"show_on_mobile":true,"links":null},"article_date_format":"YYYY-MM-DD","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2025/6/23 11:45:14"};
-    window.lang_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
-    window.data = {"masonry":true};
-  </script>
-    
-    <!--- Fontawesome Part-->
-    
-<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
 
-    
-<link rel="stylesheet" href="/fontawesome/brands.min.css">
 
-    
-<link rel="stylesheet" href="/fontawesome/solid.min.css">
 
-    
-<link rel="stylesheet" href="/fontawesome/regular.min.css">
 
-    
-    
-    
-    
-<meta name="generator" content="Hexo 7.3.0"><style>mjx-container[jax="SVG"] {
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/bookmark.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.1/mermaid.min.js","integrity":"sha256-BmQmdWDS8X2OTbrwELWK366LV6escyWhHHe0XCTU/Hk="}}</script>
+  <script src="/js/third-party/tags/mermaid.js" defer></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"all","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<style>mjx-container[jax="SVG"] {
   direction: ltr;
 }
 
@@ -341,472 +198,237 @@ mjx-container[display="true"] + br {
 }
 </style></head>
 
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
 
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
 
-<body>
-	<div class="progress-bar-container">
-	
+  <div class="site-meta">
 
-	
-	<span class="pjax-progress-bar"></span>
-	<!--        <span class="swup-progress-icon">-->
-	<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
-	<!--        </span>-->
-	
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Dimethyl Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">It depends.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
 </div>
 
-<main class="page-container" id="swup">
 
-	
 
-	<div class="main-content-container flex flex-col justify-between min-h-dvh">
-		<div class="main-content-header">
-			<header class="navbar-container px-6 md:px-12">
-    <div class="navbar-content transition-navbar ">
-        <div class="left">
-            
-            <a class="logo-title" href="/">
-                
-                Dimethyl Blog
-                
-            </a>
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">11</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">1</span></a></li><li class="menu-item menu-item-collections"><a href="/collections/" rel="section"><i class="fa fa-bookmark fa-fw"></i>Collections</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">7</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="Searching..." spellcheck="false"
+                type="search" class="search-input">
         </div>
-
-        <div class="right">
-            <!-- PC -->
-            <div class="desktop">
-                <ul class="navbar-list">
-                    
-                        
-                            
-
-                            <li class="navbar-item">
-                                <!-- Menu -->
-                                <a class=""
-                                   href="/"
-                                        >
-                                    <i class="fa-regular fa-house fa-fw"></i>
-                                    HOME
-                                    
-                                </a>
-
-                                <!-- Submenu -->
-                                
-                            </li>
-                    
-                        
-                            
-
-                            <li class="navbar-item">
-                                <!-- Menu -->
-                                <a class=""
-                                   href="/categories/Exploration/"
-                                        >
-                                    <i class="fa-regular fa-microchip fa-fw"></i>
-                                    EXPLORATION
-                                    
-                                </a>
-
-                                <!-- Submenu -->
-                                
-                            </li>
-                    
-                        
-                            
-
-                            <li class="navbar-item">
-                                <!-- Menu -->
-                                <a class="has-dropdown"
-                                   href="#"
-                                        onClick=&#34;return false;&#34;>
-                                    <i class="fa-regular fa-newspaper fa-fw"></i>
-                                    DIARY
-                                    <i class="fa-solid fa-chevron-down fa-fw"></i>
-                                </a>
-
-                                <!-- Submenu -->
-                                
-                                    <ul class="sub-menu">
-                                        
-                                            <li>
-                                                <a href="/Essays">
-                                                    ESSAYS
-                                                </a>
-                                            </li>
-                                        
-                                            <li>
-                                                <a href="/categories/Posts/">
-                                                    POSTS
-                                                </a>
-                                            </li>
-                                        
-                                            <li>
-                                                <a href="/Masonry">
-                                                    MASONRY
-                                                </a>
-                                            </li>
-                                        
-                                            <li>
-                                                <a href="/Bookmarks">
-                                                    BOOKMARKS
-                                                </a>
-                                            </li>
-                                        
-                                            <li>
-                                                <a href="/Postcards">
-                                                    POSTCARDS
-                                                </a>
-                                            </li>
-                                        
-                                    </ul>
-                                
-                            </li>
-                    
-                        
-                            
-
-                            <li class="navbar-item">
-                                <!-- Menu -->
-                                <a class=""
-                                   href="/About"
-                                        >
-                                    <i class="fa-regular fa-user fa-fw"></i>
-                                    ABOUT
-                                    
-                                </a>
-
-                                <!-- Submenu -->
-                                
-                            </li>
-                    
-                        
-                            
-
-                            <li class="navbar-item">
-                                <!-- Menu -->
-                                <a class="has-dropdown"
-                                   href="#"
-                                        onClick=&#34;return false;&#34;>
-                                    <i class="fa-solid fa-tags fa-fw"></i>
-                                    ARCHIVE
-                                    <i class="fa-solid fa-chevron-down fa-fw"></i>
-                                </a>
-
-                                <!-- Submenu -->
-                                
-                                    <ul class="sub-menu">
-                                        
-                                            <li>
-                                                <a href="/archives">
-                                                    ARTICLES
-                                                </a>
-                                            </li>
-                                        
-                                            <li>
-                                                <a href="/tags">
-                                                    TAGS
-                                                </a>
-                                            </li>
-                                        
-                                            <li>
-                                                <a href="/categories">
-                                                    CATEGORIES
-                                                </a>
-                                            </li>
-                                        
-                                    </ul>
-                                
-                            </li>
-                    
-                    
-                        <li class="navbar-item search search-popup-trigger">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </li>
-                    
-                </ul>
-            </div>
-            <!-- Mobile -->
-            <div class="mobile">
-                
-                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i>
-                    </div>
-                
-                <div class="icon-item navbar-bar">
-                    <div class="navbar-bar-middle"></div>
-                </div>
-            </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
         </div>
+      </div>
     </div>
-
-    <!-- Mobile sheet -->
-    <div class="navbar-drawer h-dvh w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
-        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
-            
-                
-                    
-
-                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
-                        
-                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
-                           href="/"
-                        >
-                            <span>
-                                HOME
-                            </span>
-                            
-                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
-                            
-                        </a>
-                        
-
-                        
-                    </li>
-            
-                
-                    
-
-                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
-                        
-                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
-                           href="/categories/Exploration/"
-                        >
-                            <span>
-                                EXPLORATION
-                            </span>
-                            
-                                <i class="fa-regular fa-microchip fa-sm fa-fw"></i>
-                            
-                        </a>
-                        
-
-                        
-                    </li>
-            
-                
-                    
-
-                    <li class="drawer-navbar-item-sub text-base my-1.5 flex flex-col w-full">
-                        
-                        <div class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary cursor-pointer text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
-                             navbar-data-toggle="submenu-Diary"
-                        >
-                            <span>
-                                DIARY
-                            </span>
-                            
-                                <i class="fa-solid fa-chevron-right fa-sm fa-fw transition-all"></i>
-                            
-                        </div>
-                        
-
-                        
-                            <div class="flex-col items-start px-2 py-2 hidden" data-target="submenu-Diary">
-                                
-                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
-                                        <a class=" text-third-text-color text-xl"
-                                           href="/Essays">ESSAYS</a>
-                                    </div>
-                                
-                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
-                                        <a class=" text-third-text-color text-xl"
-                                           href="/categories/Posts/">POSTS</a>
-                                    </div>
-                                
-                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
-                                        <a class=" text-third-text-color text-xl"
-                                           href="/Masonry">MASONRY</a>
-                                    </div>
-                                
-                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
-                                        <a class=" text-third-text-color text-xl"
-                                           href="/Bookmarks">BOOKMARKS</a>
-                                    </div>
-                                
-                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
-                                        <a class=" text-third-text-color text-xl"
-                                           href="/Postcards">POSTCARDS</a>
-                                    </div>
-                                
-                            </div>
-                        
-                    </li>
-            
-                
-                    
-
-                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
-                        
-                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
-                           href="/About"
-                        >
-                            <span>
-                                ABOUT
-                            </span>
-                            
-                                <i class="fa-regular fa-user fa-sm fa-fw"></i>
-                            
-                        </a>
-                        
-
-                        
-                    </li>
-            
-                
-                    
-
-                    <li class="drawer-navbar-item-sub text-base my-1.5 flex flex-col w-full">
-                        
-                        <div class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary cursor-pointer text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
-                             navbar-data-toggle="submenu-Archive"
-                        >
-                            <span>
-                                ARCHIVE
-                            </span>
-                            
-                                <i class="fa-solid fa-chevron-right fa-sm fa-fw transition-all"></i>
-                            
-                        </div>
-                        
-
-                        
-                            <div class="flex-col items-start px-2 py-2 hidden" data-target="submenu-Archive">
-                                
-                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
-                                        <a class=" text-third-text-color text-xl"
-                                           href="/archives">ARTICLES</a>
-                                    </div>
-                                
-                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
-                                        <a class=" text-third-text-color text-xl"
-                                           href="/tags">TAGS</a>
-                                    </div>
-                                
-                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
-                                        <a class=" text-third-text-color text-xl"
-                                           href="/categories">CATEGORIES</a>
-                                    </div>
-                                
-                            </div>
-                        
-                    </li>
-            
-
-            
-            
-        </ul>
-
-        <div class="statistics flex justify-around my-2.5">
-    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">8</div>
-        <div class="label text-third-text-color text-sm">Tags</div>
-    </a>
-    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">1</div>
-        <div class="label text-third-text-color text-sm">Categories</div>
-    </a>
-    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">5</div>
-        <div class="label text-third-text-color text-sm">Posts</div>
-    </a>
-</div>
-    </div>
-
-    <div class="window-mask"></div>
+  </div>
 
 </header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Basic-Structure-of-a-Program"><span class="nav-number">1.1.</span> <span class="nav-text">Basic Structure of a Program</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Variables"><span class="nav-number">1.1.1.</span> <span class="nav-text">Variables</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Data-Types"><span class="nav-number">1.1.2.</span> <span class="nav-text">Data Types</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Constants-and-Symbolic-Constants"><span class="nav-number">1.1.3.</span> <span class="nav-text">Constants and Symbolic Constants</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Extension"><span class="nav-number">1.1.4.</span> <span class="nav-text">*Extension</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Input-and-Output"><span class="nav-number">1.1.5.</span> <span class="nav-text">Input and Output</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Arithmetic-Operations"><span class="nav-number">1.1.6.</span> <span class="nav-text">Arithmetic Operations</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Assignment-Operations"><span class="nav-number">1.1.7.</span> <span class="nav-text">Assignment Operations</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Branch"><span class="nav-number">1.2.</span> <span class="nav-text">Branch</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Relational-Expressions"><span class="nav-number">1.2.1.</span> <span class="nav-text">Relational Expressions</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Logical-Expressions"><span class="nav-number">1.2.2.</span> <span class="nav-text">Logical Expressions</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Conditional-Expressions"><span class="nav-number">1.2.3.</span> <span class="nav-text">Conditional Expressions</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#switch-Statement"><span class="nav-number">1.2.4.</span> <span class="nav-text">switch Statement</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Loop"><span class="nav-number">1.3.</span> <span class="nav-text">Loop</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Array"><span class="nav-number">1.4.</span> <span class="nav-text">Array</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#String-Input-and-Output"><span class="nav-number">1.4.1.</span> <span class="nav-text">String Input and Output</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Functions"><span class="nav-number">1.5.</span> <span class="nav-text">Functions</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Parameter-Passing-in-Function"><span class="nav-number">1.5.1.</span> <span class="nav-text">Parameter Passing in Function</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Arrays-as-Function-Parameters"><span class="nav-number">1.5.1.1.</span> <span class="nav-text">Arrays as Function Parameters</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Variable-Storage-Classes"><span class="nav-number">1.5.2.</span> <span class="nav-text">Variable Storage Classes</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Automatic-Variables"><span class="nav-number">1.5.2.1.</span> <span class="nav-text">Automatic Variables</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Static-Variables"><span class="nav-number">1.5.2.2.</span> <span class="nav-text">Static Variables</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Register-Variables"><span class="nav-number">1.5.2.3.</span> <span class="nav-text">Register Variables</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#External-Variables"><span class="nav-number">1.5.2.4.</span> <span class="nav-text">External Variables</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Default-Arguments-for-Functions"><span class="nav-number">1.5.3.</span> <span class="nav-text">Default Arguments for Functions</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Inline-Functions"><span class="nav-number">1.5.4.</span> <span class="nav-text">Inline Functions</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Function-Overloading"><span class="nav-number">1.5.5.</span> <span class="nav-text">Function Overloading</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Function-Templates"><span class="nav-number">1.5.6.</span> <span class="nav-text">Function Templates</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Trailing-Return-Type"><span class="nav-number">1.5.7.</span> <span class="nav-text">*Trailing Return Type</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pointers"><span class="nav-number">1.6.</span> <span class="nav-text">Pointers</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Dynamic-Memory-Allocation"><span class="nav-number">1.6.1.</span> <span class="nav-text">Dynamic Memory Allocation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Pointers-and-Functions"><span class="nav-number">1.6.2.</span> <span class="nav-text">Pointers and Functions</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#main-Function"><span class="nav-number">1.6.3.</span> <span class="nav-text">*main Function</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Function-Pointers"><span class="nav-number">1.6.4.</span> <span class="nav-text">Function Pointers</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Lambda-Expressions"><span class="nav-number">1.6.5.</span> <span class="nav-text">*Lambda Expressions</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Structures-and-Modularity"><span class="nav-number">1.7.</span> <span class="nav-text">Structures and Modularity</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Creating-New-Types"><span class="nav-number">1.8.</span> <span class="nav-text">Creating New Types</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#this-Pointer"><span class="nav-number">1.8.1.</span> <span class="nav-text">this Pointer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Constructors-and-Destructors"><span class="nav-number">1.8.2.</span> <span class="nav-text">Constructors and Destructors</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Constants-and-Classes"><span class="nav-number">1.8.3.</span> <span class="nav-text">Constants and Classes</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Static-Data-Members-and-Member-Functions"><span class="nav-number">1.8.4.</span> <span class="nav-text">Static Data Members and Member Functions</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Friend-Functions-and-Classes"><span class="nav-number">1.8.5.</span> <span class="nav-text">Friend Functions and Classes</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Operator-Overloading"><span class="nav-number">1.9.</span> <span class="nav-text">Operator Overloading</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Composition-and-Inheritance"><span class="nav-number">1.10.</span> <span class="nav-text">Composition and Inheritance</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Virtual-Functions"><span class="nav-number">1.10.1.</span> <span class="nav-text">Virtual Functions</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Dimethyl</p>
+  <div class="site-description" itemprop="description">Dimethyl Blog</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/MingchenDai" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;MingchenDai" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:mingchendai@outlook.com" title="E-Mail → mailto:mingchendai@outlook.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+  </aside>
 
 
-		</div>
+    </div>
 
-		<div class="main-content-body transition-fade-up">
-			
+    <div class="main-inner post posts-expand">
 
-			<div class="main-content">
-				<div class="post-page-container flex relative justify-between box-border w-full h-full">
-	<div class="article-content-container">
 
-		<div class="article-title relative w-full">
-			
-			<div class="w-full flex items-center pt-6 justify-start">
-				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">C++ Review</h1>
-			</div>
-			
-		</div>
+  
 
-		
-		<div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
-			<div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
-				<img src="/avatar.jpg">
-			</div>
-			<div class="info flex flex-col justify-between">
-				<div class="author flex items-center">
-					<span class="name text-default-text-color text-lg font-semibold">Dimethyl</span>
-					
-				</div>
-				<div class="meta-info">
-					<div class="article-meta-info">
-    <span class="article-date article-meta-item">
-        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
-        <span class="desktop">2025-02-02</span>
-        <span class="mobile">2025-02-02</span>
-        <span class="hover-info">Created</span>
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://dimethyl.online/2025/02/01/CPP-Review/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Dimethyl">
     </span>
-    
-        <span class="article-date article-meta-item">
-            <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2025-10-23 18:18:44</span>
-            <span class="mobile">2025-10-23 18:18:44</span>
-            <span class="hover-info">Updated</span>
-        </span>
-    
 
-    
-    
-        <span class="article-tags article-meta-item">
-            <i class="fa-regular fa-tags"></i>&nbsp;
-            <ul>
-                
-                    <li>
-                        <a href="/tags/Explorations/">Explorations</a>&nbsp;
-                    </li>
-                
-                    <li>
-                        | <a href="/tags/Program-Language/">Program Language</a>&nbsp;
-                    </li>
-                
-                    <li>
-                        | <a href="/tags/SJTU-Courses/">SJTU Courses</a>&nbsp;
-                    </li>
-                
-            </ul>
-        </span>
-    
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dimethyl Blog">
+      <meta itemprop="description" content="Dimethyl Blog">
+    </span>
 
-    
-    
-    
-    
-        <span class="article-pv article-meta-item">
-            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="C++ Review | Dimethyl Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          C++ Review<a href="https://github.com/MingchenDai/mingchendai.github.io/tree/main/source/_posts/CPP-Review.md" class="post-edit-link" title="Edit this post" rel="noopener" target="_blank"><i class="fa fa-pen-nib"></i></a>
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2025-02-02 00:00:00" itemprop="dateCreated datePublished" datetime="2025-02-02T00:00:00+08:00">2025-02-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2025-11-30 13:40:19" itemprop="dateModified" datetime="2025-11-30T13:40:19+08:00">2025-11-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Exploration/" itemprop="url" rel="index"><span itemprop="name">Exploration</span></a>
         </span>
-    
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>4.2k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>15 mins.</span>
+    </span>
 </div>
 
-				</div>
-			</div>
-		</div>
-		
+        </div>
+      </header>
 
-		
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>This is a document I organized while reviewing for my C++ final exam, focusing only on the key points.</p>
+<span id="more"></span>
 
-
-		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
-			<p>This is a document I organized while reviewing for my C++ final exam, focusing only on the key points.</p>
 <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>The three characteristics of algorithms: <strong>clear representation (unambiguous)</strong>, <strong>effectiveness</strong>, and <strong>finiteness</strong>.</p>
 <p><strong>Compiler</strong>: A program that performs the translation task between high-level language and machine language.</p>
 <h3 id="Basic-Structure-of-a-Program"><a href="#Basic-Structure-of-a-Program" class="headerlink" title="Basic Structure of a Program"></a>Basic Structure of a Program</h3><p>C++ compilation occurs in two stages: <strong>preprocessing</strong> and <strong>compilation</strong>. Preprocessing is done first, followed by compilation and preprocessing commands usually begin with <code>#</code>.</p>
 <p>Common preprocessing commands include <strong>library inclusion</strong>, and the corresponding information is provided by <strong>header files</strong>.</p>
-<div class="code-container" data-rel="C++"><figure class="iseeu highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;file&gt;</span> <span class="comment">// This library is a standard C++ library.</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">"file"</span> <span class="comment">// This library is a user-defined library. The compiler first looks in the user's directory for the corresponding file, and if not found, it will search the system's standard library directory.</span></span></span><br></pre></td></tr></table></figure></div>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;file&gt;</span> <span class="comment">// This library is a standard C++ library.</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">"file"</span> <span class="comment">// This library is a user-defined library. The compiler first looks in the user's directory for the corresponding file, and if not found, it will search the system's standard library directory.</span></span></span><br></pre></td></tr></table></figure>
 
 <h4 id="Variables"><a href="#Variables" class="headerlink" title="Variables"></a>Variables</h4><p>Variable naming rules:</p>
 <ol>
@@ -815,38 +437,38 @@ mjx-container[display="true"] + br {
 <li>Cannot be a system reserved keyword.</li>
 </ol>
 <p>Assigning values to variables:</p>
-<div class="code-container" data-rel="C++"><figure class="iseeu highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a = <span class="number">5</span>;           <span class="comment">// This is a valid assignment.</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">a</span><span class="params">(<span class="number">5</span>)</span></span>;            <span class="comment">// This is a valid assignment.</span></span><br><span class="line"><span class="type">int</span> a = <span class="number">5</span>, b = <span class="number">5</span>, c; <span class="comment">// Some variables are assigned values while others are not.</span></span><br></pre></td></tr></table></figure></div>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a = <span class="number">5</span>;           <span class="comment">// This is a valid assignment.</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">a</span><span class="params">(<span class="number">5</span>)</span></span>;            <span class="comment">// This is a valid assignment.</span></span><br><span class="line"><span class="type">int</span> a = <span class="number">5</span>, b = <span class="number">5</span>, c; <span class="comment">// Some variables are assigned values while others are not.</span></span><br></pre></td></tr></table></figure>
 
 <h4 id="Data-Types"><a href="#Data-Types" class="headerlink" title="Data Types"></a>Data Types</h4><p>Integers are represented in the computer in <strong>two’s complement</strong>. The two’s complement of a positive integer is its <strong>binary representation</strong>, and the two’s complement of a negative integer is the <strong>binary representation of its absolute value with bits inverted and 1 added</strong>.</p>
 <p>Real numbers are stored in the computer in the form of <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.023ex;" xmlns="http://www.w3.org/2000/svg" width="5.968ex" height="1.954ex" role="img" focusable="false" viewBox="0 -853.7 2637.8 863.7"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D44E" d="M33 157Q33 258 109 349T280 441Q331 441 370 392Q386 422 416 422Q429 422 439 414T449 394Q449 381 412 234T374 68Q374 43 381 35T402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487Q506 153 506 144Q506 138 501 117T481 63T449 13Q436 0 417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157ZM351 328Q351 334 346 350T323 385T277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q217 26 254 59T298 110Q300 114 325 217T351 328Z"></path></g><g data-mml-node="mo" transform="translate(751.2,0)"><path data-c="D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path></g><g data-mml-node="msup" transform="translate(1751.4,0)"><g data-mml-node="mn"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g><g data-mml-node="mi" transform="translate(533,363) scale(0.707)"><path data-c="1D44F" d="M73 647Q73 657 77 670T89 683Q90 683 161 688T234 694Q246 694 246 685T212 542Q204 508 195 472T180 418L176 399Q176 396 182 402Q231 442 283 442Q345 442 383 396T422 280Q422 169 343 79T173 -11Q123 -11 82 27T40 150V159Q40 180 48 217T97 414Q147 611 147 623T109 637Q104 637 101 637H96Q86 637 83 637T76 640T73 647ZM336 325V331Q336 405 275 405Q258 405 240 397T207 376T181 352T163 330L157 322L136 236Q114 150 114 114Q114 66 138 42Q154 26 178 26Q211 26 245 58Q270 81 285 114T318 219Q336 291 336 325Z"></path></g></g></g></g></svg></mjx-container>, where <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.023ex;" xmlns="http://www.w3.org/2000/svg" width="1.197ex" height="1.02ex" role="img" focusable="false" viewBox="0 -441 529 451"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D44E" d="M33 157Q33 258 109 349T280 441Q331 441 370 392Q386 422 416 422Q429 422 439 414T449 394Q449 381 412 234T374 68Q374 43 381 35T402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487Q506 153 506 144Q506 138 501 117T481 63T449 13Q436 0 417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157ZM351 328Q351 334 346 350T323 385T277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q217 26 254 59T298 110Q300 114 325 217T351 328Z"></path></g></g></g></svg></mjx-container> is called the mantissa, and <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex;" xmlns="http://www.w3.org/2000/svg" width="0.971ex" height="1.595ex" role="img" focusable="false" viewBox="0 -694 429 705"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D44F" d="M73 647Q73 657 77 670T89 683Q90 683 161 688T234 694Q246 694 246 685T212 542Q204 508 195 472T180 418L176 399Q176 396 182 402Q231 442 283 442Q345 442 383 396T422 280Q422 169 343 79T173 -11Q123 -11 82 27T40 150V159Q40 180 48 217T97 414Q147 611 147 623T109 637Q104 637 101 637H96Q86 637 83 637T76 640T73 647ZM336 325V331Q336 405 275 405Q258 405 240 397T207 376T181 352T163 330L157 322L136 236Q114 150 114 114Q114 66 138 42Q154 26 178 26Q211 26 245 58Q270 81 285 114T318 219Q336 291 336 325Z"></path></g></g></g></svg></mjx-container> is the exponent. This is known as <strong>floating-point representation</strong>. A <code>float</code> guarantees at least <strong>6</strong> decimal digits of precision (4 bytes of space, 1 byte for the mantissa, and 3 bytes for the exponent). <code>double</code> and <code>long double</code> guarantee at least <strong>10</strong> decimal digits of precision (8 bytes of space, 3 bytes for the mantissa, and 5 bytes for the exponent). <strong>Computers cannot precisely represent real numbers.</strong></p>
 <p>The ASCII values for characters ‘A’, ‘a’, and ‘0’ are 65, 97, and 48, respectively. A <code>char</code> occupies <strong>1</strong> byte of space to store the corresponding ASCII value.</p>
-<div class="code-container" data-rel="C++"><figure class="iseeu highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> a = <span class="string">'A'</span>;</span><br><span class="line">cout &lt;&lt; a - <span class="number">1</span> &lt;&lt; endl; <span class="comment">// Outputs 64</span></span><br><span class="line">cout &lt;&lt; --a &lt;&lt; endl;   <span class="comment">// Outputs '@'</span></span><br><span class="line">cout &lt;&lt; a &lt;&lt; endl;     <span class="comment">// Outputs '@'</span></span><br></pre></td></tr></table></figure></div>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> a = <span class="string">'A'</span>;</span><br><span class="line">cout &lt;&lt; a - <span class="number">1</span> &lt;&lt; endl; <span class="comment">// Outputs 64</span></span><br><span class="line">cout &lt;&lt; --a &lt;&lt; endl;   <span class="comment">// Outputs '@'</span></span><br><span class="line">cout &lt;&lt; a &lt;&lt; endl;     <span class="comment">// Outputs '@'</span></span><br></pre></td></tr></table></figure>
 
 <p>Boolean type variables occupy <strong>1</strong> byte and store values 0 (false) and 1 (true).</p>
-<div class="code-container" data-rel="C++"><figure class="iseeu highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">bool</span> Bool = <span class="number">2</span>;</span><br><span class="line">Bool -= <span class="number">1</span>;</span><br><span class="line">cout &lt;&lt; Bool &lt;&lt; endl;     <span class="comment">// Outputs 0</span></span><br><span class="line">Bool -= <span class="number">1</span>;</span><br><span class="line">cout &lt;&lt; Bool &lt;&lt; endl;     <span class="comment">// Outputs 1</span></span><br><span class="line">cout &lt;&lt; <span class="number">1</span> + Bool &lt;&lt; endl; <span class="comment">// Outputs 2</span></span><br></pre></td></tr></table></figure></div>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">bool</span> Bool = <span class="number">2</span>;</span><br><span class="line">Bool -= <span class="number">1</span>;</span><br><span class="line">cout &lt;&lt; Bool &lt;&lt; endl;     <span class="comment">// Outputs 0</span></span><br><span class="line">Bool -= <span class="number">1</span>;</span><br><span class="line">cout &lt;&lt; Bool &lt;&lt; endl;     <span class="comment">// Outputs 1</span></span><br><span class="line">cout &lt;&lt; <span class="number">1</span> + Bool &lt;&lt; endl; <span class="comment">// Outputs 2</span></span><br></pre></td></tr></table></figure>
 
 <p>Enumerations can only perform assignment and comparison operations. <code>bool</code> is a pre-defined enumeration in C++, but can also perform arithmetic, relational, and logical operations.</p>
-<div class="code-container" data-rel="C++"><figure class="iseeu highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> <span class="title class_">weekdayT</span> { Sunday = <span class="number">1</span>, Monday, Tuesday = <span class="number">10</span>, Wednesday, Thursday, Friday, Saturday };</span><br></pre></td></tr></table></figure></div>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> <span class="title class_">weekdayT</span> { Sunday = <span class="number">1</span>, Monday, Tuesday = <span class="number">10</span>, Wednesday, Thursday, Friday, Saturday };</span><br></pre></td></tr></table></figure>
 
 <p>Type aliases:</p>
-<div class="code-container" data-rel="C++"><figure class="iseeu highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="type">int</span> INTEGER;</span><br><span class="line"><span class="type">int</span> a;     <span class="comment">// Valid</span></span><br><span class="line">INTEGER b; <span class="comment">// Valid</span></span><br></pre></td></tr></table></figure></div>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="type">int</span> INTEGER;</span><br><span class="line"><span class="type">int</span> a;     <span class="comment">// Valid</span></span><br><span class="line">INTEGER b; <span class="comment">// Valid</span></span><br></pre></td></tr></table></figure>
 
 <p>Size of types or variables:</p>
-<div class="code-container" data-rel="C++"><figure class="iseeu highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cout &lt;&lt; <span class="built_in">sizeof</span>(<span class="type">int</span>) &lt;&lt; endl;      <span class="comment">// Returns 4</span></span><br><span class="line">cout &lt;&lt; <span class="built_in">sizeof</span>(<span class="string">'a'</span> + <span class="number">15</span>) &lt;&lt; endl; <span class="comment">// Returns 4</span></span><br><span class="line"><span class="type">int</span> x = <span class="number">0</span>;</span><br><span class="line">cout &lt;&lt; <span class="built_in">sizeof</span>(x) &lt;&lt; endl;        <span class="comment">// Returns 4</span></span><br></pre></td></tr></table></figure></div>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cout &lt;&lt; <span class="built_in">sizeof</span>(<span class="type">int</span>) &lt;&lt; endl;      <span class="comment">// Returns 4</span></span><br><span class="line">cout &lt;&lt; <span class="built_in">sizeof</span>(<span class="string">'a'</span> + <span class="number">15</span>) &lt;&lt; endl; <span class="comment">// Returns 4</span></span><br><span class="line"><span class="type">int</span> x = <span class="number">0</span>;</span><br><span class="line">cout &lt;&lt; <span class="built_in">sizeof</span>(x) &lt;&lt; endl;        <span class="comment">// Returns 4</span></span><br></pre></td></tr></table></figure>
 
 <h4 id="Constants-and-Symbolic-Constants"><a href="#Constants-and-Symbolic-Constants" class="headerlink" title="Constants and Symbolic Constants"></a>Constants and Symbolic Constants</h4><p>Integer constants are automatically represented as either <code>int</code> or <code>long int</code> based on their value. To force an integer to be treated as a long integer, append an <code>l</code> or <code>L</code> to the number, such as <code>100L</code>. Octal numbers start with <code>0</code>, and hexadecimal numbers start with <code>0x</code>.</p>
 <p>Floating-point constants have two representations: <strong>decimal</strong> and <strong>scientific</strong> notation. Scientific notation is represented as <code>aeb</code> or <code>aEb</code>, for example, <code>123e4</code> or <code>123E4</code>. Note that <code>e</code> or <code>E</code> must <strong>have digits on both sides</strong>, and the number after <code>e</code> or <code>E</code> must be an <strong>integer</strong>. In C++, floating-point constants are treated as <code>double</code> by default. To treat a floating-point constant as float, append <code>F</code> to the number, like <code>123.4F</code>.</p>
 <p>Character constants are enclosed in single quotes. Non-printable characters can be represented using escape sequences. A character constant can be stored in a char variable, but a char variable cannot store in a string.</p>
 <p>C-style symbolic constants are simple text replacements and may lead to errors. A <code>const</code> symbolic constant can only be assigned an initial value at the time of definition, and its value cannot be changed later.</p>
-<div class="code-container" data-rel="C++"><figure class="iseeu highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> PI 3.14        <span class="comment">// C-style</span></span></span><br><span class="line"><span class="type">const</span> <span class="type">float</span> PI = <span class="number">3.14</span>; <span class="comment">// C++ style</span></span><br></pre></td></tr></table></figure></div>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> PI 3.14        <span class="comment">// C-style</span></span></span><br><span class="line"><span class="type">const</span> <span class="type">float</span> PI = <span class="number">3.14</span>; <span class="comment">// C++ style</span></span><br></pre></td></tr></table></figure>
 
 <h4 id="Extension"><a href="#Extension" class="headerlink" title="*Extension"></a>*Extension</h4><p><code>long long int</code> occupies <strong>8</strong> bytes.</p>
 <p>The <code>auto</code> type can automatically deduce the variable’s type, but the variable must be initialized. <code>decltype</code> can also deduce the type from an expression without evaluating it.</p>
-<div class="code-container" data-rel="C++"><figure class="iseeu highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> c = <span class="string">'a'</span>;</span><br><span class="line"><span class="type">int</span> a, b;</span><br><span class="line"><span class="keyword">decltype</span>(a + b) d;</span><br></pre></td></tr></table></figure></div>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> c = <span class="string">'a'</span>;</span><br><span class="line"><span class="type">int</span> a, b;</span><br><span class="line"><span class="keyword">decltype</span>(a + b) d;</span><br></pre></td></tr></table></figure>
 
 <p>A constant expression is one whose value is determined at compile time and cannot change. C++ allows declaring variables as <code>constexpr</code> to inform the compiler to verify that their value is a constant at compile time.</p>
 <p><code>using</code> can be used to declare type aliases, similar to <code>typedef</code>.</p>
-<div class="code-container" data-rel="C++"><figure class="iseeu highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> REAL = <span class="type">double</span>;</span><br></pre></td></tr></table></figure></div>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> REAL = <span class="type">double</span>;</span><br></pre></td></tr></table></figure>
 
 <h4 id="Input-and-Output"><a href="#Input-and-Output" class="headerlink" title="Input and Output"></a>Input and Output</h4><p>The <code>get</code> function is used as <code>cin.get(character variable);</code> or <code>character variable = cin.get();</code>.</p>
 <h4 id="Arithmetic-Operations"><a href="#Arithmetic-Operations" class="headerlink" title="Arithmetic Operations"></a>Arithmetic Operations</h4><p>The <code>%</code>, <code>/</code>, and <code>*</code> operators have the same priority level.</p>
@@ -854,10 +476,10 @@ mjx-container[display="true"] + br {
 <p>Non-standard integer types such as <code>bool</code>, <code>char</code>, and <code>short</code> are first converted to <code>int</code> before performing arithmetic operations.</p>
 <p>When a real number is converted to an integer, the fractional part is discarded. When an integer is converted to a real number, its value remains the same but is represented as a floating-point number. When an integer is converted to a character type, the least significant <strong>8</strong> bits of the integer are used.</p>
 <p>The form of explicit type casting is:</p>
-<div class="code-container" data-rel="C++"><figure class="iseeu highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">float</span>(a / b);</span><br><span class="line">(<span class="type">float</span>)(a / b);</span><br><span class="line">(<span class="type">float</span>)a / b;</span><br><span class="line">a / (<span class="type">float</span>)b;</span><br></pre></td></tr></table></figure></div>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">float</span>(a / b);</span><br><span class="line">(<span class="type">float</span>)(a / b);</span><br><span class="line">(<span class="type">float</span>)a / b;</span><br><span class="line">a / (<span class="type">float</span>)b;</span><br></pre></td></tr></table></figure>
 
 <p>There are four types of explicit type casts: <code>static_cast</code>, <code>reinterpret_cast</code>, <code>const_cast</code>, and <code>dynamic_cast</code>. The syntax for casting is <code>cast_type&lt;Type&gt;(expression)</code>.</p>
-<div class="code-container" data-rel="C++"><figure class="iseeu highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> ch;</span><br><span class="line"><span class="type">int</span> d = <span class="number">10</span>;</span><br><span class="line">ch = <span class="built_in">static_cast</span>&lt;<span class="type">char</span>&gt;(d);</span><br></pre></td></tr></table></figure></div>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> ch;</span><br><span class="line"><span class="type">int</span> d = <span class="number">10</span>;</span><br><span class="line">ch = <span class="built_in">static_cast</span>&lt;<span class="type">char</span>&gt;(d);</span><br></pre></td></tr></table></figure>
 
 <p>When dividing integers, the result is truncated, regardless of whether the numbers are positive or negative.</p>
 <p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex;" xmlns="http://www.w3.org/2000/svg" width="1.986ex" height="1.025ex" role="img" focusable="false" viewBox="0 -442 878 453"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D45A" d="M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g></g></g></svg></mjx-container>, <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="5.507ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 2434 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mo"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mo" transform="translate(389,0)"><path data-c="2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path></g><g data-mml-node="mi" transform="translate(1167,0)"><path data-c="1D45A" d="M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(2045,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container>.</p>
@@ -876,7 +498,7 @@ mjx-container[display="true"] + br {
 <p>When assigning initial values to all elements, the array size can be omitted, and the system will determine the size based on the number of given initial values.</p>
 <p><strong>C++ does not check the validity of array subscripts.</strong></p>
 <p>You can use a range-based <code>for</code> loop to access array elements.</p>
-<div class="code-container" data-rel="C++"><figure class="iseeu highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> x : a) {  <span class="comment">// Or: for(auto x : a)</span></span><br><span class="line">    cout &lt;&lt; x &lt;&lt; endl;</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> x : a) {  <span class="comment">// Or: for(auto x : a)</span></span><br><span class="line">    cout &lt;&lt; x &lt;&lt; endl;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 
 <h4 id="String-Input-and-Output"><a href="#String-Input-and-Output" class="headerlink" title="String Input and Output"></a>String Input and Output</h4><p><code>cin.getline(char array, array size, delimiter)</code> where the delimiter can be omitted, and the default is the newline character.</p>
 <h3 id="Functions"><a href="#Functions" class="headerlink" title="Functions"></a>Functions</h3><p>A function’s return statement can be <code>return expr</code> or <code>return(expr)</code>. C++ functions can only have <strong>one</strong> return value per execution and cannot return a <strong>complete array</strong>.</p>
@@ -887,7 +509,7 @@ mjx-container[display="true"] + br {
 <p>When a function is called, the system allocates a memory space for it, called a <strong>frame</strong>. When the function finishes executing, the system reclaims the memory allocated for the function.</p>
 <p>Global variables are shadowed in the local scope. If you need to access them, use the <strong>scope resolution operator</strong> <code>::</code>.</p>
 <h5 id="Arrays-as-Function-Parameters"><a href="#Arrays-as-Function-Parameters" class="headerlink" title="Arrays as Function Parameters"></a>Arrays as Function Parameters</h5><p>When passing arrays to functions, the address of the array’s start is passed. The formal and actual parameters are <strong>the same</strong> array. Therefore, the size of the array in the parameters is meaningless and can be omitted.</p>
-<div class="code-container" data-rel="C++"><figure class="iseeu highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">func</span><span class="params">(<span class="type">int</span> array[<span class="number">10</span>])</span></span>;  <span class="comment">// Valid</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">func</span><span class="params">(<span class="type">int</span> array[])</span></span>;    <span class="comment">// Valid</span></span><br></pre></td></tr></table></figure></div>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">func</span><span class="params">(<span class="type">int</span> array[<span class="number">10</span>])</span></span>;  <span class="comment">// Valid</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">func</span><span class="params">(<span class="type">int</span> array[])</span></span>;    <span class="comment">// Valid</span></span><br></pre></td></tr></table></figure>
 
 <h4 id="Variable-Storage-Classes"><a href="#Variable-Storage-Classes" class="headerlink" title="Variable Storage Classes"></a>Variable Storage Classes</h4><p>Variables can be classified as automatic (<code>auto</code>), static (<code>static</code>), register (<code>register</code>), or external (<code>extern</code>).</p>
 <h5 id="Automatic-Variables"><a href="#Automatic-Variables" class="headerlink" title="Automatic Variables"></a>Automatic Variables</h5><p>Local variables, formal parameters, or variables defined in program blocks are automatic variables if not explicitly declared as another storage type. These variables are stored in the memory area called the <strong>stack</strong>. When a function is called, the system allocates a memory block in the stack for the function, called a <strong>frame</strong>, where all the automatic variables for that function are stored. Once the function finishes executing, the system <strong>automatically</strong> reclaims the memory.</p>
@@ -906,13 +528,13 @@ mjx-container[display="true"] + br {
 <p><strong>Inline functions cannot be recursive.</strong></p>
 <h4 id="Function-Overloading"><a href="#Function-Overloading" class="headerlink" title="Function Overloading"></a>Function Overloading</h4><p>Function overloading allows functions with the same name to differ in the number of parameters, the types of parameters, or both.</p>
 <h4 id="Function-Templates"><a href="#Function-Templates" class="headerlink" title="Function Templates"></a>Function Templates</h4><p>A function template allows some form parameters to have variable types, called <strong>template parameters</strong>. When calling the function, the actual parameter types determine the values of the template parameters, and the actual parameter types replace the template parameters to generate different <strong>template functions</strong>, a process called <strong>template instantiation</strong>.</p>
-<div class="code-container" data-rel="C++"><figure class="iseeu highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="function">T <span class="title">max</span><span class="params">(T a, T b)</span> </span>{</span><br><span class="line">    <span class="keyword">return</span> a &gt; b ? a : b;</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="function">T <span class="title">max</span><span class="params">(T a, T b)</span> </span>{</span><br><span class="line">    <span class="keyword">return</span> a &gt; b ? a : b;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 
 <p>If some template parameters do not appear in the function’s formal parameter list, <strong>explicitly specify template arguments</strong>.</p>
-<div class="code-container" data-rel="C++"><figure class="iseeu highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">calc</span>&lt;<span class="type">int</span>, <span class="type">char</span>, <span class="type">int</span>&gt;(<span class="number">5</span>, <span class="string">'a'</span>);</span><br></pre></td></tr></table></figure></div>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">calc</span>&lt;<span class="type">int</span>, <span class="type">char</span>, <span class="type">int</span>&gt;(<span class="number">5</span>, <span class="string">'a'</span>);</span><br></pre></td></tr></table></figure>
 
 <h4 id="Trailing-Return-Type"><a href="#Trailing-Return-Type" class="headerlink" title="*Trailing Return Type"></a>*Trailing Return Type</h4><p>The compiler can automatically deduce the return type of a function.</p>
-<div class="code-container" data-rel="C++"><figure class="iseeu highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> <span class="title class_">Type1</span>, <span class="keyword">class</span> <span class="title class_">Type2</span>&gt;</span><br><span class="line"><span class="function"><span class="keyword">auto</span> <span class="title">cal</span><span class="params">(Type1 alpha, Type2 beta)</span> -&gt; <span class="title">decltype</span><span class="params">(alpha + beta)</span> </span>{</span><br><span class="line">    <span class="keyword">return</span> alpha + beta;</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> <span class="title class_">Type1</span>, <span class="keyword">class</span> <span class="title class_">Type2</span>&gt;</span><br><span class="line"><span class="function"><span class="keyword">auto</span> <span class="title">cal</span><span class="params">(Type1 alpha, Type2 beta)</span> -&gt; <span class="title">decltype</span><span class="params">(alpha + beta)</span> </span>{</span><br><span class="line">    <span class="keyword">return</span> alpha + beta;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 
 <h3 id="Pointers"><a href="#Pointers" class="headerlink" title="Pointers"></a>Pointers</h3><p>C++ does not allow assignment between pointers of different types. If necessary, use explicit type casting.</p>
 <p>You can declare a pointer of the <code>void</code> type (a <strong>generic pointer type</strong>), which just indicates that the pointer holds an address, without specifying what type of data is stored at that address. <code>void</code> pointers can be assigned to pointers of any type.</p>
@@ -920,7 +542,7 @@ mjx-container[display="true"] + br {
 <p><strong>Pointer Constant</strong>: A constant pointer <code>int *const p = &amp;x</code> (<code>*p</code> can be modified, but <code>p</code> cannot be modified).</p>
 <p><strong>Constant Pointer Constant</strong>: A constant pointer to a constant <code>const int *const p = &amp;x</code> (<code>*p</code> and <code>p</code> cannot be modified).</p>
 <h4 id="Dynamic-Memory-Allocation"><a href="#Dynamic-Memory-Allocation" class="headerlink" title="Dynamic Memory Allocation"></a>Dynamic Memory Allocation</h4><p>The <code>new</code> operator allocates memory for a specific data type on the heap, and the result is <strong>the address of this memory block</strong> (if the allocation fails, it returns a <strong>null pointer</strong>).</p>
-<div class="code-container" data-rel="C++"><figure class="iseeu highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> *p;</span><br><span class="line">p = <span class="keyword">new</span> <span class="built_in">int</span>(<span class="number">20</span>);  <span class="comment">// Can specify an initial value</span></span><br><span class="line">*p = <span class="number">20</span>;</span><br></pre></td></tr></table></figure></div>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> *p;</span><br><span class="line">p = <span class="keyword">new</span> <span class="built_in">int</span>(<span class="number">20</span>);  <span class="comment">// Can specify an initial value</span></span><br><span class="line">*p = <span class="number">20</span>;</span><br></pre></td></tr></table></figure>
 
 <p>The <code>delete</code> operator can be used to free the memory that the pointer points to, and <code>delete[] p</code> is used to free the memory of an array when the pointer holds the address of an array.</p>
 <p>Dynamic arrays can also be initialized with a list of values.</p>
@@ -934,13 +556,13 @@ mjx-container[display="true"] + br {
 <h4 id="main-Function"><a href="#main-Function" class="headerlink" title="*main Function"></a>*<code>main</code> Function</h4><p>The <code>main</code> function has two formal parameters: <code>argc</code> represents the number of command-line arguments when the program is run, and <code>argv</code> is an array of pointers to characters, where each element is a pointer to an actual argument, and each actual argument is represented as a string.</p>
 <h4 id="Function-Pointers"><a href="#Function-Pointers" class="headerlink" title="Function Pointers"></a>Function Pointers</h4><p>The format is <code>return_type (*pointer_variable)(parameter_list);</code>. You can assign values to the pointer by using <code>pointer_variable = function_name</code>.</p>
 <h4 id="Lambda-Expressions"><a href="#Lambda-Expressions" class="headerlink" title="*Lambda Expressions"></a>*Lambda Expressions</h4><p>A lambda expression is an unnamed inline function with a return type, a parameter list, and a function body.</p>
-<div class="code-container" data-rel="C++"><figure class="iseeu highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[](<span class="type">int</span> x, <span class="type">int</span> y) -&gt; <span class="type">int</span> { <span class="type">int</span> z = x + y; <span class="keyword">return</span> z; }</span><br><span class="line"><span class="keyword">auto</span> f = [](<span class="type">int</span> x, <span class="type">int</span> y) -&gt; <span class="type">int</span> { <span class="type">int</span> z = x + y; <span class="keyword">return</span> z; }; <span class="comment">// Assign lambda to a function pointer</span></span><br></pre></td></tr></table></figure></div>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[](<span class="type">int</span> x, <span class="type">int</span> y) -&gt; <span class="type">int</span> { <span class="type">int</span> z = x + y; <span class="keyword">return</span> z; }</span><br><span class="line"><span class="keyword">auto</span> f = [](<span class="type">int</span> x, <span class="type">int</span> y) -&gt; <span class="type">int</span> { <span class="type">int</span> z = x + y; <span class="keyword">return</span> z; }; <span class="comment">// Assign lambda to a function pointer</span></span><br></pre></td></tr></table></figure>
 
 <p>Lambda expressions allow access to other variables in the containing function, which is called <strong>capture</strong>.</p>
 <p>Capture forms: capture specific variables by value (<code>x</code>), capture all variables by value (<code>=</code>), capture specific variables by reference (<code>&amp;x</code>), or capture all variables by reference (<code>&amp;</code>).</p>
 <h3 id="Structures-and-Modularity"><a href="#Structures-and-Modularity" class="headerlink" title="Structures and Modularity"></a>Structures and Modularity</h3><p>Pointer to a structure: <code>(*sp).item</code> or <code>sp-&gt;item</code>.</p>
 <p>Preprocessing commands:</p>
-<div class="code-container" data-rel="C++"><figure class="iseeu highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifndef</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span></span></span><br><span class="line"><span class="comment">//Contents</span></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure></div>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifndef</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span></span></span><br><span class="line"><span class="comment">//Contents</span></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure>
 
 <h3 id="Creating-New-Types"><a href="#Creating-New-Types" class="headerlink" title="Creating New Types"></a>Creating New Types</h3><p>Private members can only be accessed by member functions of the same class, not by global functions or member functions of other classes. Public members can be accessed using <code>object_name.member_name</code>.</p>
 <p>If access specifiers are not specified, the member is <strong>private</strong> by default.</p>
@@ -956,26 +578,26 @@ mjx-container[display="true"] + br {
 <p>C++ allows a constructor to call another constructor, called <strong>delegating constructors</strong>.</p>
 <h4 id="Constants-and-Classes"><a href="#Constants-and-Classes" class="headerlink" title="Constants and Classes"></a>Constants and Classes</h4><p>You can define a <strong>constant member function</strong> to be called by constant objects. The declaration of a constant member function is done by adding <code>const</code> after the function signature.</p>
 <h4 id="Static-Data-Members-and-Member-Functions"><a href="#Static-Data-Members-and-Member-Functions" class="headerlink" title="Static Data Members and Member Functions"></a>Static Data Members and Member Functions</h4><p>A class’s static data members have a separate data storage area, and they can be public or private.</p>
-<div class="code-container" data-rel="C++"><figure class="iseeu highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Sample</span> {</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="type">static</span> <span class="type">double</span> rate;</span><br><span class="line">};</span><br><span class="line"><span class="type">double</span> Sample::rate = <span class="number">0.05</span>;</span><br></pre></td></tr></table></figure></div>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Sample</span> {</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="type">static</span> <span class="type">double</span> rate;</span><br><span class="line">};</span><br><span class="line"><span class="type">double</span> Sample::rate = <span class="number">0.05</span>;</span><br></pre></td></tr></table></figure>
 
 <p>Static member functions are used to operate on static data members and serve the class rather than the objects of the class. When defined outside the class, the <code>static</code> keyword is not required. Static member functions do not have an implicit <code>this</code> pointer, so they can only access static data members or other static member functions.</p>
 <p>Static constant members are declared using <code>static const</code>. Constant data members belong to each object; static constant data members belong to the entire class. Static constant data members must be initialized in the class definition.</p>
 <h4 id="Friend-Functions-and-Classes"><a href="#Friend-Functions-and-Classes" class="headerlink" title="Friend Functions and Classes"></a>Friend Functions and Classes</h4><p>You can specify that certain global functions, all member functions of another class, or a specific member function of another class are allowed to directly access the private members of a class. These are called <strong>friend functions</strong>, <strong>friend classes</strong>, and <strong>friend member functions</strong>, collectively known as <strong>friends</strong>.</p>
 <p>To declare a function as a friend, you declare it within the class definition using the keyword <code>friend</code>. This declaration can be placed in either the public or private section.</p>
-<div class="code-container" data-rel="C++"><figure class="iseeu highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">A</span> {</span><br><span class="line">    <span class="function"><span class="keyword">friend</span> <span class="type">void</span> <span class="title">f</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">friend</span> <span class="type">int</span> <span class="title">B::function</span><span class="params">(<span class="type">double</span>)</span></span>;</span><br><span class="line">    <span class="keyword">friend</span> <span class="keyword">class</span> <span class="title class_">B</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">A</span> {</span><br><span class="line">    <span class="function"><span class="keyword">friend</span> <span class="type">void</span> <span class="title">f</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">friend</span> <span class="type">int</span> <span class="title">B::function</span><span class="params">(<span class="type">double</span>)</span></span>;</span><br><span class="line">    <span class="keyword">friend</span> <span class="keyword">class</span> <span class="title class_">B</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 
 <p>Friend relationships are <strong>not symmetric</strong> and <strong>not transitive</strong>.</p>
 <h3 id="Operator-Overloading"><a href="#Operator-Overloading" class="headerlink" title="Operator Overloading"></a>Operator Overloading</h3><p>In C++, the overloaded function name is <code>operator@</code>, and the implicit <code>this</code> pointer is the first parameter of the operator. </p>
 <p>The <code>=</code>, <code>[]</code>, <code>()</code>, and <code>-&gt;</code> operators must be overloaded as member functions. The postfix operator overload function takes an extra <code>int</code> parameter, which is unused. When the postfix operator is called, the compiler uses 0 as the value for this parameter. The prefix operator uses the regular overloaded function.</p>
-<div class="code-container" data-rel="C++"><figure class="iseeu highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">Sample &amp;Sample::<span class="keyword">operator</span>=(<span class="type">const</span> Sample &amp;right) {</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span> == &amp;right) {</span><br><span class="line">        <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">//Contents</span></span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="type">double</span> &amp;Sample::<span class="keyword">operator</span>[](<span class="type">int</span> index) {</span><br><span class="line">    <span class="comment">//Contents</span></span><br><span class="line">    <span class="keyword">return</span> a[index];</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">Sample &amp;Sample::<span class="keyword">operator</span>++() {</span><br><span class="line">    <span class="comment">//Contents</span></span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">Sample Sample::<span class="keyword">operator</span>++(<span class="type">int</span> x) {</span><br><span class="line">    <span class="comment">//Contents</span></span><br><span class="line">    <span class="keyword">return</span> tmp;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">ostream &amp;<span class="keyword">operator</span>&lt;&lt;(ostream &amp;os, <span class="type">const</span> ClassType &amp;obj) {</span><br><span class="line">    os &lt;&lt; Content;</span><br><span class="line">    <span class="keyword">return</span> os;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">istream &amp;<span class="keyword">operator</span>&gt;&gt;(istream &amp;is, <span class="type">const</span> ClassType &amp;obj) {</span><br><span class="line">    is &gt;&gt; content;</span><br><span class="line">    <span class="keyword">return</span> is;</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">Sample &amp;Sample::<span class="keyword">operator</span>=(<span class="type">const</span> Sample &amp;right) {</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span> == &amp;right) {</span><br><span class="line">        <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">//Contents</span></span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="type">double</span> &amp;Sample::<span class="keyword">operator</span>[](<span class="type">int</span> index) {</span><br><span class="line">    <span class="comment">//Contents</span></span><br><span class="line">    <span class="keyword">return</span> a[index];</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">Sample &amp;Sample::<span class="keyword">operator</span>++() {</span><br><span class="line">    <span class="comment">//Contents</span></span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">Sample Sample::<span class="keyword">operator</span>++(<span class="type">int</span> x) {</span><br><span class="line">    <span class="comment">//Contents</span></span><br><span class="line">    <span class="keyword">return</span> tmp;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">ostream &amp;<span class="keyword">operator</span>&lt;&lt;(ostream &amp;os, <span class="type">const</span> ClassType &amp;obj) {</span><br><span class="line">    os &lt;&lt; Content;</span><br><span class="line">    <span class="keyword">return</span> os;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">istream &amp;<span class="keyword">operator</span>&gt;&gt;(istream &amp;is, <span class="type">const</span> ClassType &amp;obj) {</span><br><span class="line">    is &gt;&gt; content;</span><br><span class="line">    <span class="keyword">return</span> is;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 
 <p>Adding <code>explicit</code> before the constructor prevents implicit type conversion. To perform the conversion, objects must be explicitly constructed.</p>
 <p>Type conversion functions must be defined as member functions of the class. They tell C++ how to convert the current class type object to another type. Adding <code>explicit</code> before the conversion operator prevents implicit type conversion but supports explicit type conversion.</p>
-<div class="code-container" data-rel="C++"><figure class="iseeu highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">operator</span> <span class="title">double</span><span class="params">()</span> <span class="type">const</span> </span>{</span><br><span class="line">    <span class="comment">// Contents</span></span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">operator</span> <span class="title">double</span><span class="params">()</span> <span class="type">const</span> </span>{</span><br><span class="line">    <span class="comment">// Contents</span></span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 
 <h3 id="Composition-and-Inheritance"><a href="#Composition-and-Inheritance" class="headerlink" title="Composition and Inheritance"></a>Composition and Inheritance</h3><p>If a data member of a class is an object of another class, the member is called an <strong>object member</strong>.</p>
 <p>An existing class is called the <strong>base class</strong> or <strong>parent class</strong>, and a new class derived from it is called the <strong>derived class</strong> or <strong>child class</strong>.</p>
-<div class="code-container" data-rel="C++"><figure class="iseeu highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Derived</span> : <span class="keyword">public</span> Base {};</span><br></pre></td></tr></table></figure></div>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Derived</span> : <span class="keyword">public</span> Base {};</span><br></pre></td></tr></table></figure>
 
 <p>Base and derived classes are two independent classes. Therefore, a member function of the derived class cannot access the private members of the base class. The <code>protected</code> access modifier is a special type of private member that cannot be accessed by global functions or member functions of other classes but can be accessed by member functions and friend functions of derived classes.</p>
 <p>The derived class constructor body is responsible for initializing new data members. The base class’s constructor is called in the initialization list to initialize the base class’s data members. The base class portion of a derived class object is destroyed by the base class destructor. The destructor of the derived class automatically calls the base class destructor, with the derived class destructor executing first.</p>
@@ -985,408 +607,104 @@ mjx-container[display="true"] + br {
 <p>When overriding, <code>virtual</code> can be included or omitted, but it’s recommended to add it.</p>
 <p>Constructors cannot be virtual, but destructors can be, and it’s best to declare them as virtual.</p>
 <p>A <strong>pure virtual function</strong> is a virtual function that is declared in the base class without being defined, but it must be defined in the derived class.</p>
-<div class="code-container" data-rel="C++"><figure class="iseeu highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">virtual</span> <span class="type">double</span> <span class="title">area</span><span class="params">()</span> <span class="type">const</span> </span>= <span class="number">0</span>;</span><br></pre></td></tr></table></figure></div>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">virtual</span> <span class="type">double</span> <span class="title">area</span><span class="params">()</span> <span class="type">const</span> </span>= <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
 
 <p>If a class contains at least one pure virtual function, it is called an <strong>abstract class</strong>. Abstract classes cannot have objects directly instantiated, but pointers to abstract classes can point to derived class objects.</p>
 
-		</div>
+    </div>
 
-		
-		<div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
-			<div class="article-copyright-info-container">
-    <ul>
-        <li><strong>Title:</strong> C++ Review</li>
-        <li><strong>Author:</strong> Dimethyl</li>
-        <li><strong>Created at
-                :</strong> 2025-02-02 00:00:00</li>
-        
-            <li>
-                <strong>Updated at
-                    :</strong> 2025-10-23 18:18:44
-            </li>
-        
-        <li>
-            <strong>Link:</strong> https://dimethyl.online/2025/02/01/CPP-Review/
-        </li>
-        <li>
-            <strong>
-                License:
-            </strong>
-            
+    
+    
+    
 
-            
-                This work is licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a>.
-            
-        </li>
-    </ul>
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>Dimethyl
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="http://dimethyl.online/2025/02/01/CPP-Review/" title="C++ Review">http://dimethyl.online/2025/02/01/CPP-Review/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
 </div>
 
-		</div>
-		
+          <div class="post-tags">
+              <a href="/tags/Program-Language/" rel="tag"><i class="fa fa-tag"></i> Program Language</a>
+              <a href="/tags/SJTU-Courses/" rel="tag"><i class="fa fa-tag"></i> SJTU Courses</a>
+          </div>
 
-		
-		<ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
-			
-			<li class="tag-item mx-0.5">
-				<a href="/tags/Explorations/">#Explorations</a>&nbsp;
-			</li>
-			
-			<li class="tag-item mx-0.5">
-				<a href="/tags/Program-Language/">#Program Language</a>&nbsp;
-			</li>
-			
-			<li class="tag-item mx-0.5">
-				<a href="/tags/SJTU-Courses/">#SJTU Courses</a>&nbsp;
-			</li>
-			
-		</ul>
-		
-
-		
-
-		
-		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
-			
-			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
-				<a class="prev" rel="prev" href="/2025/06/24/Git/">
-					<span class="left arrow-icon flex justify-center items-center">
-						<i class="fa-solid fa-chevron-left"></i>
-					</span>
-					<span class="title flex justify-center items-center">
-						<span class="post-nav-title-item truncate max-w-48">Notes on Git</span>
-						<span class="post-nav-item">Prev posts</span>
-					</span>
-				</a>
-			</div>
-			
-			
-		</div>
-		
-
-
-		
-	</div>
-
-	
-	<div class="toc-content-container">
-		<div class="post-toc-wrap">
-	<div class="post-toc">
-		<div class="toc-title">On this page</div>
-		<div class="page-title">C++ Review</div>
-		<ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Basic-Structure-of-a-Program"><span class="nav-number">1.0.1.</span> <span class="nav-text">Basic Structure of a Program</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Branch"><span class="nav-number">1.0.2.</span> <span class="nav-text">Branch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Loop"><span class="nav-number">1.0.3.</span> <span class="nav-text">Loop</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Array"><span class="nav-number">1.0.4.</span> <span class="nav-text">Array</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Functions"><span class="nav-number">1.0.5.</span> <span class="nav-text">Functions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pointers"><span class="nav-number">1.0.6.</span> <span class="nav-text">Pointers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Structures-and-Modularity"><span class="nav-number">1.0.7.</span> <span class="nav-text">Structures and Modularity</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Creating-New-Types"><span class="nav-number">1.0.8.</span> <span class="nav-text">Creating New Types</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Operator-Overloading"><span class="nav-number">1.0.9.</span> <span class="nav-text">Operator Overloading</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Composition-and-Inheritance"><span class="nav-number">1.0.10.</span> <span class="nav-text">Composition and Inheritance</span></a></li></ol></li></ol></li></ol>
-
-	</div>
-</div>
-	</div>
-	
-</div>
-			</div>
-
-			
-		</div>
-
-		<div class="main-content-footer">
-			<footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
-    <div class="info-container py-3 text-center">
         
-        <div class="text-center">
-            &copy;
-            
-              <span>2025</span>
-              -
-            
-            2025&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">Dimethyl</a>
-            
-                
-                <p class="post-count space-x-0.5">
-                    <span>
-                        5 posts in total
-                    </span>
-                    
-                </p>
-            
-        </div>
-        
-            <script data-swup-reload-script src="https://cn.vercount.one/js"></script>
-            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
-                
-                    <span id="busuanzi_container_site_uv" class="lg:!block">
-                        <span class="text-sm">VISITOR COUNT</span>
-                        <span id="busuanzi_value_site_uv"></span>
-                    </span>
-                
-                
-                    <span id="busuanzi_container_site_pv" class="lg:!block">
-                        <span class="text-sm">TOTAL PAGE VIEWS</span>
-                        <span id="busuanzi_value_site_pv"></span>
-                    </span>
-                
+
+          <div class="post-nav">
+            <div class="post-nav-item">
             </div>
-        
-        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
-            <span class="lg:block text-sm">POWERED BY <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a></span>
-            <span class="text-sm lg:block">THEME&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.8.5</a></span>
-        </div>
-        
-        
-            <div>
-                Blog up for <span class="odometer" id="runtime_days" ></span> days <span class="odometer" id="runtime_hours"></span> hrs <span class="odometer" id="runtime_minutes"></span> Min <span class="odometer" id="runtime_seconds"></span> Sec
+            <div class="post-nav-item">
+                <a href="/2025/06/24/Git/" rel="next" title="Notes on Git">
+                  Notes on Git <i class="fa fa-angle-right"></i>
+                </a>
             </div>
-        
-        
-            <script data-swup-reload-script>
-                try {
-                    function odometer_init() {
-                    const elements = document.querySelectorAll('.odometer');
-                    elements.forEach(el => {
-                        new Odometer({
-                            el,
-                            format: '( ddd).dd',
-                            duration: 200
-                        });
-                    });
-                    }
-                    odometer_init();
-                } catch (error) {}
-            </script>
-        
-        
-        
-    </div>  
-</footer>
-		</div>
-	</div>
-
-	
-	<div class="post-tools">
-		<div class="post-tools-container">
-	<ul class="article-tools-list">
-		<!-- TOC aside toggle -->
-		
-		<li class="right-bottom-tools page-aside-toggle">
-			<i class="fa-regular fa-outdent"></i>
-		</li>
-		
-
-		<!-- go comment -->
-		
-	</ul>
-</div>
-	</div>
-	
-
-	<div class="right-side-tools-container">
-		<div class="side-tools-container">
-	<ul class="hidden-tools-list">
-		<li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
-			<i class="fa-regular fa-magnifying-glass-plus"></i>
-		</li>
-
-		<li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
-			<i class="fa-regular fa-magnifying-glass-minus"></i>
-		</li>
-
-		<li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
-			<i class="fa-regular fa-moon"></i>
-		</li>
-
-		<!-- rss -->
-		
-
-		
-
-		<li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
-			<i class="fa-regular fa-arrow-down"></i>
-		</li>
-	</ul>
-
-	<ul class="visible-tools-list">
-		<li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
-			<i class="fa-regular fa-cog fa-spin"></i>
-		</li>
-		
-		<li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
-			<i class="arrow-up fas fa-arrow-up"></i>
-			<span class="percent"></span>
-		</li>
-		
-		
-	</ul>
-</div>
-	</div>
-
-	<div class="image-viewer-container">
-	<img src="">
+          </div>
+    </footer>
+  </article>
 </div>
 
-	
-	<div class="search-pop-overlay">
-	<div class="popup search-popup">
-		<div class="search-header">
-			<span class="search-input-field-pre">
-				<i class="fa-solid fa-keyboard"></i>
-			</span>
-			<div class="search-input-container">
-				<input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="Search..." spellcheck="false" type="search" class="search-input">
-			</div>
-			<span class="popup-btn-close">
-				<i class="fa-solid fa-times"></i>
-			</span>
-		</div>
-		<div id="search-result">
-			<div id="no-result">
-				<i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
-			</div>
-		</div>
-	</div>
+
+
+
+
+
 </div>
-	
+  </main>
 
-</main>
+  <footer class="footer">
+    <div class="footer-inner">
 
+  <div class="copyright">
+    &copy; 2024 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Dimethyl</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Word count total">9k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">34 mins.</span>
+  </span>
+</div>
 
-
-<script src="/js/build/libs/Swup.min.js"></script>
-
-<script src="/js/build/libs/SwupSlideTheme.min.js"></script>
-
-<script src="/js/build/libs/SwupScriptsPlugin.min.js"></script>
-
-<script src="/js/build/libs/SwupProgressPlugin.min.js"></script>
-
-<script src="/js/build/libs/SwupScrollPlugin.min.js"></script>
-
-<script src="/js/build/libs/SwupPreloadPlugin.min.js"></script>
-
-<script>
-    const swup = new Swup({
-        plugins: [
-            new SwupScriptsPlugin({
-                optin: true,
-            }),
-            new SwupProgressPlugin(),
-            new SwupScrollPlugin({
-                offset: 80,
-            }),
-            new SwupSlideTheme({
-                mainElement: ".main-content-body",
-            }),
-            new SwupPreloadPlugin(),
-        ],
-        containers: ["#swup"],
-    });
-</script>
-
-
-
-
-	
-<script src="/js/build/tools/imageViewer.js" type="module"></script>
-
-<script src="/js/build/utils.js" type="module"></script>
-
-<script src="/js/build/main.js" type="module"></script>
-
-<script src="/js/build/layouts/navbarShrink.js" type="module"></script>
-
-<script src="/js/build/tools/scrollTopBottom.js" type="module"></script>
-
-<script src="/js/build/tools/lightDarkSwitch.js" type="module"></script>
-
-<script src="/js/build/layouts/categoryList.js" type="module"></script>
-
-
-
-    
-<script src="/js/build/tools/localSearch.js" type="module"></script>
-
-
-
-
-    
-<script src="/js/build/tools/codeBlock.js" type="module"></script>
-
-
-
-
-    
-<script src="/js/build/layouts/lazyload.js" type="module"></script>
-
-
-
-
-    
-<script src="/js/build/tools/runtime.js"></script>
-
-    
-<script src="/js/build/libs/odometer.min.js"></script>
-
-    
-<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
-
-
-
+    </div>
+  </footer>
 
   
-<script src="/js/build/libs/Typed.min.js"></script>
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
 
-  
-<script src="/js/build/plugins/typed.js" type="module"></script>
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
 
-
-
-
-    
-        
-<script src="/js/build/libs/mermaid.min.js"></script>
-
-    
-    
-<script src="/js/build/plugins/mermaid.js"></script>
-
-
-
-
-    
-<script src="/js/build/libs/minimasonry.min.js"></script>
-
-    
-<script src="/js/build/plugins/masonry.js" type="module"></script>
-
-
-
-
-    
-<script src="/js/build/libs/anime.min.js"></script>
-
-
-
-
-
-    
-<script src="/js/build/tools/tocToggle.js" type="module" data-swup-reload-script=""></script>
-
-<script src="/js/build/layouts/toc.js" type="module" data-swup-reload-script=""></script>
-
-<script src="/js/build/plugins/tabs.js" type="module" data-swup-reload-script=""></script>
-
-
-
-
-<script src="/js/build/libs/moment-with-locales.min.js" data-swup-reload-script=""></script>
-
-
-<script src="/js/build/layouts/essays.js" type="module" data-swup-reload-script=""></script>
-
-
-
-
-
-    
-<script src="/js/build/layouts/bookmarkNav.js" type="module"></script>
-
-
-	
 </body>
-
 </html>
