@@ -11,6 +11,8 @@ Information Security Undergraduate @ SCS [SJTU](https://www.sjtu.edu.cn/)
 
 ![GitHub Contributions](https://ghchart.rshah.org/0d6aae/MingchenDai)
 
+> With GitHub Chart API provided by [Rishabh Shah](https://ghchart.rshah.org/).
+
 ## Blog
 
 ### Update Log
