@@ -6,96 +6,35 @@ template: masonry
 
 Collection of footsteps, delicacies and photos.
 
-## 2025
+## History Masonry Digests
 
-### 2025-06-22 @ Xinhai Plaza, Suzhou, Jiangsu 
+- [2025](/2026/01/05/Masonry-Digest/2025/)
 
-{% grouppicture 5-4 %}
-![Mango Pomelo Sago](collections/masonry/2025-06-22/Mango-Pomelo-Sago.png)
-![Suzhou Omurice](collections/masonry/2025-06-22/Suzhou-Omurice.JPG)
-![Suzhou Pork Chop](collections/masonry/2025-06-22/Suzhou-Pork-Chop.JPG)
-![Suzhou Salad Drinks](collections/masonry/2025-06-22/Suzhou-Salad-Drinks.JPG)
-![Suzhou Vermicelli](collections/masonry/2025-06-22/Suzhou-Vermicelli.JPG)
+## 2026
+
+### 2026-01-01 @ Miaoyou, Minhang of Shanghai
+
+{% grouppicture 6-3 %}
+![Coke Chicken Wings](collections/masonry/2026-01-01/Chicken.JPG)
+![Twice-cooked Pork](collections/masonry/2026-01-01/Pork.jpeg)
+![Overall](collections/masonry/2026-01-01/Overall.JPG)
+![Spare Ribs](collections/masonry/2026-01-01/Pot.jpeg)
+![Clams](collections/masonry/2026-01-01/Shell.JPG)
+![Prawns](collections/masonry/2026-01-01/Shrimp.JPG)
 {% endgrouppicture %}
 
-> #food	#friends
+> #meeting #shuiyuan
 
-Meeting with friends from Soochow University.
+Meeting with friends in Shuiyuan and thanks for photos from @东川路第一鹰酱 and @Nereise . See [more](https://shuiyuan.sjtu.edu.cn/t/topic/431124/925) in Shuiyuan.
 
-### 2025-06-24 @ Tianyaoqiao Road, Xuhui, Shanghai 
-
-{% grouppicture 4-3 %}
-![Carp](collections/masonry/2025-06-24/Carp.JPG)
-![Chicken](collections/masonry/2025-06-24/Chicken.JPG)
-![Squid](collections/masonry/2025-06-24/Squid.JPG)
-![Tenderloin](collections/masonry/2025-06-24/Tenderloin.JPG)
-{% endgrouppicture %}
-
-> #food	#family
-
-### 2025-08-07 @ Xindu Road, Yancheng, Jiangsu 
+### 2026-01-02 @ Hulan Road, Baoshan of Shanghai
 
 {% grouppicture 3-3 %}
-![Julong Lake West](collections/masonry/2025-08-07/Julong-Lake-West.png)
-![Julong Lake](collections/masonry/2025-08-07/Julong-Lake.png)
-![Yancheng Library](collections/masonry/2025-08-07/Yancheng-Library.png)
+![Abalone](collections/masonry/2026-01-02/Abalone.JPG)
+![Crab](collections/masonry/2026-01-02/Crab.JPG)
+![Seafood Fried Rice](collections/masonry/2026-01-02/FriedRice.JPG)
 {% endgrouppicture %}
 
-> #citywalk	#hometown	#friends
+> #meeting
 
-Revisiting Downtown Yancheng and meeting high school classmates.
-
-### 2025-08-10 @ Nanchan Temple, Wuxi, Jiangsu 
-
-{% grouppicture 4-2 %}
-![Cats Huishan](collections/masonry/2025-08-10/Cats-Huishan.png)
-![Black Cat](collections/masonry/2025-08-10/Black-Cat.png)
-![Steps Huishan](collections/masonry/2025-08-10/Steps-Huishan.png)
-![Nanchan Temple](collections/masonry/2025-08-10/Nanchan-Temple.png)
-{% endgrouppicture %}
-
-> #books	#cats	#temple	#trip
-
-Bookstores, cats and temples.
-
-### 2025-08-12 @ CRT Jiaochangkou Station, Yuzhong, Chongqing 
-
-{% grouppicture 7-4 %}
-![Cableway](collections/masonry/2025-08-12/Cableway.png)
-![Qiansimen Bridge](collections/masonry/2025-08-12/Qiansimen-Bridge.png)
-![South Chongqing Hills](collections/masonry/2025-08-12/South-Chongqing-Hills.png)
-![Wujiang](collections/masonry/2025-08-12/Wujiang.png)
-![Yujiang](collections/masonry/2025-08-12/Yujiang.png)
-![Hotpot](collections/masonry/2025-08-12/Hotpot.png)
-![Hongyadong](collections/masonry/2025-08-12/Hongyadong.png)
-{% endgrouppicture %}
-
-> #travel	#transit
-
-5-day trip to Chongqing.
-
-### 2025-08-16 @ Huawei, Qingpu, Shanghai 
-
-{% grouppicture 4-2 %}
-![Bridge](collections/masonry/2025-08-16/Bridge.png)
-![Huawei](collections/masonry/2025-08-16/Huawei.png)
-![Lianqiu Lake](collections/masonry/2025-08-16/Lianqiu-Lake.png)
-![Sky](collections/masonry/2025-08-16/Sky.png)
-{% endgrouppicture %}
-
-> #work	#tech
-
-Visiting Huawei Lianqiu Lake R&D Center.
-
-### 2025-09-20 @ South Wanping Road, Xuhui, Shanghai 
-
-{% grouppicture 3-3 %}
-![Banana Split](collections/masonry/2025-09-20/Banana-Split.png)
-![Nice Coffee](collections/masonry/2025-09-20/Nice-Coffee.png)
-![Salad](collections/masonry/2025-09-20/Salad.png)
-{% endgrouppicture %}
-
-> #citywalk	#coffee	#friends
-
-City walk with friends from Zhongshan Park to Xujiahui, near FDU Fenglin Campus. [Read More.](114514)
-
+Meeting with family, and fetching a wild Debian installation media.

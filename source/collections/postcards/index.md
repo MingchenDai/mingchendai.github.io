@@ -3,9 +3,15 @@ title: Postcards
 date : 2025-08-26 10:33:43
 ---
 
-> I use [Postcrossing](https://www.postcrossing.com/) to swap postcards with people all over the world. Click [here](https://www.postcrossing.com/user/Tresol) to visit my Postcrossing homepage.
+I use [Postcrossing](https://www.postcrossing.com/) to swap postcards with people all over the world. Click [here](https://www.postcrossing.com/user/Tresol) to visit my Postcrossing homepage.
 
-Here is an interactive map of all the postcards I've sent and received. Last update time of this page is 2025-11-28 18:32, BJT.
+Last update time of this page is 2026-01-03 18:32, BJT.
+
+## Postcard Map
+
+Here is an interactive map of all the postcards I've sent and received.
+
+<!-- Postcard Map -->
 <script src="leaflet.js"></script>
 <script src="leaflet.curve.js"></script>
 <div id="postcard-map" style="height: 600px; width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></div>
@@ -16,3 +22,61 @@ Here is an interactive map of all the postcards I've sent and received. Last upd
 Blue tracks and icons are for received postcards while those red for sent ones. You can check detailed information of a postcard by clicking on the icon.
 
 JavaScript map framework is provided by [Leaflet](https://leafletjs.com/) and map data is from [OpenStreetMap](https://www.openstreetmap.org/).
+
+<!-- Postcard Statistics -->
+
+## Postcard Statistics
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
+	<div>
+        <div><b>Item</b></div>
+		<div><b>Total Travel Distance</b></div>
+        <div><b>Year Travel Distance</b></div>
+        <div><b>Total Cards</b></div>
+        <div><b>Month Cards</b></div>
+	</div>
+	<div>
+            <div><b>Sent</b></div>
+			<div id="dist-total-sent">Loading…</div>
+			<div id="dist-year-sent">Loading…</div>
+            <div id="count-total-sent">Loading…</div>
+            <div id="count-month-sent">Loading…</div>
+		</div>
+        <div>
+            <div><b>Received</b></div>
+			<div id="dist-total-recv">Loading…</div>
+			<div id="dist-year-recv">Loading…</div>
+            <div id="count-total-recv">Loading…</div>
+		<div id="count-month-recv">Loading…</div>
+	</div>
+</div>
+
+## Latest Postcards
+
+<div style="margin-top: 12px; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px;">
+	<div>
+		<div><b>Latest Sent</b></div>
+		<ul id="latest-sent" style="margin: 0; padding-left: 18px;"></ul>
+        More at <a href="https://www.postcrossing.com/user/Tresol/sent">Postcrossing Sent Postcards</a>.
+	</div>
+	<div>
+		<div><b>Latest Received</b></div>
+		<ul id="latest-recv" style="margin: 0; padding-left: 18px;"></ul>
+        More at <a href="https://www.postcrossing.com/user/Tresol/received">Postcrossing Received Postcards</a>.
+	</div>
+</div>
+
+## Postcard Gallery and Digest
+
+### Postcrossing
+
+All postcards I've sent and received via Postcrossing are displayed can be found in my [Postcrossing Homepage](https://www.postcrossing.com/user/Tresol). However, here are some highlights and digest.
+
+- [2024 Digest and Gallery](/2026/01/03/Postcrossing-Digest/2024/)
+- [2025 Digest and Gallery](/2026/01/04/Postcrossing-Digest/2025/)
+
+### Postcards to Myself
+
+Reason to send postcards to myself is complex. It is embarrassing to admit that I sometimes do it just because I have no friends interested in rceiving postcards. However, sending postcards to myself also serves as a way to document my own life and experiences. It allows me to capture moments and thoughts that I want to remember in the future.
+
+2025 Digest will be available soon!

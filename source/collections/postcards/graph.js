@@ -37,8 +37,12 @@ document.addEventListener('DOMContentLoaded', async function () {
             return content;
         }
 
-        fetch('cardData.json')
-            .then(response => response.json())
+        function fetchCards() {
+            return fetch('card_data.json')
+                .then(r => r.ok ? r.json() : Promise.reject(new Error('not ok')))
+                .catch(() => fetch('cardData.json').then(r => r.json()));
+        }
+        fetchCards()
             .then(data => {
                 const homes = data[0];
                 const sent = data[1];
@@ -153,6 +157,107 @@ document.addEventListener('DOMContentLoaded', async function () {
                     fitAllElements();
                     drawCurves();
                 });
+
+                // --- Stats rendering (moved from index.md) ---
+                function parseKm(distStr) {
+                    if (!distStr) return 0;
+                    return Number(String(distStr).replace(/[^0-9.]/g, '')) || 0;
+                }
+                function fmtKm(num) {
+                    return (Math.round(num)).toLocaleString() + ' km';
+                }
+                function toBJTDateFromTs(ts) { // UTC+8 (Beijing Time)
+                    return new Date(Number(ts) * 1000 + 8 * 3600 * 1000);
+                }
+                function toBJTNow() {
+                    return new Date(Date.now() + 8 * 3600 * 1000);
+                }
+                function isSameMonth(ts, nowBJT) {
+                    const d = toBJTDateFromTs(ts);
+                    return d.getUTCFullYear() === nowBJT.getUTCFullYear() && d.getUTCMonth() === nowBJT.getUTCMonth();
+                }
+                function isSameYear(ts, nowBJT) {
+                    const d = toBJTDateFromTs(ts);
+                    return d.getUTCFullYear() === nowBJT.getUTCFullYear();
+                }
+                function summarize(items) {
+                    const nowBJT = toBJTNow();
+                    let totalDist = 0, yearDist = 0, totalCount = 0, monthCount = 0;
+                    for (const [, pc] of Object.entries(items)) {
+                        totalCount += 1;
+                        const km = parseKm(pc.dist);
+                        totalDist += km;
+                        if (isSameYear(pc.received_date, nowBJT)) yearDist += km;
+                        if (isSameMonth(pc.received_date, nowBJT)) monthCount += 1;
+                    }
+                    return { totalDist, yearDist, totalCount, monthCount };
+                }
+                function latest(items, type, n = 5) {
+                    const arr = Object.entries(items).map(([id, pc]) => ({ id, pc }));
+                    arr.sort((a, b) => Number(b.pc.received_date) - Number(a.pc.received_date));
+                    return arr.slice(0, n).map(({ id, pc }) => {
+                        const other = type === 'sent' ? pc.to : pc.from;
+                        const name = other && other.username ? other.username : 'account closed';
+                        const profile = other && other.username ? ('https://www.postcrossing.com/user/' + other.username) : null;
+                        const codeUrl = 'https://www.postcrossing.com/postcards/' + id;
+                        const bd = toBJTDateFromTs(pc.received_date);
+                        const m = String(bd.getUTCMonth() + 1).padStart(2, '0');
+                        const d = String(bd.getUTCDate()).padStart(2, '0');
+                        const dateText = `${bd.getUTCFullYear()}-${m}-${d}`;
+                        return { id, name, profile, codeUrl, dateText };
+                    });
+                }
+                function setText(id, text) {
+                    const el = document.getElementById(id);
+                    if (el) el.textContent = text;
+                }
+                function renderList(elId, list, dirLabel) {
+                    const ul = document.getElementById(elId);
+                    if (!ul) return;
+                    ul.innerHTML = '';
+                    list.forEach(item => {
+                        const li = document.createElement('li');
+                        const codeA = document.createElement('a');
+                        codeA.href = item.codeUrl;
+                        codeA.textContent = item.id;
+                        codeA.rel = 'noopener noreferrer';
+                        codeA.target = '_blank';
+                        li.appendChild(codeA);
+                        const sep = document.createElement('span');
+                        sep.textContent = `\t${dirLabel}\t`;
+                        li.appendChild(sep);
+                        if (item.profile) {
+                            const userA = document.createElement('a');
+                            userA.href = item.profile;
+                            userA.textContent = item.name;
+                            userA.rel = 'noopener noreferrer';
+                            userA.target = '_blank';
+                            li.appendChild(userA);
+                        } else {
+                            const userSpan = document.createElement('span');
+                            userSpan.textContent = item.name;
+                            li.appendChild(userSpan);
+                        }
+                        const dateSpan = document.createElement('span');
+                        dateSpan.textContent = ` @ ${item.dateText}`;
+                        li.appendChild(dateSpan);
+                        ul.appendChild(li);
+                    });
+                }
+
+                const s = summarize(sent || {});
+                const r = summarize(received || {});
+                setText('dist-total-sent', fmtKm(s.totalDist));
+                setText('dist-total-recv', fmtKm(r.totalDist));
+                setText('dist-year-sent', fmtKm(s.yearDist));
+                setText('dist-year-recv', fmtKm(r.yearDist));
+                setText('count-total-sent', String(s.totalCount));
+                setText('count-total-recv', String(r.totalCount));
+                setText('count-month-sent', String(s.monthCount));
+                setText('count-month-recv', String(r.monthCount));
+
+                renderList('latest-sent', latest(sent || {}, 'sent'), 'to');
+                renderList('latest-recv', latest(received || {}, 'received'), 'from');
             });
 
     } catch (error) {

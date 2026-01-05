@@ -36,6 +36,17 @@
       "days": 59,
       "dist": "7,174 km"
     },
+    "CN-3954061": {
+      "from": 7846217,
+      "to": {
+        "username": "Alenamoshka",
+        "lat": 52.12153,
+        "lon": 26.06726
+      },
+      "received_date": "1764436310",
+      "days": 293,
+      "dist": "7,676 km"
+    },
     "CN-3891973": {
       "from": 1800480,
       "to": {
