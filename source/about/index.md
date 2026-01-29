@@ -15,6 +15,8 @@ Information Security Undergraduate @ [School of Computer Science](https://cs.sjt
 
 ## Blog
 
+Dimethyl Blog is built by Hexo and hosted on GitHub Pages, with NexT theme.
+
 ### Recent Updates
 
 Below are the latest 10 commits to this blog's repository. For more details, visit the [root repository](https://github.com/MingchenDai/mingchendai.github.io).

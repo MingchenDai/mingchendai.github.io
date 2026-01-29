@@ -113,6 +113,7 @@ menu:
     Essays: /essays/ || fa fa-pen-nib
     Bookmarks: /bookmarks/ || fa fa-book
     Masonry: /masonry/ || fa fa-th-large
+    Transit: /transit/ || fa fa-train
   archives: /archives/ || fa fa-archive
   #schedule: /schedule/ || fa fa-calendar
   #sitemap: /sitemap.xml || fa fa-sitemap

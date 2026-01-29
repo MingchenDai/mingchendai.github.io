@@ -9,6 +9,7 @@ Some of my collections.
 - <i class="fa fa-pen-nib"></i> [Essay Collection](/collections/essays/) - My essays and shuoshuo posts.
 - <i class="fa fa-book"></i> [Book Collection](/collections/bookmarks/) - Books I've read and reviewed.
 - <i class="fa fa-th-large"></i> [Masonry](/collections/masonry/) - A collection of images and media in a masonry layout.
+- <i class="fa fa-train"></i> [Transit Collection](/collections/transit/) - A collection focusing on various transit systems.
 
 > **Book Collection** part is still under construction. Another **Transit Collection** is planned now, focusing on railway and public transit systems, including Shanghai Metro, China Railway EMU trains and MTR of Hong Kong.
 

@@ -9,3 +9,7 @@ _multiconfig.yml
 build.sh
 .idea
 .vscode
+
+## Draft Management
+*.draft
+draft-*
