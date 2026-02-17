@@ -9,11 +9,11 @@ tags:
 mathjax: true
 ---
 
-This is a note of **MATH1207 Probability and Mathematical Statistics** (概率论与数理统计) taught at SJTU.
+This is a note of **MATH1207 Probability and Mathematical Statistics** (概率论与数理统计) taught at SJTU. It is originally written in Chinese to keep consistency with lecture language and translated into English later.
 
-**Quick Navigation**:
+The note covers all contents of the course taught in 2025-2026-1 semester, including random events and probability, random variables and their distributions, numerical characteristics of random variables, joint distributions of multiple random variables, random samples and sampling distributions, estimation, and hypothesis testing.
 
-[Common Discrete Random Variables and Their Properties](#Discrete-Random-Variables)｜[Common Continuous Random Variables and Their Properties](#Continuous-Random-Variables)｜
+> **Quick Navigation** to check [Common Discrete Random Variables and Their Properties](#Discrete-Random-Variables) and [Common Continuous Random Variables and Their Properties](#Continuous-Random-Variables).
 
 <!-- more -->
 
@@ -54,7 +54,7 @@ The outcome of a single trial often exhibits *randomness* or *contingency*, but 
 - Difference Set: $A-B=A\cap \bar{B}$.
 - **Duality Laws (De Morgan's Laws)**: $\overline{A \cup B} = \bar{A} \cap \bar{B}$, $\overline{A \cap B} = \bar{A} \cup \bar{B}$.
 
-> Extended to countably infinite events: $\displaystyle \overline{\bigcup_{i=1}^{\infty} A_i} = \bigcap_{i=1}^{\infty} \bar{A}_i$, $\displaystyle \overline{\bigcap_{i=1}^{\infty} A_i} = \bigcup_{i=1}^{\infty} \bar{A}_i$.
+> Extended to countably infinite events: $\displaystyle \overline{\bigcup_{i=1}^{\infty} A_i} = \bigcap_{i=1}^{\infty} \bar{A}\_i$, $\displaystyle \overline{\bigcap_{i=1}^{\infty} A_i} = \bigcup_{i=1}^{\infty} \bar{A}_i$.
 
 ### Probability of Random Events
 
@@ -256,7 +256,7 @@ In particular, for the normal distribution $(X,Y) \sim N_2(\mu_X, \mu_Y, \sigma_
 
 **Distribution of Extremes of Continuous Random Variables**: Let random variable $Z = \max(X, Y)$. Then its distribution function is $\displaystyle F_Z(z) = P(Z \leq z) = P(X \leq z, Y \leq z) = F_{X,Y}(z, z)$. Let $W=\min(X, Y)$. Similarly, $\displaystyle F_{W}(w) = P(W \leq w) = P(\min(X, Y) \leq w) = 1 - P(X > w, Y > w) = 1 - [1 - F_X(w)][1 - F_Y(w)]$.
 
-Extending to $n$-dimensional random variables $(X_1, X_2, \ldots, X_n)$: $\displaystyle F_{\max}(z) = P(\max(X_1, X_2, \ldots, X_n) \leq z) = P(X_1 \leq z, \ldots, X_n \leq z) = F(\underbrace{z,\ldots,z}_{n\text{ times}})$; $\displaystyle F_{\min}(w) = P(\min(X_1, X_2, \ldots, X_n) \leq w) = 1 - P(X_1 > w, \ldots, X_n > w) = 1 - \prod_{i=1}^n [1 - F_{X_i}(w)]$.
+Extending to $n$-dimensional random variables $(X_1, X_2, \ldots, X_n)$: $\displaystyle F_{\max}(z) = P(\max(X_1, X_2, \ldots, X_n) \leq z) = P(X_1 \leq z, \ldots, X_n \leq z) = F(\underbrace{z,\ldots,z}\_{n\text{ times}})$; $\displaystyle F_{\min}(w) = P(\min(X_1, X_2, \ldots, X_n) \leq w) = 1 - P(X_1 > w, \ldots, X_n > w) = 1 - \prod_{i=1}^n [1 - F_{X_i}(w)]$.
 
 ## Numerical Characteristics of Random Variables
 
@@ -314,7 +314,7 @@ Equality implies the linear relationship $\displaystyle \frac{Y-E(Y)}{\sqrt{D(Y)
 - **$(m+n)$-th Mixed Origin Moment of Random Variables**: Define the $(m+n)$-th mixed origin moment of two-dimensional random variable $(X, Y)$ as $\displaystyle E(X^m Y^n)$.
 - **$(m+n)$-th Mixed Central Moment of Random Variables**: Define the $(m+n)$-th mixed central moment of two-dimensional random variable $(X, Y)$ as $\displaystyle E[(X - E(X))^m (Y - E(Y))^n]$. Covariance is the second-order mixed central moment of $(X, Y)$.
 
-**Covariance Matrix**: For an $n$-dimensional random variable $(X_1, X_2, \ldots, X_n)$, define the matrix $C$ as its covariance matrix, with elements $\displaystyle c_{ij} = \mathrm{cov}(X_i, X_j)$, i.e., $\displaystyle C = \begin{pmatrix} D(X_1) & \mathrm{cov}(X_1, X_2) & \cdots & \mathrm{cov}(X_1, X_n) \\ \mathrm{cov}(X_2, X_1) & D(X_2) & \cdots & \mathrm{cov}(X_2, X_n) \\ \vdots & \vdots & \ddots & \vdots \\ \mathrm{cov}(X_n, X_1) & \mathrm{cov}(X_n, X_2) & \cdots & D(X_n) \end{pmatrix}$.
+**Covariance Matrix**: For an $n$-dimensional random variable $(X_1, X_2, \ldots, X_n)$, define the matrix $C$ as its covariance matrix, with elements $\displaystyle c_{ij} = \mathrm{cov}(X_i, X_j)$, i.e., $\displaystyle C = \begin{pmatrix} D(X_1) & \mathrm{cov}(X_1, X_2) & \cdots & \mathrm{cov}(X_1, X_n) \\\\ \mathrm{cov}(X_2, X_1) & D(X_2) & \cdots & \mathrm{cov}(X_2, X_n) \\\\ \vdots & \vdots & \ddots & \vdots \\\\ \mathrm{cov}(X_n, X_1) & \mathrm{cov}(X_n, X_2) & \cdots & D(X_n) \end{pmatrix}$.
 
 > We can write the probability density function for an $n$-dimensional normal distribution: $\displaystyle f(x_1, x_2, \ldots, x_n) = \frac{1}{(2\pi)^{n/2} \sqrt{|C|}} \exp\left\\{-\frac{1}{2} \begin{pmatrix} x_1 - \mu_1 & x_2 - \mu_2 & \cdots & x_n - \mu_n \end{pmatrix} C^{-1} \begin{pmatrix} x_1 - \mu_1 \\\\ x_2 - \mu_2 \\\\ \vdots \\\\ x_n - \mu_n \end{pmatrix}\right\\}$.
 
@@ -460,7 +460,7 @@ Maximum likelihood estimators may not be unique.
 
 ### Criteria for Evaluating Point Estimators
 
-Let the distribution of population $\mathcal{X}$ be determined by unknown parameter $\theta$, and let sample $\mathcal{X}_n = \{X_1, X_2, \ldots, X_n\}$.
+Let the distribution of population $\mathcal{X}$ be determined by unknown parameter $\theta$, and let sample $\mathcal{X}\_n = \left\\{X_1, X_2, \ldots, X_n\right\\}$.
 
 **Unbiasedness**. If a point estimator $\hat{\theta}$ of parameter $\theta$ satisfies $E(\hat{\theta}) = \theta$, then $\hat{\theta}$ is called an *unbiased estimator* of $\theta$; if $E(\hat{\theta}) \neq \theta$, then $\hat{\theta}$ is called a *biased estimator*.
 

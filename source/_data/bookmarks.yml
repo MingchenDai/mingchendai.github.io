@@ -1,9 +1,0 @@
-- category: Elegant Coder
-  icon: fa-folder
-  items:
-  - name: Structure and Interpretation of Computer Programs
-    description: CS61A Fall 2024 Archive
-    link: https://insideempire.github.io/CS61A-Website-Archive/
-  - name: Data Structures and Algorithms
-    description: CS61B Spring 2024
-    link: https://sp24.datastructur.es/

@@ -1,25 +1,24 @@
 ---
-title: About
-date: 2025-06-23 22:12:52
+title: Dimethyl Blog Update Log
+date: 2026-02-02 13:24:56
+tags:
+  - Blog
+categories:
+  - [Post]
+  - [Updating]
 ---
 
-## Dimethyl
+This blog, run by GitHub Actions and Hexo, is regularly updated. Although git commit messages provide some insight into the changes made, this log offers a more detailed overview of significant updates and modifications.
 
-Information Security Undergraduate @ [School of Computer Science](https://cs.sjtu.edu.cn/), [Shanghai Jiao Tong University](https://www.sjtu.edu.cn/)
+Root repository of this blog locates at [Github - MingchenDai/mingchendai.github.io](https://github.com/MingchenDai/mingchendai.github.io). You can check the changes there directly, or refer to this log for a summarized view of the updates in reverse chronological order.
 
-### GitHub Activity
+Update logs are edited manually since February 2nd, 2026. Normal update of this post (including adding new update message and modifying existing commit ids) and [About](/about/) page will not be recorded here.
 
-![GitHub Contributions](https://ghchart.rshah.org/0d6aae/MingchenDai)
+<!-- more -->
 
-> With GitHub Chart API provided by [Rishabh Shah](https://ghchart.rshah.org/).
+## Update Log
 
-## Blog
-
-Dimethyl Blog is built by Hexo and hosted on GitHub Pages, with NexT theme.
-
-### Update
-
-Below is the latest update information. For detailed update log, please check [Blog Update Log](/2026/02/02/Blog-Update-Log/).
+### Latest Update
 
 | Date | Version | Commit |
 |----------|-------------|------------|
@@ -47,10 +46,3 @@ In **modified content**,
 In **Collections** part,
 - Picture link problem in Masonry part is fixed.
 - Link to developing page is removed.
-
-### To Do List
-
-- [ ] Upload digest for Postcards to Myself 2025
-- [ ] Complete Book Collection section
-- [ ] Complete Transit Collection section
-- [ ] Update note of CS3321, upload note of NIS2331 and NIS3351
