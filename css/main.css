@@ -1007,6 +1007,10 @@ pre code {
   margin-bottom: 20px;
   text-align: center;
 }
+.wavedrom {
+  margin-bottom: 20px;
+  text-align: center;
+}
 .post-body .note {
   border-radius: 3px;
   margin-bottom: 20px;
@@ -1554,7 +1558,7 @@ pre code {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #fff7f4;
+  background: #fb408e;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -1773,21 +1777,6 @@ pre code {
   line-height: 1.8;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.post-toc .nav .nav-child {
-  --height: 0;
-  height: 0;
-  opacity: 0;
-  overflow: hidden;
-  transition-property: height, opacity, visibility;
-  transition: 0.2s ease-in-out;
-  visibility: hidden;
-}
-.post-toc .nav .active > .nav-child {
-  height: var(--height, auto);
-  opacity: 1;
-  visibility: unset;
 }
 .post-toc .nav .active > a {
   border-bottom-color: #87daff;
@@ -2371,22 +2360,6 @@ pre code {
   font-weight: normal;
   margin: initial;
   overflow-wrap: break-word;
-}
-.posts-expand .post-title .post-edit-link {
-  border-bottom: 0;
-  color: #bbb;
-  float: right;
-  font-size: 1.25em;
-  margin-left: -1.2em;
-  transition: color 0.2s ease-in;
-}
-@media (max-width: 567px) {
-  .posts-expand .post-title .post-edit-link {
-    margin-left: initial;
-  }
-}
-.posts-expand .post-title .post-edit-link:hover {
-  color: #87daff;
 }
 .posts-expand .post-title-link {
   border-bottom: 0;
