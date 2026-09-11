@@ -3,11 +3,11 @@ title: Postcards
 date : 2025-08-26 10:33:43
 ---
 
+## Postcrossing
+
 I use [Postcrossing](https://www.postcrossing.com/) to swap postcards with people all over the world. Click [here](https://www.postcrossing.com/user/Tresol) to visit my Postcrossing homepage.
 
-Last update time of this page is 2026-01-03 18:32, BJT.
-
-## Postcard Map
+### Map
 
 Here is an interactive map of all the postcards I've sent and received.
 
@@ -25,7 +25,7 @@ JavaScript map framework is provided by [Leaflet](https://leafletjs.com/) and ma
 
 <!-- Postcard Statistics -->
 
-## Postcard Statistics
+### Statistics
 
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
 	<div>
@@ -51,7 +51,7 @@ JavaScript map framework is provided by [Leaflet](https://leafletjs.com/) and ma
 	</div>
 </div>
 
-## Latest Postcards
+### Latest Postcards
 
 <div style="margin-top: 12px; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px;">
 	<div>
@@ -66,17 +66,17 @@ JavaScript map framework is provided by [Leaflet](https://leafletjs.com/) and ma
 	</div>
 </div>
 
-## Postcard Gallery and Digest
+### Digest
 
-### Postcrossing
+All received postcards via Postcrossing are displayed can be found in my [Postcrossing Homepage](https://www.postcrossing.com/user/Tresol). However, here are some highlights and digest.
 
-All postcards I've sent and received via Postcrossing are displayed can be found in my [Postcrossing Homepage](https://www.postcrossing.com/user/Tresol). However, here are some highlights and digest.
+- [2024 Digest](/PostcrossingDigest/2024/)
+- [2025 Digest](/PostcrossingDigest/2025/)
 
-- [2024 Digest and Gallery](/2026/01/03/Postcrossing-Digest/2024/)
-- [2025 Digest and Gallery](/2026/01/04/Postcrossing-Digest/2025/)
+Postcards are catagorized by year and sorted by date in descending order. If an image of a postcard is available, it will be displayed. You can identify the country of the sender from the alphabetic code in its ID.
 
-### Postcards to Myself
+<!-- ### Postcards to Myself
 
 Reason to send postcards to myself is complex. It is embarrassing to admit that I sometimes do it just because I have no friends interested in rceiving postcards. However, sending postcards to myself also serves as a way to document my own life and experiences. It allows me to capture moments and thoughts that I want to remember in the future.
 
-2025 Digest will be available soon!
+Digests will be available soon! -->
