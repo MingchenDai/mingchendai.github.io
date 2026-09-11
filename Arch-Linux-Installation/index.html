@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="../avatar.jpeg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../avatar.jpeg">
+  <link rel="icon" type="image/png" sizes="16x16" href="../avatar.jpeg">
+  <link rel="mask-icon" href="../avatar.jpeg" color="#222">
+
+<link rel="stylesheet" href="../css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"dimethyl.cn","root":"/","images":"../images","scheme":"Muse","darkmode":true,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":"flat","style":null},"fold":{"enable":true,"height":500},"language":true},"bookmark":{"enable":true,"color":"#222","save":"manual"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"../search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="../js/config.js" defer></script>
+
+    <meta name="description" content="Introduction Installing Arch Linux is not an esay thing in any way, especially for a dual-booting system. Ensure you grasp basic skills of searching and asking questions, and basic English reading pro">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Arch Linux &amp; Windows Dual-Booting System Installation Guide">
+<meta property="og:url" content="https://dimethyl.cn/Arch-Linux-Installation/index.html">
+<meta property="og:site_name" content="Dimethyl Blog">
+<meta property="og:description" content="Introduction Installing Arch Linux is not an esay thing in any way, especially for a dual-booting system. Ensure you grasp basic skills of searching and asking questions, and basic English reading pro">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://dimethyl.cn/Arch-Linux-Installation/Arch-Linux-Boot-Menu.png">
+<meta property="article:published_time" content="2026-01-15T11:14:56.000Z">
+<meta property="article:modified_time" content="2026-09-11T11:08:56.632Z">
+<meta property="article:author" content="Dimethyl">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="OS">
+<meta property="article:tag" content="Windows">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://dimethyl.cn/Arch-Linux-Installation/Arch-Linux-Boot-Menu.png">
+
+
+<link rel="canonical" href="https://dimethyl.cn/Arch-Linux-Installation/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://dimethyl.cn/Arch-Linux-Installation/","path":"Arch-Linux-Installation/","title":"Arch Linux & Windows Dual-Booting System Installation Guide"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Arch Linux & Windows Dual-Booting System Installation Guide | Dimethyl Blog</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4VWYK5HQ0M"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-4VWYK5HQ0M","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="../js/third-party/analytics/google-analytics.js" defer></script>
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="../js/utils.js" defer></script><script src="../js/motion.js" defer></script><script src="../js/sidebar.js" defer></script><script src="../js/next-boot.js" defer></script><script src="../js/bookmark.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="../js/third-party/search/local-search.js" defer></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.1/mermaid.min.js","integrity":"sha256-BmQmdWDS8X2OTbrwELWK366LV6escyWhHHe0XCTU/Hk="}}</script>
+  <script src="../js/third-party/tags/mermaid.js" defer></script>
+
+  <script class="next-config" data-name="wavedrom" type="application/json">{"enable":true,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/wavedrom/3.5.0/wavedrom.min.js","integrity":"sha256-INLAoJc6quTNfiMWkGZniYO2cxE8mHpddnLow1m6RFs="}}</script>
+  <script class="next-config" data-name="wavedrom_skin" type="application/json">{"enable":true,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/wavedrom/3.5.0/skins/default.js","integrity":"sha256-fduc/Zszk5ezWws2uInY/ALWVmIrmV6VTgXbsYSReFI="}}</script>
+  <script src="../js/third-party/tags/wavedrom.js" defer></script>
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"all","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="../js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="../css/noscript.css">
+  </noscript>
+<style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Dimethyl Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Universe has everything, but we call it space.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="../index.html" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="../about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="../tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">23</span></a></li><li class="menu-item menu-item-categories"><a href="../categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">3</span></a></li><li class="menu-item menu-item-collections"><a href="../collections/" rel="section"><i class="fa fa-bookmark fa-fw"></i>Collections</a></li><li class="menu-item menu-item-archives"><a href="../archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">32</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="Searching..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Preparations"><span class="nav-number">2.</span> <span class="nav-text">Preparations</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Make-an-Arch-Linux-Bootable-USB"><span class="nav-number">2.1.</span> <span class="nav-text">Make an Arch Linux Bootable USB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ensure-Disk-Space"><span class="nav-number">2.2.</span> <span class="nav-text">Ensure Disk Space</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Configure-System-Time-Shift"><span class="nav-number">2.3.</span> <span class="nav-text">Configure System Time Shift</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Installation-Steps"><span class="nav-number">3.</span> <span class="nav-text">Installation Steps</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Boot-from-USB-Device"><span class="nav-number">3.1.</span> <span class="nav-text">Boot from USB Device</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Internet-Connection"><span class="nav-number">3.2.</span> <span class="nav-text">Internet Connection</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Time-Synchronizarion"><span class="nav-number">3.3.</span> <span class="nav-text">Time Synchronizarion</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Disk-Partitioning"><span class="nav-number">3.4.</span> <span class="nav-text">Disk Partitioning</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mount-Partitions"><span class="nav-number">3.5.</span> <span class="nav-text">Mount Partitions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Install-Arch-Linux"><span class="nav-number">3.6.</span> <span class="nav-text">Install Arch Linux</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Switch-to-the-New-System"><span class="nav-number">4.</span> <span class="nav-text">Switch to the New System</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Set-Users-and-Passwords"><span class="nav-number">4.1.</span> <span class="nav-text">Set Users and Passwords</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Set-Hostname-and-Domain-Name"><span class="nav-number">4.2.</span> <span class="nav-text">Set Hostname and Domain Name</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Install-Microcode"><span class="nav-number">4.3.</span> <span class="nav-text">Install Microcode</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Install-GRUB-Bootloader"><span class="nav-number">4.4.</span> <span class="nav-text">Install GRUB Bootloader</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Localization-and-Timezone"><span class="nav-number">4.5.</span> <span class="nav-text">Localization and Timezone</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Finish-Installation"><span class="nav-number">5.</span> <span class="nav-text">Finish Installation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GUI-Optimization"><span class="nav-number">5.1.</span> <span class="nav-text">GUI Optimization</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Chinese-Font-Support"><span class="nav-number">5.2.</span> <span class="nav-text">Chinese Font Support</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SSH-Configure"><span class="nav-number">5.3.</span> <span class="nav-text">SSH Configure</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#SSH-Server-Setup"><span class="nav-number">5.3.1.</span> <span class="nav-text">SSH Server Setup</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Make-Authentication-More-Secure"><span class="nav-number">5.3.2.</span> <span class="nav-text">Make Authentication More Secure</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Port-Configuration"><span class="nav-number">5.3.3.</span> <span class="nav-text">Port Configuration</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pacman-Mirror-Congiration"><span class="nav-number">5.4.</span> <span class="nav-text">Pacman Mirror Congiration</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mount-Your-Other-Partitions"><span class="nav-number">5.5.</span> <span class="nav-text">Mount Your Other Partitions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Switching-Between-Different-User-Target"><span class="nav-number">5.6.</span> <span class="nav-text">Switching Between Different User Target</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Possible-Issues-During-Normal-Usage"><span class="nav-number">6.</span> <span class="nav-text">Possible Issues During Normal Usage</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Bootloader-Missing-After-Windows-Update"><span class="nav-number">6.1.</span> <span class="nav-text">Bootloader Missing After Windows Update</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Dimethyl"
+      src="../avatar.jpeg">
+  <p class="site-author-name" itemprop="name">Dimethyl</p>
+  <div class="site-description" itemprop="description">Dimethyl Blog</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="../archives/">
+          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="../categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="../tags/">
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/MingchenDai" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;MingchenDai" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="../mailto:mingchendai@outlook.com" title="E-Mail → mailto:mingchendai@outlook.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          Links
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://blog.pneuma717.cc/" title="https:&#x2F;&#x2F;blog.pneuma717.cc&#x2F;" rel="noopener" target="_blank">Jiang Yifeng's Blog</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://dimethyl.cn/Arch-Linux-Installation/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="../avatar.jpeg">
+      <meta itemprop="name" content="Dimethyl">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dimethyl Blog">
+      <meta itemprop="description" content="Dimethyl Blog">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Arch Linux &amp; Windows Dual-Booting System Installation Guide | Dimethyl Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Arch Linux & Windows Dual-Booting System Installation Guide
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2026-01-15 19:14:56" itemprop="dateCreated datePublished" datetime="2026-01-15T19:14:56+08:00">2026-01-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2026-09-11 19:08:56" itemprop="dateModified" datetime="2026-09-11T19:08:56+08:00">2026-09-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="../categories/Exploration/" itemprop="url" rel="index"><span itemprop="name">Exploration</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="../categories/Updating/" itemprop="url" rel="index"><span itemprop="name">Updating</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>3.6k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>13 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="Introduction">Introduction</h2>
+<p>Installing Arch Linux is not an esay thing in any way, especially for a dual-booting system. Ensure you grasp basic skills of searching and asking questions, and basic English reading profession to read warning and error messages.</p>
+<p>Also, this post records some issues encountered in usage of dual-booting Arch Linux and Windows systems, and their solutions. Check them in the last section <a href="#Possible-Issues-During-Normal-Usage">Possible Issues During Normal Usage</a>.</p>
+<span id="more"></span>
+<p>My computer is a ThinkBook 16P laptop with Intel Core i9-14900HX, NVIDIA RTX 4060 Laptop GPU, 32 GB RAM and 5 TB SSD. Systems currently installed are Windows 11 and Debian 13, and Arch Linux will take the place of Debian 13.</p>
+<h2 id="Preparations">Preparations</h2>
+<h3 id="Make-an-Arch-Linux-Bootable-USB">Make an Arch Linux Bootable USB</h3>
+<p>You should get a USB drive with at least 4 GB capacity, and an Arch Linux ISO image from <a target="_blank" rel="noopener" href="https://archlinux.org/download/">the official website</a>. Make sure to download the version that matches your system architecture (usually x86_64 for most modern computers).</p>
+<p>To create a bootable USB drive, you can use tools like <a target="_blank" rel="noopener" href="https://rufus.ie/">Rufus</a> (for Windows), balenaEtcher (cross-platform), or the <code>dd</code> command (for Linux and macOS). Here we use Rufus as an example.</p>
+<ol>
+<li>Insert your USB drive into your computer, and open Rufus.</li>
+<li>Select your USB drive under <strong>Device</strong>.</li>
+<li>Click on <strong>SELECT</strong> and choose the Arch Linux ISO file you downloaded.</li>
+<li>Configure the <strong>Partition scheme</strong> and <strong>Target system</strong> type according to your system if necessary (usually the default settings are fine).</li>
+<li>Keep <strong>Format Options</strong> as default, and click <strong>START</strong> to create the bootable USB drive.</li>
+<li>If there is an ISOHybrid image detected prompt, choose <strong>Write in ISO Image mode (Recommended)</strong> and click <strong>OK</strong>.</li>
+<li>Wait for the process to complete (<code>READY</code> text can be seen in <strong>Status</strong> part), then safely eject the USB drive.</li>
+</ol>
+<p>If all goes well, you now have a bootable Arch Linux USB drive. I personally suggest not deleting the USB drive after installation, as it can be useful for future troubleshooting or reinstallation. You can see lots of its usage in last section <a href="#Possible-Issues-During-Normal-Usage">Possible Issues During Normal Usage</a>.</p>
+<h3 id="Ensure-Disk-Space">Ensure Disk Space</h3>
+<p>Skip this section if you want to install a single Arch Linux on your computer. Use <code>sudo fdisk -l</code> in Debian or Disk Management Tool in Windows and ensure you have at least 50 GB of unallocated space on your disk for Arch Linux installation. If you have an existing partition that you can delete or shrink, you can use that space.</p>
+<p>The free space you leave must be unformatted and unallocated.</p>
+<h3 id="Configure-System-Time-Shift">Configure System Time Shift</h3>
+<p>Skip this section if you are not dual-booting with Windows.</p>
+<p>Linux and windows handle hardware clocks differently, which can lead to time discrepancies when switching between the two operating systems. Windows treats the hardware clock as local time, while Linux typically uses UTC.</p>
+<p>To avoid time-related issues, you can configure Windows to use UTC for the hardware clock by changing a registry setting:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Reg add HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation /v RealTimeIsUniversal /t REG_DWORD /d 1 /f</span><br></pre></td></tr></table></figure>
+<p>Of course you can configure Arch Linux to use local time instead but is not recommended. Use:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">timedatectl set-local-rtc 1 --adjust-system-clock</span><br></pre></td></tr></table></figure>
+<h2 id="Installation-Steps">Installation Steps</h2>
+<h3 id="Boot-from-USB-Device">Boot from USB Device</h3>
+<p>Get into the BIOS setting of your computer and set the USB device as the first boot option. Save and restart.</p>
+<p>The method to enter BIOS varies between different manufacturers. Check your computer’s manual or look for instructions online if you’re unsure.</p>
+<p>For Windows users, you can also access the BIOS via Settings &gt; Windows Update &gt; Advanced options &gt; Recovery &gt; Advanced startup. Click <strong>Restart now</strong>, then navigate to Troubleshoot &gt; Advanced options &gt; UEFI Firmware Settings and click <strong>Restart</strong>.</p>
+<p>Once booted from the USB, you should see the Arch Linux boot menu. Select <strong>Arch Linux install medium (x86_64, UEFI)</strong> and press Enter.</p>
+<p><img src="Arch-Linux-Boot-Menu.png" alt="Arch Linux Boot Menu"></p>
+<p>If everything goes well, you should see a command-line interface with a prompt <code>root@archiso ~#</code>.</p>
+<h3 id="Internet-Connection">Internet Connection</h3>
+<p>A wired Ethernet connection is the best choice.</p>
+<p>If you consider using Wi-Fi, using <code>iwctl</code>. However, firstly you should ensure your Wi-Fi device is unblocked in layer of hardware and software. Use <code>rfkill list</code> to check the status. If a device is blocked hard, find if there is a physical switch on your computer to enable it. If it is blocked soft, use <code>rfkill unblock all</code> to unblock it.</p>
+<p>It is known that some Lenovo laptops such as ThinkBook and Xiaoxin may block the Wi-Fi device in software by default, so check it carefully. Otherwise you won’t be able to see any Wi-Fi networks later.</p>
+<p>Use <code>iwctl</code> to enter the interactive prompt. Then, use <code>device list</code> to list all network devices and identify your Wi-Fi device name (usually something like <code>wlan0</code>).</p>
+<p>Next, use <code>station &lt;device_name&gt; get-networks</code> to scan for available Wi-Fi networks. Replace <code>&lt;device_name&gt;</code> with your actual Wi-Fi device name. If this step goes well, you should see a list of available networks.</p>
+<p>Use <code>station &lt;device_name&gt; connect &lt;SSID&gt;</code> to connect to your Wi-Fi network. Replace <code>&lt;SSID&gt;</code> with the name of your Wi-Fi network. You will be prompted to enter the Wi-Fi password if the network is secured. If this step finishes, exit <code>iwctl</code> by typing <code>exit</code>.</p>
+<p>You can test your internet connection by <code>ping -c 4 www.sjtu.edu.cn</code> or any other public website. If you receive responses with 0% packet loss, your internet connection is working.</p>
+<h3 id="Time-Synchronizarion">Time Synchronizarion</h3>
+<p>Use the following commands to synchronize the system clock with the hardware clock and enable NTP synchronization:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hwclock --systohc --utc</span><br><span class="line">timedatectl set-ntp <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p>Use <code>timedatectl status</code> to check if NTP synchronization is active.</p>
+<h3 id="Disk-Partitioning">Disk Partitioning</h3>
+<p>Disk partitioning is the most complex step in the installation, especially when dual-booting with other operating systems. Be very careful when selecting partitions to avoid data loss.</p>
+<p>In fact, if you are familiar with Linux file systems, partition the disk as you like, or even not partition at all (use the whole disk for Arch Linux). You should only ensure to mount EFI partition of Windows system to <code>/boot</code> later.</p>
+<p>Here we will introduce a popular partitioning scheme for dual-booting with Windows:</p>
+<ul>
+<li><code>/boot</code> partition, to store boot files and information. Often a 512 MB free space is enough. For BIOS systems, this partition is not needed; but for UEFI systems, it is required to mount the existing EFI partition of Windows here.</li>
+<li><code>/swap</code> partition, to provide virtual memory when physical RAM is insufficient. The size of this partition can vary based on your system’s RAM and usage needs. A common recommendation is to allocate swap space equal to your RAM size if you have less than 8 GB of RAM, or half your RAM size if you have more than 8 GB of RAM. For systems with large amounts of RAM (e.g., 16 GB or more), a smaller swap partition (e.g., 4 GB) may suffice.</li>
+<li><code>/</code> (root) partition, to store the main filesystem and all system files. Allocate at least 20 GB for this partition, but more is recommended if you plan to install many applications or store data on the root partition.</li>
+<li><code>/home</code> partition, to store user data and personal files. Allocate the remaining free space to this partition for user data. This partition is optional but recommended for easier system maintenance and upgrades.</li>
+</ul>
+<h3 id="Mount-Partitions">Mount Partitions</h3>
+<p>Use <code>fdisk -l</code> to list all disk partitions, and identify the partitions you created in the previous step. Then, clear those partitions and mount them to the appropriate directories:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># /mnt</span></span><br><span class="line">mkfs.ext4 /dev/sdXN        <span class="comment"># Format the root partition</span></span><br><span class="line">mount /dev/sdXN /mnt       <span class="comment"># Mount the root partition to /mnt</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># /boot</span></span><br><span class="line"><span class="comment"># For dual-booting with Windows, you should mount the existing EFI partition of Windows here.</span></span><br><span class="line"><span class="comment"># Identify the EFI partition (usually a small FAT32 partition) and mount it to /mnt/boot.</span></span><br><span class="line">mkfs.vfat -F32 /dev/sdYN   <span class="comment"># Format the EFI partition as FAT32</span></span><br><span class="line"><span class="built_in">mkdir</span> -p /mnt/boot         <span class="comment"># Create the /mnt/boot directory if it does not exist</span></span><br><span class="line">mount /dev/sdYN /mnt/boot  <span class="comment"># Mount the EFI partition to /mnt/boot</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># /swap</span></span><br><span class="line"><span class="comment"># For swap partition, you need to format it as swap and enable it, </span></span><br><span class="line"><span class="comment"># rather than mounting it to a directory.</span></span><br><span class="line">mkswap /dev/sdZN           <span class="comment"># Format the swap partition</span></span><br><span class="line">swapon /dev/sdZN           <span class="comment"># Enable the swap partition</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># /home</span></span><br><span class="line">mkfs.ext4 /dev/sdWN        <span class="comment"># Format the home partition</span></span><br><span class="line"><span class="built_in">mkdir</span> -p /mnt/home         <span class="comment"># Create the /mnt/home directory if it does not exist</span></span><br><span class="line">mount /dev/sdWN /mnt/home  <span class="comment"># Mount the home partition to /mnt/home</span></span><br></pre></td></tr></table></figure>
+<p>Make sure to replace <code>sdXN</code>, <code>sdYN</code>, <code>sdZN</code> and <code>sdWN</code> with the actual partition identifiers for your system.</p>
+<h3 id="Install-Arch-Linux">Install Arch Linux</h3>
+<p>For Chinese users, some localaizations may be needed to make the installation process smoother, and here I use reflector.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reflector --country China --protocol https --<span class="built_in">sort</span> rate --save /etc/pacman.d/mirrorlist</span><br></pre></td></tr></table></figure>
+<p>where <code>--country</code> specifies the country for mirror selection, <code>--protocol</code> specifies the protocol to use (https is recommended for security), <code>--sort</code> sorts the mirrors by their download rate, and <code>--save</code> saves the selected mirrors to the specified mirror list file.</p>
+<p>Run <code>pacman -Syy</code> to update the package database with the new mirror list. Then, use the following command to install the base system and necessary packages:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacstrap /mnt base base-devel linux linux-firmware vim nano networkmanager e2fsprogs</span><br></pre></td></tr></table></figure>
+<p>where <code>base</code> is the essential package group for a minimal Arch Linux installation, <code>linux</code> is the Linux kernel, <code>linux-firmware</code> contains firmware files for various hardware devices, <code>vim</code> and <code>nano</code> are text editors, and <code>networkmanager</code> is a tool for managing network connections. You can add other packages you need to this command as well. For support of Windows NTFS partitions, you can also install <code>ntfs-3g</code> package.</p>
+<p>During the installation process, operating system may ask you to select options for certain packages, and default options are usually fine. Just follow the prompts and complete the installation.</p>
+<p>When the installation is complete, use the following command to generate an fstab file, which will be used to mount the partitions at boot time:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">genfstab -U -p /mnt &gt;&gt; /mnt/etc/fstab</span><br></pre></td></tr></table></figure>
+<p>where <code>-U</code> option uses UUIDs to identify partitions in the fstab file, which is more reliable than using device names. The output is appended to the <code>/mnt/etc/fstab</code> file, which will be used in the new system.</p>
+<h2 id="Switch-to-the-New-System">Switch to the New System</h2>
+<p><code>arch-chroot</code> is a command that allows you to change the root directory to the newly installed Arch Linux system on your disk. This is necessary to perform post-installation configurations and setup before rebooting into the new system. Run <code>arch-chroot /mnt</code> to enter the chroot environment, which uses <code>root</code> as the current user by default.</p>
+<h3 id="Set-Users-and-Passwords">Set Users and Passwords</h3>
+<p>Run <code>passwd</code> to set a password for the root user. You will be prompted to enter and confirm the new password.</p>
+<p>In normal usage, it is not recommended to use the root account for daily activities. Instead, you should create a new user account with regular privileges. Use the following command to create a new user:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd -m -G wheel -s /bin/bash your_username</span><br></pre></td></tr></table></figure>
+<p>where <code>-m</code> creates a home directory for the user, <code>-G wheel</code> adds the user to the <code>wheel</code> group (which allows the user to use <code>sudo</code> for administrative tasks), and <code>-s /bin/bash</code> sets the default shell to Bash. Replace <code>your_username</code> with your desired username, which should be lowercase and without spaces.</p>
+<p>To enable the new user to use <code>sudo</code>, you need to edit the sudoers file. Use <code>visudo</code> command to safely edit the file:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">visudo</span><br></pre></td></tr></table></figure>
+<p>Find the line that says <code># %wheel ALL=(ALL) ALL</code> and uncomment it by removing the <code>#</code> at the beginning of the line. This allows all users in the <code>wheel</code> group to execute any command with <code>sudo</code>.</p>
+<h3 id="Set-Hostname-and-Domain-Name">Set Hostname and Domain Name</h3>
+<p>The hostname is the name of your computer on the network. You can set it to anything you like, but it should be unique if you are on a network with multiple devices.</p>
+<p>To set the hostname, use the following command:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">"your_hostname"</span> &gt; /etc/hostname</span><br></pre></td></tr></table></figure>
+<p>Replace <code>your_hostname</code> with your desired hostname, which should be lowercase and without spaces.</p>
+<p>The domain name is used in network configurations and can be set to a custom value or left blank if not needed. To set the domain name, you can edit the <code>/etc/hosts</code> file and add an entry for your hostname and domain name:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1 your_hostname.your_domain_name your_hostname</span><br></pre></td></tr></table></figure>
+<p>Replace <code>your_hostname</code> with the hostname you set earlier, and <code>your_domain_name</code> with your desired domain name (or leave it <code>localdomain</code> if not needed). If you are confused about the domain name, ask your network administrator or just leave it as <code>localdomain</code>.</p>
+<h3 id="Install-Microcode">Install Microcode</h3>
+<p>Microcode is a layer of low-level code that helps the operating system communicate with the CPU. For Intel CPUs, you can install the <code>intel-ucode</code> package, and for AMD CPUs, you can install the <code>amd-ucode</code> package. This step is important for system stability and performance.</p>
+<h3 id="Install-GRUB-Bootloader">Install GRUB Bootloader</h3>
+<p>For traditional BIOS systems, use <code>pacman -S grub os-prober</code> to install GRUB and os-prober, which is a tool that detects other operating systems on your computer. Then, use <code>grub-install --target=i386-pc /dev/sdX</code> to install GRUB to the MBR of your disk (replace <code>sdX</code> with your actual disk identifier, e.g., <code>sda</code>).</p>
+<p>For UEFI systems, use <code>pacman -S grub efibootmgr os-prober</code> to install GRUB, efibootmgr (a tool for managing UEFI boot entries) and os-prober. Then, use <code>grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB</code> to install GRUB to the EFI partition (which is mounted at <code>/boot</code>).</p>
+<p><code>os-prober</code> is prohibited by default in Arch Linux for security reasons, so you need to enable it by editing the GRUB configuration file <code>/etc/default/grub</code> and adding the line <code>GRUB_DISABLE_OS_PROBER=false</code>. Then, use <code>grub-mkconfig -o /boot/grub/grub.cfg</code> to generate the GRUB configuration file, which will include entries for both Arch Linux and Windows.</p>
+<p>ENSURE the commands above are executed with output.</p>
+<h3 id="Localization-and-Timezone">Localization and Timezone</h3>
+<p>Set your timezone by creating a symbolic link to the appropriate timezone file in <code>/usr/share/zoneinfo</code>. For example, if you are in Shanghai, use:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ln</span> -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</span><br></pre></td></tr></table></figure>
+<p>Then, use <code>hwclock --systohc</code> to synchronize the hardware clock with the system time.</p>
+<p>Set your locale by editing the <code>/etc/locale.gen</code> file and uncommenting the line corresponding to your desired locale (e.g., <code>en_US.UTF-8 UTF-8</code> for English). Then, use <code>locale-gen</code> to generate the locale.</p>
+<p>Finally, create a <code>/etc/locale.conf</code> file and set the <code>LANG</code> variable to your desired locale (e.g., <code>LANG=en_US.UTF-8</code>).</p>
+<h2 id="Finish-Installation">Finish Installation</h2>
+<p>Now an Arch Linux system is installed on your computer and can be booted, although it does not look like an operating system yet. The following steps are optional, in order to smooth usage experience.</p>
+<h3 id="GUI-Optimization">GUI Optimization</h3>
+<p>GUI sounds useless for a Linux user. But who will refuse a better interface? Mainstream of Arch Linux GUI environments are GNOME, KDE Plasma and XFCE.</p>
+<h3 id="Chinese-Font-Support">Chinese Font Support</h3>
+<p>For Chinese users, you can install the <code>noto-fonts</code> package for basic font support, and <code>noto-fonts-cjk</code> package for better Chinese character rendering. You can also install <code>wqy-zenhei</code> or <code>wqy-microhei</code> packages for additional Chinese font options.</p>
+<h3 id="SSH-Configure">SSH Configure</h3>
+<p>SSH refers to Secure Shell, a protocol that allows secure remote access to a computer over an unsecured network. It is widely used for remote administration and file transfers.</p>
+<h4 id="SSH-Server-Setup">SSH Server Setup</h4>
+<p>Install and enable SSH server for remote access:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pacman -S openssh</span><br><span class="line">systemctl <span class="built_in">enable</span> sshd</span><br><span class="line">systemctl start sshd</span><br><span class="line">systemctl status sshd</span><br></pre></td></tr></table></figure>
+<p>Use <code>ssh user@localhost</code> to test the SSH server locally. If a new prompt appears, the SSH server is working correctly. If you want to access other machines via SSH, use <code>ssh user_name@&lt;ip_or_domain&gt;</code>.</p>
+<h4 id="Make-Authentication-More-Secure">Make Authentication More Secure</h4>
+<p>Here we suppose the Arch Linux machine serves as a server, not a client. Usually SSH authentication works in two mode: password authentication and key-based authentication. The latter is more secure and recommended.</p>
+<p>For password authentication, directly use ssh commands without extra configuration. SSH will prompt for password input.</p>
+<p>However, for key-based authentication, you need to generate a pair of SSH keys on the client machine (the machine you use to access the Arch Linux server). Use the following command on the client machine:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -b 4096 -C <span class="string">"</span></span><br></pre></td></tr></table></figure>
+<p>Then, copy the public key to the server machine. Public key should be stored in <code>~/.ssh/authorized_keys</code> file, one key per line. Make sure the key you copied is the public key not the private key which should not be shared to others.</p>
+<p>Finally, edit the SSH server configuration file <code>/etc/ssh/sshd_config</code>, find the line <code>#PasswordAuthentication yes</code>, uncomment it and change <code>yes</code> to <code>no</code> to disable password authentication. You should also allow public key authentication by changing <code>PubkeyAuthentication no</code> to <code>yes</code>. Then restart the SSH server:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart sshd</span><br></pre></td></tr></table></figure>
+<p>Also, remote login of root should be disabled for better security. Edit the SSH server configuration file <code>/etc/ssh/sshd_config</code>, find the line <code>#PermitRootLogin prohibit-password</code>, uncomment it and change <code>prohibit-password</code> to <code>no</code>.</p>
+<h4 id="Port-Configuration">Port Configuration</h4>
+<p>By default, SSH server listens on port 22. For better security, you can change it to a different port. Edit the SSH server configuration file <code>/etc/ssh/sshd_config</code>, uncomment the line <code>#Port 22</code> and change <code>22</code> to your desired port number (e.g., <code>2222</code>).</p>
+<h3 id="Pacman-Mirror-Congiration">Pacman Mirror Congiration</h3>
+<h3 id="Mount-Your-Other-Partitions">Mount Your Other Partitions</h3>
+<p><code>fdisk --list</code> can list all your disk partitions, and you can mount the target one to certain directory using <code>mount /dev/sdXN /your/mount/point</code>, where the first argument is the partition you want to mount, and the second argument is the directory you want to mount to.</p>
+<p>However, after each rebooting, the mount will be lost and if you have multiple partitions in your disk it may be troublesome to mount them one by one every time. To solve this problem, you can edit the <code>/etc/fstab</code> file to make the mount permanent.</p>
+<p>Firstly, <strong>identify your disk</strong> via <code>ldisk -f</code>. Take note of your target partition(s), their UUID and FSTYPE.</p>
+<p>Next, you should create mount points for your partitions if they do not exist yet, which should be an empty directory.</p>
+<p>Then, edit the <code>/etc/fstab</code> file using a text editor such as <code>nano</code> or <code>vim</code>. Add a new line for each partition you want to mount permanently, following this format:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UUID=&lt;your_partition_uuid&gt;  &lt;your_mount_point&gt;  &lt;your_fstype&gt;  defaults(,nofail)  0  2</span><br></pre></td></tr></table></figure>
+<p>where <code>&lt;your_partition_uuid&gt;</code> is the UUID of your partition, <code>&lt;your_mount_point&gt;</code> is the directory you want to mount to, and <code>&lt;your_fstype&gt;</code> is the file system type of your partition (e.g., ext4, ntfs, vfat). Usually we use <code>defaults</code> options, but for disks that may not be always connected (such as external hard drives), you can add <code>nofail</code> option to avoid boot failure or rescue mode when the disk is missing. The last two numbers are dump and file system check options. usually set to <code>0</code> and <code>2</code> respectively for data disks.</p>
+<p>Finally, save the file and exit the text editor. You can test the configuration by running <code>mount -a</code>, which will mount all filesystems mentioned in <code>/etc/fstab</code>. If there are no errors, your configuration is correct.</p>
+<h3 id="Switching-Between-Different-User-Target">Switching Between Different User Target</h3>
+<p>There are several run levels (or targets) in Linux systems, which define the state of the system and the services that are running. The most common run levels are:</p>
+<ul>
+<li><code>graphical.target</code>: This is the default run level for most desktop Linux distributions. It starts the graphical user interface (GUI) and all necessary services for a desktop environment.</li>
+<li><code>multi-user.target</code>: This run level is used for systems that do not require a graphical interface. It starts all necessary services for a multi-user environment, but does not start the GUI.</li>
+</ul>
+<p>There are some other run levels such as <code>rescue.target</code> and <code>emergency.target</code>, which are used for system recovery and maintenance.</p>
+<p>To switch between different run levels, you can use the <code>systemctl</code> command. For example, to switch to the graphical target, use:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl isolate graphical.target</span><br></pre></td></tr></table></figure>
+<p>However, this change is temporary and will be lost after a reboot. To make the change permanent, you can use the <code>set-default</code> option:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl set-default graphical.target</span><br></pre></td></tr></table></figure>
+<p>Henceforth, the system will boot into the graphical target by default.</p>
+<h2 id="Possible-Issues-During-Normal-Usage">Possible Issues During Normal Usage</h2>
+<h3 id="Bootloader-Missing-After-Windows-Update">Bootloader Missing After Windows Update</h3>
+<p>After Windows updated its 25H2 version, the Arch Linux bootloader (GRUB) was missing and the system booted directly into Windows. This is likely due to Windows overwriting the EFI partition during the update process, which cause a dischronization between the NVRAM entries and actual bootloader files.</p>
+<p>To fix this issue, you should firstly check your GRUB configuration, which is usually stored in the disk partition mounted at <code>/boot</code>. If the configuration files are still there, you can try to restore the GRUB bootloader by reinstalling it.</p>
+<p>In most conditions you must to prepare a live Linux USB device (such as the Arch Linux installation USB) to boot into a live environment.</p>
+<p>Then, mount the root partition of your Arch Linux installation and the EFI partition:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mount /dev/nvme0n1pX /mnt       <span class="comment"># Mount your Root partition</span></span><br><span class="line">mount /dev/nvme0n1pY /mnt/boot  <span class="comment"># Mount EFI partition (Check if you use /boot or /efi)</span></span><br></pre></td></tr></table></figure>
+<p>Chroot into the mounted root partition:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arch-chroot /mnt</span><br></pre></td></tr></table></figure>
+<p>And reinstall GRUB:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB</span><br><span class="line">grub-mkconfig -o /boot/grub/grub.cfg</span><br></pre></td></tr></table></figure>
+<p>just like the installation process.</p>
+<p>After these steps, exit the chroot environment and reboot your system. GRUB should be restored and you should be able to boot into both Arch Linux and Windows.</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>Dimethyl
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://dimethyl.cn/Arch-Linux-Installation/" title="Arch Linux &amp; Windows Dual-Booting System Installation Guide">https://dimethyl.cn/Arch-Linux-Installation/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="../tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
+              <a href="../tags/OS/" rel="tag"><i class="fa fa-tag"></i> OS</a>
+              <a href="../tags/Windows/" rel="tag"><i class="fa fa-tag"></i> Windows</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="../MasonryDigest/2025/" rel="prev" title="Masonry Digest 2025">
+                  <i class="fa fa-angle-left"></i> Masonry Digest 2025
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="../Note-CS2501/" rel="next" title="CS2501 Discrete Mathematics">
+                  CS2501 Discrete Mathematics <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2024 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Dimethyl</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Word count total">99k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">6:01</span>
+  </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
