@@ -5,52 +5,52 @@ date: 2025-06-23 22:12:52
 
 ## Dimethyl
 
-Information Security Undergraduate @ [School of Computer Science](https://cs.sjtu.edu.cn/), [Shanghai Jiao Tong University](https://www.sjtu.edu.cn/)
+Information Security Undergraduate
+
+[School of Computer Science](https://cs.sjtu.edu.cn/), [Shanghai Jiao Tong University](https://www.sjtu.edu.cn/)
+
+Expected graduation in June 2028.
+
+<i class="fa-solid fa-location-dot"></i> Minhang District, Shanghai, China
 
 ### GitHub Activity
 
-![GitHub Contributions](https://ghchart.rshah.org/0d6aae/MingchenDai)
+GitHub @ [MingchenDai](https://github.com/MingchenDai)[^1]
 
-> With GitHub Chart API provided by [Rishabh Shah](https://ghchart.rshah.org/).
+![GitHub Contributions](https://ghchart.rshah.org/0d6aae/MingchenDai)
 
 ## Blog
 
-Dimethyl Blog is built by Hexo and hosted on GitHub Pages, with NexT theme.
+Dimethyl Blog is built by Hexo and hosted on GitHub Pages, with [NexT theme](https://github.com/next-theme/hexo-theme-next).
 
 ### Update
 
-Below is the latest update information. For detailed update log, please check [Blog Update Log](/2026/02/02/Blog-Update-Log/).
+Latest update occurs at 11 September 2026. Check GitHub commit history for more details.
 
-| Date | Version | Commit |
-|----------|-------------|------------|
-| 2026-02-02 | 1.0.1 | [Latest Commit](https://github.com/MingchenDai/mingchendai.github.io/commit/main) |
+<center>
+<ruby>まだ<rt>那道</rt></ruby>
+<ruby>空っぽ<rt>坑能不</rt></ruby>
+<ruby>な<rt>能</rt></ruby>
+<ruby>明日<rt>按时</rt></ruby>
+<ruby>は<rt>填完</rt></ruby>
 
-In **framework**, 
-- `hexo-generator-i18n` package is deprecated and removed. 
-- For table of contents in sidebar, wrapping is enabled for long titles, and instead of displaying current section title, all level headings are shown. 
-- `Powered by Hexo & NexT` footer is added. 
-- Post editing is disabled now, since the feature is not used frequently. 
-- WaveDrom diagrams are supported in consideration of future posts about digital logic design.
-- Page generator of NexT theme is modified to support user content display on functional pages such as [Categories](/categories/) and [Tags](/tags/).
 
-**New posts** are:
-- [Microsoft Windows Issues and Fixes](/2026/02/02/Windows-Issues/): A collection of issues encountered while using Windows 11 on a Lenovo laptop, along with their solutions.
-- [Dimethyl Blog Update Log](/2026/02/02/Blog-Update-Log/): This post, documenting the updates and modifications made to the Dimethyl blog.
-- [Arch Linux Installation Guide](/2026/01/15/Arch-Linux-Installation/): A comprehensive guide on installing dual-booting Arch Linux with Windows 11 on a Lenovo laptop.
-- [CS2501 Discrete Mathematics](/2026/01/16/Note-CS2501/): Notes and materials related to the CS2501 Discrete Mathematics course.
-- [CS3321 Database System Technology](/2026/02/13/Note-CS3321/): Notes and materials related to the CS3321 Database System Technology course.
+</center>
+<p align="right"><i>From Seijatachi (聖者たち)</i></p>
 
-In **modified content**,
-- $\LaTeX$ formula display bugs caused by escapes in [MATH1207 Probability and Mathematical Statistics](/2026/01/16/Note-MATH1207/) are fixed.
-- The commit history in `about` page is removed accordingly due to addition of this post, and a link to this post is added.
+Due to the *still empty tomorrow*, this blog won't be updated very frequently. Please look forward to it. If you have any questions, please seek the help of *The Saints*.
 
-In **Collections** part,
-- Picture link problem in Masonry part is fixed.
-- Link to developing page is removed.
+![Gugugaga](gugugugu.PNG)
 
 ### To Do List
 
-- [ ] Upload digest for Postcards to Myself 2025
+- [ ] **Collections/Postcard**: Upload digest for Postcards to Myself in 2025 and 2026
+  - Actually, despite sending postcards via Postcrossing, I also send postcards to myself, which haven't been organized these postcards into digests yet. I will upload them as soon as possible.
+- [ ] **Collections/Postcard**: 2026 Postcrossing Digest and Gallery
+  - I will upload the digest and gallery of postcards sent and received in 2026.
+- [ ] **Posts/Posts**: Xiamen trip record.
 - [ ] Complete Book Collection section
 - [ ] Complete Transit Collection section
 - [ ] Update note of CS3321, upload note of NIS2331 and NIS3351
+
+[^1]: GitHub Chart API is provided by [Rishabh Shah](https://ghchart.rshah.org/).

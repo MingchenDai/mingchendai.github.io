@@ -58,10 +58,10 @@ lightdark:
 # ---------------------------------------------------------------
 
 favicon:
-  small: avatar.jpg
-  medium: avatar.jpg
-  apple_touch_icon: avatar.jpg
-  safari_pinned_tab: avatar.jpg
+  small: /avatar.jpeg
+  medium: /avatar.jpeg
+  apple_touch_icon: /avatar.jpeg
+  safari_pinned_tab: /avatar.jpeg
   #android_manifest: /manifest.json
 
 # Custom Logo (Warning: Do not support scheme Mist)
@@ -110,10 +110,10 @@ menu:
   Collections:
     default: /collections/ || fa fa-bookmark
     Postcards: /postcards/ || fa fa-image
-    Essays: /essays/ || fa fa-pen-nib
-    Bookmarks: /bookmarks/ || fa fa-book
+    # Essays: /essays/ || fa fa-pen-nib
+    # Bookmarks: /bookmarks/ || fa fa-book
     Masonry: /masonry/ || fa fa-th-large
-    Transit: /transit/ || fa fa-train
+    # Transit: /transit/ || fa fa-train
   archives: /archives/ || fa fa-archive
   #schedule: /schedule/ || fa fa-calendar
   #sitemap: /sitemap.xml || fa fa-sitemap
@@ -157,7 +157,7 @@ sidebar:
 # Sidebar Avatar
 avatar:
   # Replace the default image and set the url here.
-  url: #/images/avatar.gif
+  url: /avatar.jpeg
   # If true, the avatar will be displayed in circle.
   rounded: false
   # If true, the avatar will be rotated with the cursor.
@@ -190,9 +190,10 @@ social_icons:
 links_settings:
   icon: fa fa-globe
   # Available values: block | inline
-  layout: block
+  layout: inline
 
 links:
+  Jiang Yifeng's Blog: https://blog.pneuma717.cc/
   #Title: https://example.com
 
 # Table of Contents in the Sidebar
@@ -304,7 +305,7 @@ follow_me:
 # Dependencies: https://github.com/next-theme/hexo-posts-embedding
 # Or: https://github.com/sergeyzwezdin/hexo-related-posts
 related_posts:
-  enable: false
+  enable: true
   icon: fa fa-signs-post
 
 # Post edit

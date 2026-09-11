@@ -4,7 +4,7 @@
 
 # Site
 title: Dimethyl Blog
-subtitle: It depends.
+subtitle: Universe has everything, but we call it space.
 description: Dimethyl Blog
 keywords: Dimethyl, Blog
 author: Dimethyl
@@ -13,8 +13,8 @@ timezone: 'Asia/Shanghai'
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: https://dimethyl.online/
-permalink: :year/:month/:day/:title/
+url: https://dimethyl.cn/
+permalink: :title/
 permalink_defaults:
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
@@ -136,3 +136,12 @@ search:
   field: post
   content: true
   format: html
+
+# Support footnote
+markdown:
+  render:
+    html: true
+    breaks: true
+  plugins:
+    - markdown-it-footnote
+    - markdown-it-task-checkbox
