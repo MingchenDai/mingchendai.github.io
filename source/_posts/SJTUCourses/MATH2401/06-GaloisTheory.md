@@ -12,6 +12,8 @@ tikzjax: true
 
 This article connects field extensions with groups of automorphisms. It develops fixed fields and the Galois correspondence before applying them to cubic and quartic equations, roots of unity, Kummer extensions, and solvability by radicals.
 
+<!--more-->
+
 > Collections of **MATH2401 Abstract Algebra** notes:
 >
 > 1. [*Group*](../01-Group);
