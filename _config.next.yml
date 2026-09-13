@@ -581,7 +581,8 @@ math:
   every_page: false
 
   mathjax:
-    enable: true
+    # Math is rendered to SVG by hexo-filter-mathjax on the server.
+    enable: false
     # Available values: none | ams | all
     tags: all
 

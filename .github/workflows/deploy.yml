@@ -21,8 +21,13 @@ jobs:
           node-version: '18'
           cache: 'npm'
 
+      - name: Set up Pandoc
+        uses: pandoc/actions/setup@v1
+        with:
+          version: '3.10.2'
+
       - name: Install Dependencies
-        run: npm install
+        run: npm ci
 
       - name: Build Static Site
         run: npx hexo g

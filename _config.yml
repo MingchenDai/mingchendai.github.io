@@ -137,11 +137,9 @@ search:
   content: true
   format: html
 
-# Support footnote
-markdown:
-  render:
-    html: true
-    breaks: true
-  plugins:
-    - markdown-it-footnote
-    - markdown-it-task-checkbox
+# Preserve TeX math for server-side MathJax rendering.
+pandoc:
+  timeout: 60000
+  args:
+    - --from=markdown-yaml_metadata_block
+    - --mathjax
