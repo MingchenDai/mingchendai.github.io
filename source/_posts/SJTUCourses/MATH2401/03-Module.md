@@ -31,7 +31,7 @@ Replacing a field by a ring removes division by nonzero scalars. Modules need no
 
 $$
 \begin{aligned}
-r(m+n)&=rm+rn, & (r+s)m&=rm+sm,\\\\
+r(m+n)&=rm+rn, & (r+s)m&=rm+sm,\\
 (rs)m&=r(sm), & 1m&=m.
 \end{aligned}
 $$
@@ -71,7 +71,7 @@ Conversely, restricting an $F[x]$-module to the constant polynomials gives an $F
 
 ## Free modules and presentations
 
-**Definition.** A subset $B\subseteq M$ is a *basis* if every $m\in M$ has a unique finite expression $m=\sum_{b\in B}r_bb$. A module with a basis is *free*. If $B=\\\{b_1,\dots,b_n\\\}$, then $M\cong R^n$.
+**Definition.** A subset $B\subseteq M$ is a *basis* if every $m\in M$ has a unique finite expression $m=\sum_{b\in B}r_bb$. A module with a basis is *free*. If $B=\{b_1,\dots,b_n\}$, then $M\cong R^n$.
 
 For free modules with chosen finite bases, homomorphisms $R^n\to R^m$ are represented by $m\times n$ matrices (acting on column vectors). Over a noncommutative ring this convention is for left modules and coefficients must be placed consistently.
 
@@ -89,7 +89,7 @@ For nonzero commutative rings, any two bases of a finite free module have the sa
 
 ## Smith normal form
 
-**Theorem.** **Smith normal form.** Let $R$ be a PID and $A\in M_{m\times n}\(R\)$. There are invertible matrices $P\in GL_m\(R\)$ and $Q\in GL_n\(R\)$ such that
+**Theorem.** **Smith normal form.** Let $R$ be a PID and $A\in M_{m\times n}(R)$. There are invertible matrices $P\in GL_m(R)$ and $Q\in GL_n(R)$ such that
 
 $$
 PAQ=\operatorname{diag}(d_1,\dots,d_r,0,\dots,0),
@@ -106,7 +106,7 @@ where every $d_i\ne0$. The nonzero $d_i$, normalized up to units, are uniquely d
 
 3.  add a multiple of one row (or column) to another.
 
-Equivalently, these operations replace $A$ by $PAQ$ with $P\in GL_m\(R\)$ and $Q\in GL_n\(R\)$. ◻
+Equivalently, these operations replace $A$ by $PAQ$ with $P\in GL_m(R)$ and $Q\in GL_n(R)$. ◻
 
 **Corollary.** Every subgroup of a free abelian group $\mathbb Z^m$ is free of rank at most $m$.
 
@@ -157,7 +157,7 @@ $$
 The torsion subgroup $T\le A$ and its $p$-primary subgroup $T_p$ are also intrinsic. If $e_{p,i}=v_p(n_i)$, then for every $j\ge1$,
 
 $$
-\dim_{\mathbb F_p}\bigl(p^{j-1}T_p/p^jT_p\bigr) =\\\#\\\{i:e_{p,i}\ge j\\\}.
+\dim_{\mathbb F_p}\bigl(p^{j-1}T_p/p^jT_p\bigr) =\#\{i:e_{p,i}\ge j\}.
 $$
 
 These dimensions recover the multiset of exponents $e_{p,i}$ for every prime $p$. Moreover, $k=\max_p\dim_{\mathbb F_p}(T_p/pT_p)$. Padding the exponent lists on the left with zeros to length $k$ and using $n_1\mid\cdots\mid n_k$ uniquely recovers each $n_i=\prod_p p^{e_{p,i}}$. ◻

@@ -32,8 +32,8 @@ $$
 Then $S$ is a $G$-set. The orbit and stabilizer of $s$ are
 
 $$
-O_s=\\\{g\cdot s:g\in G\\\},
-\qquad G_s=\\\{g\in G:g\cdot s=s\\\}.
+O_s=\{g\cdot s:g\in G\},
+\qquad G_s=\{g\in G:g\cdot s=s\}.
 $$
 
 The action is *transitive* if it has only one orbit.
@@ -75,12 +75,12 @@ When $G$ is finite, the final summand is $|G|/|G_s|$.
 
 ## Actions on subsets and normalizers
 
-An action on $S$ induces an action on its power set by $g\cdot A=\\\{g\cdot a:a\in A\\\}$. In particular, $G$ acts by conjugation on its set of subgroups.
+An action on $S$ induces an action on its power set by $g\cdot A=\{g\cdot a:a\in A\}$. In particular, $G$ acts by conjugation on its set of subgroups.
 
 **Definition.** The *normalizer* of $H\le G$ is
 
 $$
-N_G(H)=\\\{g\in G:gHg^{-1}=H\\\}.
+N_G(H)=\{g\in G:gHg^{-1}=H\}.
 $$
 
 It is the stabilizer of $H$ in the conjugation action.
@@ -92,15 +92,15 @@ It is the stabilizer of $H$ in the conjugation action.
 For the conjugation action of $G$ on itself, the orbit of $x$ is its conjugacy class and its stabilizer is the centralizer
 
 $$
-C_G(x)=\\\{g\in G:gx=xg\\\}.
+C_G(x)=\{g\in G:gx=xg\}.
 $$
 
 **Definition.** The *center* of $G$ is
 
 $$
 \begin{aligned}
-Z(G)&=\\\{x\in G:xg=gx\text{ for every }g\in G\\\}\\
-     &=\\\{x\in G:C_G(x)=G\\\}\\
+Z(G)&=\{x\in G:xg=gx\text{ for every }g\in G\}\\
+     &=\{x\in G:C_G(x)=G\}\\
      &=\bigcap_{x\in G}C_G(x).
  \end{aligned}
 $$
@@ -120,7 +120,7 @@ $$
 **Theorem.** Actions of $G$ on $S$ correspond bijectively to homomorphisms $\rho:G\to\operatorname{Sym}(S)$, by $\rho(g)(s)=g\cdot s$. The kernel is
 
 $$
-\ker\rho=\\\{g:g\cdot s=s\text{ for every }s\in S\\\}
+\ker\rho=\{g:g\cdot s=s\text{ for every }s\in S\}
 =\bigcap_{s\in S}G_s,
 $$
 

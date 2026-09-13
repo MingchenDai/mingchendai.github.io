@@ -4,9 +4,12 @@
   "private": true,
   "scripts": {
     "build": "hexo generate",
+    "check:math": "node tools/normalize-math.js --check",
     "clean": "hexo clean",
     "deploy": "hexo deploy",
-    "server": "hexo server"
+    "format:math": "node tools/normalize-math.js --write",
+    "server": "hexo server",
+    "test:math-normalizer": "node --test tools/normalize-math.test.js"
   },
   "hexo": {
     "version": "8.1.1"

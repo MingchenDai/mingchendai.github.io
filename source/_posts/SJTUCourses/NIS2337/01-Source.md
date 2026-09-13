@@ -63,10 +63,10 @@ This section introduces the classification of sources and their mathematical mod
 
 A **single-symbol source** refers to a source that outputs one symbol at a time. Those with discrete amplitudes are called **single-symbol discrete sources**, while those with continuous amplitudes are called **single-symbol continuous sources**.
 
-A single-symbol discrete source is typically described by the probability distribution of a random variable $X$, whose sample space is the source's symbol set $A=\\\{a_1,a_2,\ldots,a_n\\\}$.
+A single-symbol discrete source is typically described by the probability distribution of a random variable $X$, whose sample space is the source's symbol set $A=\{a_1,a_2,\ldots,a_n\}$.
 
 $$
-\left[\begin{matrix}X\\\\P\end{matrix}\right]=\left[\begin{matrix}a_1 & a_2 & \cdots & a_n\\\\P_X(a_1) & P_X(a_2) & \cdots & P_X(a_n)\end{matrix}\right]
+\left[\begin{matrix}X\\P\end{matrix}\right]=\left[\begin{matrix}a_1 & a_2 & \cdots & a_n\\P_X(a_1) & P_X(a_2) & \cdots & P_X(a_n)\end{matrix}\right]
 $$
 
 where $P_X(a_i)\geq 0$ and $\displaystyle\sum_{i=1}^n P_X(a_i)=1$.
@@ -74,7 +74,7 @@ where $P_X(a_i)\geq 0$ and $\displaystyle\sum_{i=1}^n P_X(a_i)=1$.
 A single-symbol continuous source is described by a probability density function $P_X(x)$, whose sample space is the set of real numbers:
 
 $$
-\left[\begin{matrix}X\\\\P\end{matrix}\right]=\left[\begin{matrix}(a,b)\\\\P_X(x)\end{matrix}\right]
+\left[\begin{matrix}X\\P\end{matrix}\right]=\left[\begin{matrix}(a,b)\\P_X(x)\end{matrix}\right]
 $$
 
 where $P_X(x)\geq 0$ and $\displaystyle\int_{-\infty}^{\infty}P_X(x)\mathrm{d}x=\int_a^b P_X(x)\mathrm{d}x=1$.
@@ -83,10 +83,12 @@ where $P_X(x)\geq 0$ and $\displaystyle\int_{-\infty}^{\infty}P_X(x)\mathrm{d}x=
 
 A source emits a symbol sequence $\textbf{x}=(x_1,x_2,\ldots,x_n)$ at each instance, where each $x_i$ is a single-symbol source. It is often described by the joint probability density function $P_{\mathbf{X}}(\mathbf{x})$.
 
-$$\left[\begin{matrix}\mathbf{X}\\\ P\end{matrix}\right]=
+$$
+\left[\begin{matrix}\mathbf{X}\\\ P\end{matrix}\right]=
 \left[\begin{matrix}(
-    a_1,a_1,\ldots,a_1) &(a_1,a_1,\ldots,a_2) & \cdots & (a_n,a_n,\ldots,a_n)\\\\
-    P_{\mathbf{X}}(a_1,a_1,\ldots,a_1) &P_{\mathbf{X}}(a_1,a_1,\ldots,a_2) & \cdots & P_{\mathbf{X}}(a_n,a_n,\ldots,a_n)\end{matrix}\right]$$
+    a_1,a_1,\ldots,a_1) &(a_1,a_1,\ldots,a_2) & \cdots & (a_n,a_n,\ldots,a_n)\\
+    P_{\mathbf{X}}(a_1,a_1,\ldots,a_1) &P_{\mathbf{X}}(a_1,a_1,\ldots,a_2) & \cdots & P_{\mathbf{X}}(a_n,a_n,\ldots,a_n)\end{matrix}\right]
+    $$
 
 **Memoryless**. That is, for any $n$, $\displaystyle P_{\mathbf{X}}(\mathbf{x})=\prod_{i=1}^n P(x_i)$.
 
@@ -96,8 +98,12 @@ $$\left[\begin{matrix}\mathbf{X}\\\ P\end{matrix}\right]=
 
 In a discrete memoryless source, if each symbol output by the source is statistically independent and shares the same probability space, then the source is called a discrete stationary memoryless source, also known as an **independent and identically distributed (i.i.d.) source**.
 
-$$P_X(x_1)=P_X(x_2)=\cdots=P_X(x_n)$$
-$$P(x_1,x_2,\ldots,x_n)=P_X(x_1)P_X(x_2)\cdots P_X(x_n)=[P(x)]^n$$
+$$
+P_X(x_1)=P_X(x_2)=\cdots=P_X(x_n)
+$$
+$$
+P(x_1,x_2,\ldots,x_n)=P_X(x_1)P_X(x_2)\cdots P_X(x_n)=[P(x)]^n
+$$
 
 ### Memory Symbol-Sequence Sources
 
@@ -113,7 +119,7 @@ $$
 
 **Homogeneous Markov source**. For a first-order Markov source, we have $P(x_1,x_2,\ldots,x_n)=P_X(x_1)P_X(x_2|x_1)\cdots P_X(x_n|x_{n-1})$. If the above conditional transition probabilities are independent of the time origin, the source is called a **homogeneous Markov source**.
 
-**State**. For an $m$-th order Markov source, the state $s_i$ is defined as the combination of the $m$ symbols preceding the $i$-th time instant, i.e., $s_i=(x_{i-m},\ldots,x_{i-1})$. The state space of an $m$-th order Markov source is $S=\\\{s_1,s_2,\ldots,s_{n^m}\\\}$.
+**State**. For an $m$-th order Markov source, the state $s_i$ is defined as the combination of the $m$ symbols preceding the $i$-th time instant, i.e., $s_i=(x_{i-m},\ldots,x_{i-1})$. The state space of an $m$-th order Markov source is $S=\{s_1,s_2,\ldots,s_{n^m}\}$.
 
 #### State Transition Probabilities
 
@@ -150,9 +156,9 @@ $$
 For an $m$-th order Markov source, the **state transition matrix** is an $n^m\times n^m$ matrix, where the element in the $i$-th row and $j$-th column is the transition probability from state $s_i$ to state $s_j$:
 
 $$
-\textbf{P}=\left[\begin{matrix}P_{11} & P_{12} & \cdots & P_{1n^m}\\\\
-P_{21} & P_{22} & \cdots & P_{2n^m}\\\\
-\vdots & \vdots & \ddots & \vdots\\\\
+\textbf{P}=\left[\begin{matrix}P_{11} & P_{12} & \cdots & P_{1n^m}\\
+P_{21} & P_{22} & \cdots & P_{2n^m}\\
+\vdots & \vdots & \ddots & \vdots\\
 P_{n^m1} & P_{n^m2} & \cdots & P_{n^mn^m}\end{matrix}\right]
 $$
 
@@ -168,7 +174,7 @@ Solving for $w_j$ directly from the definition is typically difficult. The stati
 
 $$
 \begin{cases}
-w_j=\displaystyle\sum_{i=1}^{n^m} w_i P_{ij} & j=1,2,\ldots,n^m\\\\
+w_j=\displaystyle\sum_{i=1}^{n^m} w_i P_{ij} & j=1,2,\ldots,n^m\\
 \displaystyle\sum_{j=1}^{n^m} w_j=1
 \end{cases}
 $$
@@ -199,18 +205,24 @@ Self-information is additive. Let two symbols $x_i,y_i$ occur jointly with proba
 
 The **entropy** of a discrete source $X$ is defined as the average self-information of the source symbols:
 
-$$H(X)=E[I(X)]=-\sum_{i=1}^n p(x_i)\log p(x_i)=\sum_{i=1}^n p(x_i)\log\dfrac{1}{p(x_i)}$$
+$$
+H(X)=E[I(X)]=-\sum_{i=1}^n p(x_i)\log p(x_i)=\sum_{i=1}^n p(x_i)\log\dfrac{1}{p(x_i)}
+$$
 
 - Entropy is non-negative.
 - By convention, when $p(x_i)=0$, we set $p(x_i)\log p(x_i)=0$; for a **deterministic source**, i.e., $p(x_i)=1$, the entropy is $0$.
 
 **Conditional entropy**. Let $X$ and $Y$ be two discrete sources. Conditional entropy is defined as the average self-information of $X$ given knowledge of $Y$:
 
-$$H(X|Y)=-\sum_{i=1}^n\sum_{j=1}^m p(x_i,y_j)\log \dfrac{1}{p(x_i|y_j)}$$
+$$
+H(X|Y)=-\sum_{i=1}^n\sum_{j=1}^m p(x_i,y_j)\log \dfrac{1}{p(x_i|y_j)}
+$$
 
 **Joint entropy**. Let $X$ and $Y$ be two discrete sources. Joint entropy is defined as:
 
-$$H(X,Y)=-\sum_{i=1}^n\sum_{j=1}^m p(x_i,y_j)\log \dfrac{1}{p(x_i,y_j)}$$
+$$
+H(X,Y)=-\sum_{i=1}^n\sum_{j=1}^m p(x_i,y_j)\log \dfrac{1}{p(x_i,y_j)}
+$$
 
 It is easy to see that $H(X,Y)=H(X)+H(Y|X)=H(Y)+H(X|Y)$.
 
@@ -218,11 +230,15 @@ It is easy to see that $H(X,Y)=H(X)+H(Y|X)=H(Y)+H(X|Y)$.
 
 **Mutual information**. Let $X$ and $Y$ be two discrete sources. The single-symbol mutual information is defined as:
 
-$$I(x_i;y_j)=I(x_i)-I(x_i|y_j)=\log\dfrac{p(x_i|y_j)}{p(x_i)}$$
+$$
+I(x_i;y_j)=I(x_i)-I(x_i|y_j)=\log\dfrac{p(x_i|y_j)}{p(x_i)}
+$$
 
 Single-symbol mutual information can be positive or negative. The **average mutual information** is defined as:
 
-$$I(X;Y)=\sum_{i=1}^n\sum_{j=1}^m p(x_i,y_j)\log\dfrac{p(x_i|y_j)}{p(x_i)}=H(X)-H(X|Y)=H(Y)-H(Y|X)$$
+$$
+I(X;Y)=\sum_{i=1}^n\sum_{j=1}^m p(x_i,y_j)\log\dfrac{p(x_i|y_j)}{p(x_i)}=H(X)-H(X|Y)=H(Y)-H(Y|X)
+$$
 
 Average mutual information can be viewed as a distance measure between the prior probability distribution $p(x_i)$ and the posterior probability distribution $p(x_i|y_j)$. If the posterior distribution exactly matches the prior, the information gained through this "verification" is zero; if they are completely different, then all information about $X$ is obtained through this "verification", i.e., $I(X;Y)=H(X)$.
 
@@ -260,12 +276,18 @@ The figure above illustrates the relationships among entropy, conditional entrop
 
 We now introduce **conditional mutual information**, which is the mutual information between $X$ and $Y$ given $Z$, defined as:
 
-$$I(X;Y|Z)=\sum_{i=1}^n\sum_{j=1}^m\sum_{k=1}^l p(x_i,y_j,z_k)\log\dfrac{p(x_i|y_j,z_k)}{p(x_i|z_k)}=H(X|Z)-H(X|Y,Z)$$
+$$
+I(X;Y|Z)=\sum_{i=1}^n\sum_{j=1}^m\sum_{k=1}^l p(x_i,y_j,z_k)\log\dfrac{p(x_i|y_j,z_k)}{p(x_i|z_k)}=H(X|Z)-H(X|Y,Z)
+$$
 
 Thus, the average mutual information on a three-dimensional joint set $H(X,Y,Z)$ can be defined as:
 
-$$I(X;Y,Z)=I(X;Y)+I(X;Z|Y)$$
-$$I(Y,Z;X)=I(Y;X)+I(Z;X|Y)$$
+$$
+I(X;Y,Z)=I(X;Y)+I(X;Z|Y)
+$$
+$$
+I(Y,Z;X)=I(Y;X)+I(Z;X|Y)
+$$
 
 > With the introduction of three-variable mutual information, the notation for mutual information becomes somewhat confusing. When symbols such as $;$, $|$, and $,$ are mixed, the priority of the conditioning symbol $|$ is set to the highest, the comma $,$ to the second highest, and the semicolon $;$ to the lowest. That is, $I(X;Y,Z)$ denotes the mutual information between $X$ and $Y$ given $Z$; while $I(Y,Z;X)$ denotes the mutual information between $Y$ and $Z$ given $X$.
 
@@ -299,14 +321,16 @@ Suppose the original information $X$ undergoes two stages of processing satisfyi
 
 $$
 \begin{align*}
-I(X;Y,Z) &= I(X;Y)+I(X;Z|Y) = I(X;Z)+I(X;Y|Z) \\\\
-&\Rightarrow I(X;Z) = I(X;Y)+I(X;Z|Y)-I(X;Y|Z) \\\\
+I(X;Y,Z) &= I(X;Y)+I(X;Z|Y) = I(X;Z)+I(X;Y|Z) \\
+&\Rightarrow I(X;Z) = I(X;Y)+I(X;Z|Y)-I(X;Y|Z) \\
 \end{align*}
 $$
 
 Since this processing forms a Markov chain, $X$ and $Z$ are conditionally independent given $Y$, i.e., $I(X;Z|Y)=0$. Therefore:
 
-$$I(X;Z) = I(X;Y)-I(X;Y|Z)\leq I(X;Y)$$
+$$
+I(X;Z) = I(X;Y)-I(X;Y|Z)\leq I(X;Y)
+$$
 
 That is, processing of information does not increase the amount of information.
 
@@ -346,13 +370,17 @@ The information diagram of the Markov chain is shown above.
 
 Suppose the original information $X$ is observed $n$ times, yielding $Y_1,Y_2,\cdots,Y_n$. Then:
 
-$$I(X;Y_1,Y_2,\cdots,Y_n)=I(X;Y_1)+I(X;Y_2|Y_1)+\cdots+I(X;Y_n|Y_1,Y_2,\cdots,Y_{n-1})\geq I(X;Y_1)$$
+$$
+I(X;Y_1,Y_2,\cdots,Y_n)=I(X;Y_1)+I(X;Y_2|Y_1)+\cdots+I(X;Y_n|Y_1,Y_2,\cdots,Y_{n-1})\geq I(X;Y_1)
+$$
 
 ### Relative Entropy and Mutual Information
 
 Relative entropy measures the dissimilarity between a random variable with true distribution $p(x)$ and a random variable with assumed distribution $q(x)$. The **relative entropy** (also known as the Kullback-Leibler divergence) between two probability density functions $p(x)$ and $q(x)$ is defined as:
 
-$$D_{KL}(p\|q)=\sum_{x\in\mathcal{X}}p(x)\log\frac{p(x)}{q(x)}$$
+$$
+D_{KL}(p\|q)=\sum_{x\in\mathcal{X}}p(x)\log\frac{p(x)}{q(x)}
+$$
 
 In the above definition, we adopt the conventions $0\log\dfrac{0}{q(x)}=0$ and $p(x)\log\dfrac{p(x)}{0}=\infty$.
 
@@ -360,13 +388,17 @@ Relative entropy is **asymmetric**; its computation essentially treats $p(x)$ as
 
 For joint probability density functions $p(x,y)$ and $q(x,y)$, the **conditional relative entropy** $D_{KL}(p(y|x)\|q(y|x))$ is defined as:
 
-$$D_{KL}(p(y|x)\|q(y|x))=\sum_{x\in\mathcal{X}}p(x,y)\log\frac{p(y|x)}{q(y|x)}$$
+$$
+D_{KL}(p(y|x)\|q(y|x))=\sum_{x\in\mathcal{X}}p(x,y)\log\frac{p(y|x)}{q(y|x)}
+$$
 
 The non-negativity of relative entropy, i.e., $D_{KL}(p\|q)\geq 0$, with equality if and only if $p=q$, can be proved using Jensen's inequality.
 
 By introducing relative entropy, we can reinterpret the definition of mutual information. For two discrete sources $X$ and $Y$, we can view their prior distribution as $p(x)p(y)$, i.e., assuming they are independent by default, and the learned posterior distribution as $p(x,y)$. Then the mutual information $I(X;Y)$ can be seen as the relative entropy from the default independent distribution to the learned dependent distribution, i.e.:
 
-$$I(X;Y)=D_{KL}(p(x,y)\|p(x)p(y))$$
+$$
+I(X;Y)=D_{KL}(p(x,y)\|p(x)p(y))
+$$
 
 ## Properties of Entropy
 
@@ -382,17 +414,23 @@ This verifies the non-negativity of relative entropy. It also shows that if we n
 
 **Maximum entropy principle**. For any probability vector $\mathbf{P}$:
 
-$$H(X)\leq\log n$$
+$$
+H(X)\leq\log n
+$$
 
 **Expansibility**. For any probability vector $\mathbf{P}$:
 
-$$\lim_{\varepsilon\to 0}H(p_1,p_2,\cdots,p_{n-1},p_n-\varepsilon,\varepsilon)=H(p_1,p_2,\cdots,p_{n-1},p_n)$$
+$$
+\lim_{\varepsilon\to 0}H(p_1,p_2,\cdots,p_{n-1},p_n-\varepsilon,\varepsilon)=H(p_1,p_2,\cdots,p_{n-1},p_n)
+$$
 
 Although a source may have many possible values, if the probabilities corresponding to these values are very small (close to 0), the entropy of the source remains unchanged. That is, although low-probability events carry more information to the receiver, in terms of the mathematical expectation of information, the contribution of these events ultimately converges to 0 as the probability decreases.
 
 **Additivity (Incrementality)**. For any probability vector $\mathbf{P}$:
 
-$$H(p_1,p_2,\cdots,p_{n-1},q_1, q_2, \cdots, q_n)=H(p_1,p_2,\cdots,p_{n-1},p_n)+p_nH_m(\dfrac{q_1}{p_n}, \dfrac{q_2}{p_n}, \cdots, \dfrac{q_n}{p_n})$$
+$$
+H(p_1,p_2,\cdots,p_{n-1},q_1, q_2, \cdots, q_n)=H(p_1,p_2,\cdots,p_{n-1},p_n)+p_nH_m(\dfrac{q_1}{p_n}, \dfrac{q_2}{p_n}, \cdots, \dfrac{q_n}{p_n})
+$$
 
 This property indicates that if one element in the original source is split into multiple elements, the entropy increases.
 
@@ -400,22 +438,28 @@ This property indicates that if one element in the original source is split into
 
 **Chain rule for entropy**. For any random variables $X_1,X_2,\cdots,X_n$ jointly distributed according to $p(x_1,x_2,\cdots,x_n)$:
 
-$$H(X_1,X_2,\cdots,X_n)=\sum_{i=1}^n H(X_i|X_1,X_2,\cdots,X_{i-1})$$
+$$
+H(X_1,X_2,\cdots,X_n)=\sum_{i=1}^n H(X_i|X_1,X_2,\cdots,X_{i-1})
+$$
 
 **Chain rule for mutual information**. For any random variables $X_1,X_2,\cdots,X_n$ and $Y$ jointly distributed according to $p(x_1,x_2,\cdots,x_n,y)$:
 
-$$I(X_1,X_2,\cdots,X_n;Y)=\sum_{i=1}^n I(X_i;Y|X_1,X_2,\cdots,X_{i-1})$$
+$$
+I(X_1,X_2,\cdots,X_n;Y)=\sum_{i=1}^n I(X_i;Y|X_1,X_2,\cdots,X_{i-1})
+$$
 
 **Chain rule for relative entropy**. For any random variables $X_1,X_2,\cdots,X_n$ and $Y$ jointly distributed according to $p(x_1,x_2,\cdots,x_n,y)$:
 
-$$D_{KL}(p(x_1,x_2,\cdots,x_n,y)\|q(x_1,x_2,\cdots,x_n,y))=\sum_{i=1}^n D_{KL}(p(x_i|X_1,X_2,\cdots,X_{i-1},Y)\|q(x_i|X_1,X_2,\cdots,X_{i-1},Y))$$
+$$
+D_{KL}(p(x_1,x_2,\cdots,x_n,y)\|q(x_1,x_2,\cdots,x_n,y))=\sum_{i=1}^n D_{KL}(p(x_i|X_1,X_2,\cdots,X_{i-1},Y)\|q(x_i|X_1,X_2,\cdots,X_{i-1},Y))
+$$
 
 ### Convexity of Relative Entropy, Entropy, and Mutual Information
 
 **Convexity of relative entropy**. For any probability vectors $\mathbf{P}$ and $\mathbf{Q}$, and any $\lambda\in[0,1]$:
 
 $$
-D\_{KL}(\lambda\mathbf{P}\_1+(1-\lambda)\mathbf{P}\_2\|\lambda\mathbf{Q}\_1+(1-\lambda)\mathbf{Q}\_2)\leq\lambda D\_{KL}(\mathbf{P}\_1\|\mathbf{Q}\_1)+(1-\lambda)D\_{KL}(\mathbf{P}\_2\|\mathbf{Q}\_2)
+D_{KL}(\lambda\mathbf{P}_1+(1-\lambda)\mathbf{P}_2\|\lambda\mathbf{Q}_1+(1-\lambda)\mathbf{Q}_2)\leq\lambda D_{KL}(\mathbf{P}_1\|\mathbf{Q}_1)+(1-\lambda)D_{KL}(\mathbf{P}_2\|\mathbf{Q}_2)
 $$
 
 > This can be proved using the log-sum inequality, by setting $a_1=\lambda p_1(x)$, $a_2=(1-\lambda)p_2(x)$, $b_1=\lambda q_1(y)$, $b_2=(1-\lambda)q_2(y)$.
@@ -430,7 +474,9 @@ $$
 
 For any estimator $\hat{X}$ satisfying $X\to Y\to \hat{X}$:
 
-$$H(X|Y)\leq H(X|\hat{X}) \leq H(p_e)+p_e\log (|\mathcal{X}|-1)$$
+$$
+H(X|Y)\leq H(X|\hat{X}) \leq H(p_e)+p_e\log (|\mathcal{X}|-1)
+$$
 
 where $p_e$ is the probability of estimation error and $\mathcal{X}$ is the alphabet of $X$.
 
@@ -438,27 +484,35 @@ Furthermore, the above inequality can be weakened to $H(X|Y)\leq 1+p_e\log |\mat
 
 Corollary: For any two random variables $X$ and $Y$:
 
-$$H(X|Y)\leq H(p_e)+p_e\log |\mathcal{X}|$$
+$$
+H(X|Y)\leq H(p_e)+p_e\log |\mathcal{X}|
+$$
 
 where $p_e$ is the error probability between $X$ and $Y$, i.e., $p_e=P(X\neq Y)$.
 
 If $X$ and $Y$ are independent and identically distributed random variables:
 
-$$P(X=Y)=\sum_i p(x_i)^2=\sum_i p(x_i)2^{\log p(x_i)}\geq 2^{-H(X)}$$
+$$
+P(X=Y)=\sum_i p(x_i)^2=\sum_i p(x_i)2^{\log p(x_i)}\geq 2^{-H(X)}
+$$
 
 If they are not independent and identically distributed, let the symbol distributions of $X$ and $Y$ be $p(x)$ and $r(y)$, respectively:
 
-$$P(X=Y)\geq 2^{-H\(p\)-D(p\|r)} \quad P(X=Y)\geq 2^{-H\(r\)-D(r\|p)}$$
+$$
+P(X=Y)\geq 2^{-H(p)-D(p\|r)} \quad P(X=Y)\geq 2^{-H(r)-D(r\|p)}
+$$
 
 ## Entropy of Discrete Sequence Sources
 
 ### Entropy of Discrete Memoryless Sources
 
-Assume the random sequence output by the source is $\mathbf{X}=(X_1,X_2,\cdots,X_L)$, where each single-symbol variable in the sequence $X_i\in\\\{x_1,x_2,\cdots,x_n\\\}$. The sequence entropy of the source is defined as:
+Assume the random sequence output by the source is $\mathbf{X}=(X_1,X_2,\cdots,X_L)$, where each single-symbol variable in the sequence $X_i\in\{x_1,x_2,\cdots,x_n\}$. The sequence entropy of the source is defined as:
 
-$$H(\mathbf{X})=-\sum_{i=1}^L\sum_{j=1}^L\cdots\sum_{k=1}^L P(x_i,x_j,\cdots,x_k)\log P(x_i,x_j,\cdots,x_k)=-p(\vec{x}_i)\log p(\vec{x}_i)$$
+$$
+H(\mathbf{X})=-\sum_{i=1}^L\sum_{j=1}^L\cdots\sum_{k=1}^L P(x_i,x_j,\cdots,x_k)\log P(x_i,x_j,\cdots,x_k)=-p(\vec{x}_i)\log p(\vec{x}_i)
+$$
 
-where $\vec{x}_i$ denotes the $i$-th possible value of the sequence $\mathbf{X}$, i.e., $i\in\\\{1,2,\cdots,n^L\\\}$.
+where $\vec{x}_i$ denotes the $i$-th possible value of the sequence $\mathbf{X}$, i.e., $i\in\{1,2,\cdots,n^L\}$.
 
 When the sequence satisfies the memoryless condition, $\displaystyle H(\mathbf{X})=\sum_{i=1}^L H(X_i)$. When the sequence is stationary, $\displaystyle H(\mathbf{X})=L\cdot H(X)$; in this case, the average entropy per symbol is $H_L(\mathbf{X})=H(X)$.
 
@@ -468,7 +522,9 @@ For discrete sources with memory, the concept of conditional entropy must be int
 
 If the source outputs a symbol sequence $\mathbf{X}=(X_1,X_2,\cdots,X_L)$ of length $L$, its entropy is:
 
-$$H(\mathbf{X})=H(X_1)+H(X_2|X_1)+\cdots+H(X_L|X_1,X_2,\cdots,X_{L-1})=LH_L(\mathbf{X})$$
+$$
+H(\mathbf{X})=H(X_1)+H(X_2|X_1)+\cdots+H(X_L|X_1,X_2,\cdots,X_{L-1})=LH_L(\mathbf{X})
+$$
 
 Concerning $H_L(\mathbf{X})$, there are some interesting conclusions. In the following derivations, denote a symbol sequence of length $L$ as $X^L$.
 
@@ -477,7 +533,9 @@ Concerning $H_L(\mathbf{X})$, there are some interesting conclusions. In the fol
 
 That is, for a sequence source with memory, the longer the message sequence length $L$, the smaller the incremental entropy, and the smaller the average entropy per symbol. Therefore, the **entropy rate** is defined as:
 
-$$H_\infty(\mathbf{X})=\lim_{L\to\infty} H_L(\mathbf{X})=\lim_{L\to\infty} H(X_L|X^{L-1})$$
+$$
+H_\infty(\mathbf{X})=\lim_{L\to\infty} H_L(\mathbf{X})=\lim_{L\to\infty} H(X_L|X^{L-1})
+$$
 
 For a finite-length sequence source with memory, the sequence entropy $H(\mathbf{X})$ and the average entropy per symbol $H_L(\mathbf{X})$ only account for the correlation among the $L$ symbols, while the correlation between symbol sequences is neglected. This is clearly inadequate for practical applications.
 
@@ -485,24 +543,30 @@ In reality, considering that the source continuously emits signals, the statisti
 
 However, solving the probability distribution in infinite dimensions is a rather difficult task. When the above source satisfies the $m$-th order Markov property, we have:
 
-$$\begin{align*}
-H_\infty(\mathbf{X})&=\lim_{L\to\infty} H(X_L|X^{L-1})\\\\ 
-&=\lim_{L\to\infty}H(X_L|X_{L-1},X_{L-2},\cdots,X_1)\\\\
-&=\lim_{L\to\infty} H(X_L|X_{L-1}, X_{L-2}, \cdots, X_{L-m})\\\\
+$$
+\begin{align*}
+H_\infty(\mathbf{X})&=\lim_{L\to\infty} H(X_L|X^{L-1})\\ 
+&=\lim_{L\to\infty}H(X_L|X_{L-1},X_{L-2},\cdots,X_1)\\
+&=\lim_{L\to\infty} H(X_L|X_{L-1}, X_{L-2}, \cdots, X_{L-m})\\
 &=H(X_{m+1}|X_m,\cdots,X_1)
-\end{align*}$$
+\end{align*}
+$$
 
 That is, the entropy rate of an $m$-th order Markov source equals its conditional entropy, which is very useful in engineering.
 
 The average symbol entropy of a Markov source is:
 
-$$H(X)=\sum_{i=1}^{n^m} p(s_i) H(X|S=s_i)$$
+$$
+H(X)=\sum_{i=1}^{n^m} p(s_i) H(X|S=s_i)
+$$
 
 ## Entropy of Continuous Sources
 
 The entropy of a continuous source, i.e., the **differential entropy**, is defined as:
 
-$$H(X)=-\int_{-\infty}^{\infty} p(x)\log p(x) \mathrm{d}x$$
+$$
+H(X)=-\int_{-\infty}^{\infty} p(x)\log p(x) \mathrm{d}x
+$$
 
 The physical meaning of the entropy of a continuous source is different from that of a discrete source. The uncertainty of a continuous source should be infinite; however, the definition of **differential entropy** takes into account that practical problems often involve the difference between the entropies of different continuous sources (mutual information). Therefore, the infinite term in the definition cancels out in the difference calculation.
 
@@ -510,16 +574,24 @@ Consequently, the entropy of a continuous source is **relative** -- the physical
 
 The definitions of **joint differential entropy** and **conditional differential entropy** are given below:
 
-$$H(X,Y)=-\int_{-\infty}^{\infty}\int_{-\infty}^{\infty} p(x,y)\log p(x,y) \mathrm{d}x\mathrm{d}y$$
-$$H(X|Y)=-\int_{-\infty}^{\infty}\int_{-\infty}^{\infty} p(x,y)\log p(x|y) \mathrm{d}x\mathrm{d}y$$
+$$
+H(X,Y)=-\int_{-\infty}^{\infty}\int_{-\infty}^{\infty} p(x,y)\log p(x,y) \mathrm{d}x\mathrm{d}y
+$$
+$$
+H(X|Y)=-\int_{-\infty}^{\infty}\int_{-\infty}^{\infty} p(x,y)\log p(x|y) \mathrm{d}x\mathrm{d}y
+$$
 
 It can be shown that the relationship between joint differential entropy and conditional differential entropy is analogous to that in the discrete case:
 
-$$H(X,Y)=H(X)+H(Y|X)$$
+$$
+H(X,Y)=H(X)+H(Y|X)
+$$
 
 Thus, the **mutual information for continuous sources** can be defined as:
 
-$$I(X;Y)=H(X)-H(X|Y)$$
+$$
+I(X;Y)=H(X)-H(X|Y)
+$$
 
 ### Entropy of Waveform Sources
 
@@ -529,13 +601,21 @@ For a stationary random process, through sampling (refer to the relevant content
 
 Let the stationary random vectors $\mathbf{X}=(X_1,X_2,\cdots,X_n)$ and $\mathbf{Y}=(Y_1,Y_2,\cdots,Y_n)$ be the input and output random sequences, respectively. Their continuous entropy and continuous conditional entropy are defined as:
 
-$$H(\mathbf{X})=H(X_1,X_2,\cdots,X_n)=-\int_{\mathbf{R}^n} p(\vec{x})\log p(\vec{x}) \mathrm{d}\vec{x}$$
-$$H(X|Y)=H(X_1,X_2,\cdots,X_n|Y_1,Y_2,\cdots,Y_n)=-\int_{\mathbf{R}^n} \int_{\mathbf{R}^n} p(\vec{x},\vec{y})\log p(\vec{x}|\vec{y}) \mathrm{d}\vec{x}\mathrm{d}\vec{y}$$
+$$
+H(\mathbf{X})=H(X_1,X_2,\cdots,X_n)=-\int_{\mathbf{R}^n} p(\vec{x})\log p(\vec{x}) \mathrm{d}\vec{x}
+$$
+$$
+H(X|Y)=H(X_1,X_2,\cdots,X_n|Y_1,Y_2,\cdots,Y_n)=-\int_{\mathbf{R}^n} \int_{\mathbf{R}^n} p(\vec{x},\vec{y})\log p(\vec{x}|\vec{y}) \mathrm{d}\vec{x}\mathrm{d}\vec{y}
+$$
 
 For random waveform sources, the definitions of entropy and conditional entropy can be introduced by taking the limit of the above definitions:
 
-$$H(x(t))=\lim_{n\to\infty} H(\mathbf{X})$$
-$$H(y(t)|x(t))=\lim_{n\to\infty} H(\mathbf{Y}|\mathbf{X})$$
+$$
+H(x(t))=\lim_{n\to\infty} H(\mathbf{X})
+$$
+$$
+H(y(t)|x(t))=\lim_{n\to\infty} H(\mathbf{Y}|\mathbf{X})
+$$
 
 According to the sampling theorem, for a signal with bandwidth $f_m$ and duration $t_B$, a $2f_m t_B$-dimensional vector can be used for representation. This converts a continuous-time process with both limited bandwidth and limited duration into a finite-dimensional, time-discrete stationary random sequence, whose entropy and conditional entropy can be determined using the definitions from the preceding sections.
 
@@ -551,7 +631,9 @@ Under the average-power constraint, the **maximum entropy theorem for average-po
 
 Let the entropy rate of a general stationary source be $H_\infty(\mathbf{X})$. Its redundancy is defined as:
 
-$$R=1-\frac{H_\infty(\mathbf{X})}{H_\text{max}(\mathbf{X})}$$
+$$
+R=1-\frac{H_\infty(\mathbf{X})}{H_\text{max}(\mathbf{X})}
+$$
 
 where $H_{max}(\mathbf{X})$ is the maximum possible entropy of the source.
 

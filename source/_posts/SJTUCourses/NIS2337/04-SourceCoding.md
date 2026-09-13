@@ -58,7 +58,7 @@ The role of source coding can be summarized as follows:
 \end{document}
 ```
 
-**Block Codes**. The source messages are divided into groups (or symbol sequences) $\vec{x}\_i=(x_{i1}, x_{i2}, \ldots, x_{il})$, where $l$ is the length of each group. Each group of messages is encoded into a codeword $\vec{y}_i$ of length $k$. The encoding function for block codes is $f: \vec{x}_i \mapsto \vec{y}_i$.
+**Block Codes**. The source messages are divided into groups (or symbol sequences) $\vec{x}_i=(x_{i1}, x_{i2}, \ldots, x_{il})$, where $l$ is the length of each group. Each group of messages is encoded into a codeword $\vec{y}_i$ of length $k$. The encoding function for block codes is $f: \vec{x}_i \mapsto \vec{y}_i$.
 
 Block codes are memoryless; therefore, only block codes have a corresponding code table, whereas non-block codes do not.
 
@@ -74,8 +74,10 @@ Uniquely decodable codes can be divided into **Instantaneous Codes** and **Non-i
 
 A tree diagram can be used to represent instantaneous codes. In the tree diagram, terminal nodes represent codewords, and the labels on the edges represent the symbols of the codewords.
 
-**Kraft's Inequality**. For a set of codewords $\\\{\vec{y}\_1, \vec{y}\_2, \cdots, \vec{y}\_M\\\}$, if an instantaneous code exists such that every codeword in this set belongs to the code, then Kraft's inequality must be satisfied:
-$$\sum_{i=1}^M r^{-l_i} \leq 1$$
+**Kraft's Inequality**. For a set of codewords $\{\vec{y}_1, \vec{y}_2, \cdots, \vec{y}_M\}$, if an instantaneous code exists such that every codeword in this set belongs to the code, then Kraft's inequality must be satisfied:
+$$
+\sum_{i=1}^M r^{-l_i} \leq 1
+$$
 where $r$ is the number of code symbols and $l_i$ is the length of codeword $\vec{y}_i$.
 
 Kraft's inequality is a necessary and sufficient condition for the existence of a uniquely decodable code. If the inequality is satisfied, then a uniquely decodable code with these codeword lengths must exist; however, this does **not** imply that every code satisfying the inequality is uniquely decodable. Therefore, this inequality is a necessary and sufficient condition for the **existence** of a uniquely decodable code, but not a necessary and sufficient condition for determining whether a particular code **is** uniquely decodable.
@@ -87,28 +89,36 @@ Kraft's inequality is a necessary and sufficient condition for the existence of 
 
 ## Noiseless Source Coding Theorem
 
-Suppose the input message sequence of the source is $X=(X_1, X_2, \ldots, X_L)$, with alphabet $\\\{a_1, a_2, \ldots, a_n\\\}$, and each symbol has probability $p(x_i)$. Let the encoded codeword sequence be $Y=(Y_1, Y_2, \ldots, Y_{K_L})$, with code alphabet $\\\{b_1, b_2, \ldots, b_m\\\}$, and each code symbol has probability $q(y_j)$.
+Suppose the input message sequence of the source is $X=(X_1, X_2, \ldots, X_L)$, with alphabet $\{a_1, a_2, \ldots, a_n\}$, and each symbol has probability $p(x_i)$. Let the encoded codeword sequence be $Y=(Y_1, Y_2, \ldots, Y_{K_L})$, with code alphabet $\{b_1, b_2, \ldots, b_m\}$, and each code symbol has probability $q(y_j)$.
 
 We seek an ideal coding scheme that minimizes both the distortion and the information rate required to transmit $Y$ during the encoding and decoding processes.
 
 ### Fixed-Length Coding
 
 In **fixed-length coding**, the output codewords have a total of $m^K$ possible combinations, and the input messages have a total of $n^L$ possible combinations. To ensure that each input message can be uniquely encoded, we must satisfy $m^K \geq n^L$, i.e.,
-$$R = \frac{K}{L} \geq \frac{\log n}{\log m}$$
+$$
+R = \frac{K}{L} \geq \frac{\log n}{\log m}
+$$
 
 The information transmission efficiency of fixed-length coding is extremely low.
 
 **Fixed-Length Coding Theorem**. Under the condition of noiseless coding (or arbitrarily small error probability), the minimum required codeword length $K$ satisfies:
-$$\bar{K}=\frac{K \log m}{L} \ge H_L(X)$$
+$$
+\bar{K}=\frac{K \log m}{L} \ge H_L(X)
+$$
 
 This can also be expressed as:
-$$K\log m > L \cdot H_L(X)=H(X)$$
+$$
+K\log m > L \cdot H_L(X)=H(X)
+$$
 That is, if the amount of information that the codeword can carry exceeds the amount of information output by the source sequence, then nearly noiseless transmission can be achieved.
 
 For fixed-length coding to achieve nearly noiseless coding, the source length $L$ must satisfy:
-$$L \geq \frac{\sigma^2(\vec{X})}{\varepsilon^2\delta}$$
+$$
+L \geq \frac{\sigma^2(\vec{X})}{\varepsilon^2\delta}
+$$
 
-where $\sigma^2(\vec{X})=\mathbb{E}\\{[I(x_i)-H(\vec{X})]^2\\}$ is the variance of the source sequence $\vec{X}$, $\varepsilon=\bar{K}-H_L(X)$ is the allowable distortion level, and $\delta$ is the allowable distortion probability.
+where $\sigma^2(\vec{X})=\mathbb{E}\{[I(x_i)-H(\vec{X})]^2\}$ is the variance of the source sequence $\vec{X}$, $\varepsilon=\bar{K}-H_L(X)$ is the allowable distortion level, and $\delta$ is the allowable distortion probability.
 
 **Coding Efficiency**. Define the coding efficiency as $\eta = \dfrac{H_L(X)}{\bar{K}}$, the ratio of the average information per source sequence to the average codeword length.
 
@@ -119,18 +129,26 @@ The efficiency of noiseless coding is always less than 1. When $L$ is finite, it
 In variable-length coding, the codeword length $K_i$ varies. The average codeword length for an $m$-ary code is $\displaystyle \bar{K}=\sum_i p(a_i)K_i$.
 
 **Single-Symbol Variable-Length Coding Theorem**. For a discrete memoryless source with entropy $H(X)$, there exists a variable-length code such that the average codeword length $\bar{K}$ satisfies:
-$$\frac{H(X)}{\log m} \leq \bar{K} < \dfrac{H(X)}{\log m} + 1$$
+$$
+\frac{H(X)}{\log m} \leq \bar{K} < \dfrac{H(X)}{\log m} + 1
+$$
 
 For a discrete stationary memoryless sequence, we have:
-$$H_L(X) \leq \bar{K} < H_L(X) + \frac{\log m}{L}$$
+$$
+H_L(X) \leq \bar{K} < H_L(X) + \frac{\log m}{L}
+$$
 
 where $\displaystyle \bar{K}=\dfrac{\bar{K_L}}{L}\log m$. As $L$ tends to infinity, $\bar{K}$ tends to $H(X)$. The symbol length $L$ required to achieve a relatively high coding efficiency using variable-length coding is generally much smaller than that required for fixed-length coding.
 
 A lower bound on the efficiency of variable-length coding:
-$$\eta = \frac{H_L(X)}{\bar{K}} > \frac{H_L(X)}{H_L(X) + \dfrac{\log m}{L}}$$
+$$
+\eta = \frac{H_L(X)}{\bar{K}} > \frac{H_L(X)}{H_L(X) + \dfrac{\log m}{L}}
+$$
 
 Define the **redundancy** of a code:
-$$\gamma = 1-\eta = 1 - \frac{H_L(X)}{\bar{K}}$$
+$$
+\gamma = 1-\eta = 1 - \frac{H_L(X)}{\bar{K}}
+$$
 
 For a given source and a given code alphabet, if there exists a uniquely decodable code whose average length is less than that of all other uniquely decodable codes, then this code is called an **optimal code** or a **compact code**.
 
@@ -171,7 +189,7 @@ This coding method is still a way of constructing a code tree, so it is an insta
 
 For block codes, the probability characteristics of the source must be accurately measured. If these characteristics change slightly, the code table must be replaced. Moreover, for binary sources, it is often necessary to combine multiple symbols jointly to improve coding efficiency, which requires constructing a huge code table, increasing coding complexity. Therefore, it is necessary to study a non-block coding method, namely arithmetic coding.
 
-Consider a source alphabet $\\\{a_1, a_2, \ldots, a_n\\\}$, where each symbol has probability $p(a_i)$. Partition the interval $[0,1)$ into $n$ subintervals, each subinterval having a length equal to the probability of the corresponding symbol.
+Consider a source alphabet $\{a_1, a_2, \ldots, a_n\}$, where each symbol has probability $p(a_i)$. Partition the interval $[0,1)$ into $n$ subintervals, each subinterval having a length equal to the probability of the corresponding symbol.
 
 Define the cumulative probability of the $r$-th symbol as $\displaystyle P_r=\sum_{i=1}^{r-1} p(a_i)$. For a message sequence $S$, if a source symbol $a_k$ is appended, the cumulative probability becomes $P(S, a_k)=P(S) + p(S)P_k$. Meanwhile, the recurrence relation for the sequence $p(S,r)=p(S)p_r$ is obvious.
 
@@ -180,8 +198,12 @@ Thus, for a message sequence $S$, we delineate a subinterval $[P(S), P(S)+p(S))$
 Therefore, the arithmetic coding process is as follows:
 - Set up two registers $A$ and $C$; $A$ stores the lower bound of the current interval, and $C$ stores the length of the current interval. Initially, $A=0$, $C=1$.
 - For each symbol $a_k$ in the message sequence $S$, update the values of $A$ and $C$:
-$$A \leftarrow A + C \cdot P_k$$
-$$C \leftarrow C \cdot p_k$$
+$$
+A \leftarrow A + C \cdot P_k
+$$
+$$
+C \leftarrow C \cdot p_k
+$$
 - Determine the codeword length by $L=\lceil -\log_2 C \rceil$, convert $A$ into a binary number, and take its first $L$ bits as the codeword for the message sequence $S$. If there is a remainder, carry to the $L$-th bit.
 
 The decoding process recursively determines the interval containing the value, removes the cumulative probability, and scales the interval, gradually recovering the message sequence $S$.
@@ -192,7 +214,7 @@ For stationary sources with precisely known statistical characteristics, reliabl
 
 However, in practical applications (such as file compression), the statistical characteristics of the source are often unknown, or they are so complex that accurate measurement is difficult. In such cases, we need a **model-free coding** method that does not rely on the statistical characteristics of the source to construct the code. This section uses the LZ78 algorithm as an example.
 
-Suppose the source alphabet is $\\\{a_1, a_2, \ldots, a_n\\\}$, with each symbol having probability $p(a_i)$. The encoding process of the LZ78 algorithm is as follows:
+Suppose the source alphabet is $\{a_1, a_2, \ldots, a_n\}$, with each symbol having probability $p(a_i)$. The encoding process of the LZ78 algorithm is as follows:
 - Initialize an empty dictionary $D$ and an empty current string $S$.
 - Read symbols one by one from the input message sequence until a string $S_i$ not already in the dictionary $D$ is formed.
 - Add the string $S_i$ to the dictionary $D$, and output an encoded pair $(\text{index}, \text{symbol})$, where $\text{index}$ is the first $\lceil \log i \rceil$ bits of the index of the prefix of $S_i$ in the dictionary, and $\text{symbol}$ is the last symbol of $S_i$.

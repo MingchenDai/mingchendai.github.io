@@ -407,7 +407,9 @@ A one-shot, also known as a **monostable** multivibrator, is a type of circuit t
 The diagram above shows a simple one-shot circuit. When the trigger signal is applied, the output Q goes high for a certain duration determined by the resistor R and capacitor C, and then returns to low.
 
 The **pulse width** of a one-shot is the time interval during which the output remains in the high state after receiving the trigger signal. The pulse width can be calculated using the following formula:
-$$t_p = R \cdot C \cdot \ln\left(\frac{V_{supply}}{V_{threshold}}\right)$$
+$$
+t_p = R \cdot C \cdot \ln\left(\frac{V_{supply}}{V_{threshold}}\right)
+$$
 where $R$ is the resistance, $C$ is the capacitance, $V_{supply}$ is the supply voltage, and $V_{threshold}$ is the threshold voltage at which the output transitions from high to low.
 
 #### Non-retriggerable One-shot
@@ -454,7 +456,9 @@ If we do not want to use the internal resistor, we can connect the external resi
 The $A_1$, $A_2$ and $B$ are connected with a strange device - a **Schmitt trigger**. A Schmitt trigger is a type of comparator circuit that incorporates hysteresis, which means it has two different threshold voltage levels for switching between high and low output states. It will only change its output state when the input signal crosses the upper threshold voltage (for a rising input) or the lower threshold voltage (for a falling input). This makes it ideal for use in one-shot circuits, as it ensures that the output pulse is generated only in response to a valid trigger signal, and not due to noise or glitches on the input.
 
 So, the final internal trigger signal can be expressed as:
-$$\mathit{Trigger} =( \overline{A_1} + \overline{A_2}) B$$
+$$
+\mathit{Trigger} =( \overline{A_1} + \overline{A_2}) B
+$$
 
 #### Retriggerable One-shot
 
@@ -463,11 +467,15 @@ $$\mathit{Trigger} =( \overline{A_1} + \overline{A_2}) B$$
 The structure of 74LS122 is similar to that of 74LS121, but it uses a different internal configuration to allow for retriggering.
 
 When the chip does not connect to external resistor and capacitor, the pulse width can be calculated using the following formula:
-$$t_p = \ln 2 \cdot R_{\mathrm{INT}} \cdot C_{\mathrm{INT}}$$
+$$
+t_p = \ln 2 \cdot R_{\mathrm{INT}} \cdot C_{\mathrm{INT}}
+$$
 where $R_{\mathrm{INT}}$ is the internal resistance and $C_{\mathrm{INT}}$ is the internal capacitance.
 
 If external components are used, the pulse width can be calculated using the following experience formula:
-$$t_p = 0.32 \cdot R_{\mathrm{EXT}} \cdot C_{\mathrm{EXT}}(1+\frac{0.7}{R_{\mathrm{EXT}}})$$
+$$
+t_p = 0.32 \cdot R_{\mathrm{EXT}} \cdot C_{\mathrm{EXT}}(1+\frac{0.7}{R_{\mathrm{EXT}}})
+$$
 where $R_{\mathrm{EXT}}$ is the external resistance and $C_{\mathrm{EXT}}$ is the external capacitance. In this formula, the units of $R_{\mathrm{EXT}}$ and $C_{\mathrm{EXT}}$ should be in kilo-ohms and picofarads, respectively, to get the pulse width in nanoseconds.
 
 ### 555 Timer
@@ -598,7 +606,9 @@ The second device is a **discharge transistor**. When the base of the transistor
 ```
 
 The pulse width of the one-shot mode can be calculated using the following formula:
-$$t_p = \ln 3 \cdot R_1 \cdot C_1$$
+$$
+t_p = \ln 3 \cdot R_1 \cdot C_1
+$$
 where $R_1$ is the resistance of the timing resistor and $C_1$ is the capacitance of the timing capacitor. The control voltage pin can be used to adjust the threshold voltage levels, which in turn can affect the pulse width. However, in most applications, the control voltage pin is left unconnected or connected to ground through a capacitor for noise filtering.
 
 #### Astable Mode
@@ -679,9 +689,13 @@ In the astable mode. the 555 timer will repeat the following cycle indefinitely:
 - The capacitor discharges until the voltage across it drops to 1/3 of $V_{CC}$, at which point the lower comparator triggers and resets the flip-flop, causing the discharge transistor to turn off and allowing the capacitor to start charging again.
 
 The frequency of the oscillation can be calculated using the following formula:
-$$f = \frac{1}{\ln 2(R_1 + 2R_2) \cdot C_1}$$
+$$
+f = \frac{1}{\ln 2(R_1 + 2R_2) \cdot C_1}
+$$
 where $R_1$ and $R_2$ are the resistances of the timing resistors and $C_1$ is the capacitance of the timing capacitor. The duty cycle of the output waveform can be calculated using the following formula:
-$$D = \frac{R_1 + R_2}{R_1 + 2R_2}$$
+$$
+D = \frac{R_1 + R_2}{R_1 + 2R_2}
+$$
 where $D$ is the duty cycle expressed as a fraction (e.g., 0.5 for 50\%).
 
 #### Schmitt Trigger

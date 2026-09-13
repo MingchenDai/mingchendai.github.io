@@ -84,7 +84,7 @@ This implies that $\operatorname{disc}(f)=V(f)^2$ is a square in $F$. Conversely
 For a group $H\le\operatorname{Aut}(K)$, its fixed field is
 
 $$
-K^H=\\\{a\in K:\sigma(a)=a\text{ for all }\sigma\in H\\\}.
+K^H=\{a\in K:\sigma(a)=a\text{ for all }\sigma\in H\}.
 $$
 
 It is a subfield, and $H\le\operatorname{Gal}(K/K^H)$.
@@ -242,7 +242,7 @@ For the prime-degree converse, fix a prime $p$, assume $\operatorname{char} F=0$
 
 **Proposition.** **Prime Kummer dichotomy.** For every $b\in F^\times$, the polynomial $x^p-b$ is either irreducible over $F$ or splits completely over $F$.
 
-*Proof.* Let $\alpha^p=b$. Because $\zeta_p\in F$, every root $\zeta_p^j\alpha$ lies in $F(\alpha)$; hence $F(\alpha)$ is the splitting field of the separable polynomial $x^p-b$. Restriction to $\alpha$ embeds its Galois group into the cyclic group $\\\{\alpha\mapsto\zeta_p^j\alpha\\\}$ of order $p$. Thus $[F(\alpha):F]$ divides $p$. If the degree is $1$, then $\alpha\in F$ and all roots lie in $F$. Otherwise the degree is $p$, so the degree-$p$ polynomial $x^p-b$ is the minimal polynomial of $\alpha$ and is irreducible. ◻
+*Proof.* Let $\alpha^p=b$. Because $\zeta_p\in F$, every root $\zeta_p^j\alpha$ lies in $F(\alpha)$; hence $F(\alpha)$ is the splitting field of the separable polynomial $x^p-b$. Restriction to $\alpha$ embeds its Galois group into the cyclic group $\{\alpha\mapsto\zeta_p^j\alpha\}$ of order $p$. Thus $[F(\alpha):F]$ divides $p$. If the degree is $1$, then $\alpha\in F$ and all roots lie in $F$. Otherwise the degree is $p$, so the degree-$p$ polynomial $x^p-b$ is the minimal polynomial of $\alpha$ and is irreducible. ◻
 
 **Theorem.** **Prime-degree Kummer converse.** If $K/F$ is cyclic Galois of degree $p$, then $K=F(\alpha)$ for some $\alpha\in K$ such that $\alpha^p\in F$.
 
@@ -282,7 +282,7 @@ $$
 A finite group $G$ is *solvable* if it has a subnormal series
 
 $$
-\\\{1\\\}=G_0\triangleleft G_1\triangleleft\cdots\triangleleft G_m=G
+\{1\}=G_0\triangleleft G_1\triangleleft\cdots\triangleleft G_m=G
 $$
 
 whose factors $G_{i+1}/G_i$ are abelian.

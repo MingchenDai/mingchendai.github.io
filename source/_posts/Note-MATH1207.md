@@ -54,7 +54,7 @@ The outcome of a single trial often exhibits *randomness* or *contingency*, but 
 - Difference Set: $A-B=A\cap \bar{B}$.
 - **Duality Laws (De Morgan's Laws)**: $\overline{A \cup B} = \bar{A} \cap \bar{B}$, $\overline{A \cap B} = \bar{A} \cup \bar{B}$.
 
-> Extended to countably infinite events: $\displaystyle \overline{\bigcup_{i=1}^{\infty} A_i} = \bigcap_{i=1}^{\infty} \bar{A}\_i$, $\displaystyle \overline{\bigcap_{i=1}^{\infty} A_i} = \bigcup_{i=1}^{\infty} \bar{A}_i$.
+> Extended to countably infinite events: $\displaystyle \overline{\bigcup_{i=1}^{\infty} A_i} = \bigcap_{i=1}^{\infty} \bar{A}_i$, $\displaystyle \overline{\bigcap_{i=1}^{\infty} A_i} = \bigcup_{i=1}^{\infty} \bar{A}_i$.
 
 ### Probability of Random Events
 
@@ -214,8 +214,8 @@ For piecewise strictly monotonic functions $Y=g(X)$, the corresponding probabili
 
 - **Uniform Distribution**: Let two-dimensional random variable $(X, Y)$ follow a uniform distribution over region $S$, denoted $(X, Y) \sim U(S)$.
   - For a uniform distribution over a rectangle with sides parallel to the coordinate axes, the marginal distributions are also uniform.
-- **Bivariate Normal Distribution**: Let two-dimensional random variable $(X, Y)$ follow a bivariate normal distribution with parameters $(\mu_X, \mu_Y, \sigma_X^2, \sigma_Y^2, \rho)$, denoted $(X, Y) \sim N_2(\mu_X, \mu_Y, \sigma_X^2, \sigma_Y^2, \rho)$. Its joint probability density function is $\displaystyle f(x,y) = \frac{1}{2\pi \sigma_X \sigma_Y \sqrt{1-\rho^2}} \exp\left\\{-\frac{1}{2(1-\rho^2)}\left[\left(\frac{x-\mu_X}{\sigma_X}\right)^2 - 2\rho \left(\frac{x-\mu_X}{\sigma_X}\right)\left(\frac{y-\mu_Y}{\sigma_Y}\right) + \left(\frac{y-\mu_Y}{\sigma_Y}\right)^2\right]\right\\}$.
-  - Define the matrix $C=\begin{pmatrix} \sigma_X^2 & \rho \sigma_X \sigma_Y \\\\ \rho \sigma_X \sigma_Y & \sigma_Y^2 \end{pmatrix}$ as the covariance matrix of the bivariate normal distribution. Then the probability density function can be rewritten as $\displaystyle f(x,y) = \frac{1}{2\pi \sqrt{|C|}} \exp\left\\{-\frac{1}{2} \begin{pmatrix} x - \mu_X & y - \mu_Y \end{pmatrix} C^{-1} \begin{pmatrix} x - \mu_X \\\\ y - \mu_Y \end{pmatrix}\right\\}$.
+- **Bivariate Normal Distribution**: Let two-dimensional random variable $(X, Y)$ follow a bivariate normal distribution with parameters $(\mu_X, \mu_Y, \sigma_X^2, \sigma_Y^2, \rho)$, denoted $(X, Y) \sim N_2(\mu_X, \mu_Y, \sigma_X^2, \sigma_Y^2, \rho)$. Its joint probability density function is $\displaystyle f(x,y) = \frac{1}{2\pi \sigma_X \sigma_Y \sqrt{1-\rho^2}} \exp\left\{-\frac{1}{2(1-\rho^2)}\left[\left(\frac{x-\mu_X}{\sigma_X}\right)^2 - 2\rho \left(\frac{x-\mu_X}{\sigma_X}\right)\left(\frac{y-\mu_Y}{\sigma_Y}\right) + \left(\frac{y-\mu_Y}{\sigma_Y}\right)^2\right]\right\}$.
+  - Define the matrix $C=\begin{pmatrix} \sigma_X^2 & \rho \sigma_X \sigma_Y \\ \rho \sigma_X \sigma_Y & \sigma_Y^2 \end{pmatrix}$ as the covariance matrix of the bivariate normal distribution. Then the probability density function can be rewritten as $\displaystyle f(x,y) = \frac{1}{2\pi \sqrt{|C|}} \exp\left\{-\frac{1}{2} \begin{pmatrix} x - \mu_X & y - \mu_Y \end{pmatrix} C^{-1} \begin{pmatrix} x - \mu_X \\ y - \mu_Y \end{pmatrix}\right\}$.
   - The marginal distributions of a normal distribution are still normal. For the above density function, $X\sim N(\mu_X, \sigma_X^2)$, $Y\sim N(\mu_Y, \sigma_Y^2)$.
   - The conditional distributions of a normal distribution are still normal. For the above density function, $X|Y=y \sim N\left(\mu_X + \rho \frac{\sigma_X}{\sigma_Y}(y - \mu_Y), (1-\rho^2)\sigma_X^2\right)$, $Y|X=x \sim N\left(\mu_Y + \rho \frac{\sigma_Y}{\sigma_X}(x - \mu_X), (1-\rho^2)\sigma_Y^2\right)$.
   - A two-dimensional random variable whose marginal densities are one-dimensional normal is not necessarily bivariate normal. Non-normal distributions can also have normal marginals.
@@ -224,7 +224,7 @@ For piecewise strictly monotonic functions $Y=g(X)$, the corresponding probabili
 |--|--|--|
 | Notation | $U(S)$ | $N_2(\mu_X, \mu_Y, \sigma_X^2, \sigma_Y^2, \rho)$ |
 | Domain | $\{(x,y) \mid (x,y)\in S\}$ | $(-\infty, +\infty) \times (-\infty, +\infty)$ |
-| Joint Probability Density Function | $\displaystyle\frac{1}{\left\vert S\right\vert}$ | $\displaystyle \frac{1}{2\pi \sqrt{\left\vert C\right\vert}} \exp\left\\{-\frac{1}{2} \begin{pmatrix} x - \mu_X & y - \mu_Y \end{pmatrix} C^{-1} \begin{pmatrix} x - \mu_X \\ y - \mu_Y \end{pmatrix}\right\\}$ |
+| Joint Probability Density Function | $\displaystyle\frac{1}{\left\vert S\right\vert}$ | $\displaystyle \frac{1}{2\pi \sqrt{\left\vert C\right\vert}} \exp\left\{-\frac{1}{2} \begin{pmatrix} x - \mu_X & y - \mu_Y \end{pmatrix} C^{-1} \begin{pmatrix} x - \mu_X \\ y - \mu_Y \end{pmatrix}\right\}$ |
 
 ### Conditional Distribution of Two-dimensional Random Variables
 
@@ -256,7 +256,7 @@ In particular, for the normal distribution $(X,Y) \sim N_2(\mu_X, \mu_Y, \sigma_
 
 **Distribution of Extremes of Continuous Random Variables**: Let random variable $Z = \max(X, Y)$. Then its distribution function is $\displaystyle F_Z(z) = P(Z \leq z) = P(X \leq z, Y \leq z) = F_{X,Y}(z, z)$. Let $W=\min(X, Y)$. Similarly, $\displaystyle F_{W}(w) = P(W \leq w) = P(\min(X, Y) \leq w) = 1 - P(X > w, Y > w) = 1 - [1 - F_X(w)][1 - F_Y(w)]$.
 
-Extending to $n$-dimensional random variables $(X_1, X_2, \ldots, X_n)$: $\displaystyle F_{\max}(z) = P(\max(X_1, X_2, \ldots, X_n) \leq z) = P(X_1 \leq z, \ldots, X_n \leq z) = F(\underbrace{z,\ldots,z}\_{n\text{ times}})$; $\displaystyle F_{\min}(w) = P(\min(X_1, X_2, \ldots, X_n) \leq w) = 1 - P(X_1 > w, \ldots, X_n > w) = 1 - \prod_{i=1}^n [1 - F_{X_i}(w)]$.
+Extending to $n$-dimensional random variables $(X_1, X_2, \ldots, X_n)$: $\displaystyle F_{\max}(z) = P(\max(X_1, X_2, \ldots, X_n) \leq z) = P(X_1 \leq z, \ldots, X_n \leq z) = F(\underbrace{z,\ldots,z}_{n\text{ times}})$; $\displaystyle F_{\min}(w) = P(\min(X_1, X_2, \ldots, X_n) \leq w) = 1 - P(X_1 > w, \ldots, X_n > w) = 1 - \prod_{i=1}^n [1 - F_{X_i}(w)]$.
 
 ## Numerical Characteristics of Random Variables
 
@@ -314,9 +314,9 @@ Equality implies the linear relationship $\displaystyle \frac{Y-E(Y)}{\sqrt{D(Y)
 - **$(m+n)$-th Mixed Origin Moment of Random Variables**: Define the $(m+n)$-th mixed origin moment of two-dimensional random variable $(X, Y)$ as $\displaystyle E(X^m Y^n)$.
 - **$(m+n)$-th Mixed Central Moment of Random Variables**: Define the $(m+n)$-th mixed central moment of two-dimensional random variable $(X, Y)$ as $\displaystyle E[(X - E(X))^m (Y - E(Y))^n]$. Covariance is the second-order mixed central moment of $(X, Y)$.
 
-**Covariance Matrix**: For an $n$-dimensional random variable $(X_1, X_2, \ldots, X_n)$, define the matrix $C$ as its covariance matrix, with elements $\displaystyle c_{ij} = \mathrm{cov}(X_i, X_j)$, i.e., $\displaystyle C = \begin{pmatrix} D(X_1) & \mathrm{cov}(X_1, X_2) & \cdots & \mathrm{cov}(X_1, X_n) \\\\ \mathrm{cov}(X_2, X_1) & D(X_2) & \cdots & \mathrm{cov}(X_2, X_n) \\\\ \vdots & \vdots & \ddots & \vdots \\\\ \mathrm{cov}(X_n, X_1) & \mathrm{cov}(X_n, X_2) & \cdots & D(X_n) \end{pmatrix}$.
+**Covariance Matrix**: For an $n$-dimensional random variable $(X_1, X_2, \ldots, X_n)$, define the matrix $C$ as its covariance matrix, with elements $\displaystyle c_{ij} = \mathrm{cov}(X_i, X_j)$, i.e., $\displaystyle C = \begin{pmatrix} D(X_1) & \mathrm{cov}(X_1, X_2) & \cdots & \mathrm{cov}(X_1, X_n) \\ \mathrm{cov}(X_2, X_1) & D(X_2) & \cdots & \mathrm{cov}(X_2, X_n) \\ \vdots & \vdots & \ddots & \vdots \\ \mathrm{cov}(X_n, X_1) & \mathrm{cov}(X_n, X_2) & \cdots & D(X_n) \end{pmatrix}$.
 
-> We can write the probability density function for an $n$-dimensional normal distribution: $\displaystyle f(x_1, x_2, \ldots, x_n) = \frac{1}{(2\pi)^{n/2} \sqrt{|C|}} \exp\left\\{-\frac{1}{2} \begin{pmatrix} x_1 - \mu_1 & x_2 - \mu_2 & \cdots & x_n - \mu_n \end{pmatrix} C^{-1} \begin{pmatrix} x_1 - \mu_1 \\\\ x_2 - \mu_2 \\\\ \vdots \\\\ x_n - \mu_n \end{pmatrix}\right\\}$.
+> We can write the probability density function for an $n$-dimensional normal distribution: $\displaystyle f(x_1, x_2, \ldots, x_n) = \frac{1}{(2\pi)^{n/2} \sqrt{|C|}} \exp\left\{-\frac{1}{2} \begin{pmatrix} x_1 - \mu_1 & x_2 - \mu_2 & \cdots & x_n - \mu_n \end{pmatrix} C^{-1} \begin{pmatrix} x_1 - \mu_1 \\ x_2 - \mu_2 \\ \vdots \\ x_n - \mu_n \end{pmatrix}\right\}$.
 
 Properties:
 1. The covariance matrix is positive semi-definite, i.e., $\displaystyle \forall \mathbf{a} \in \mathbb{R}^n, \mathbf{a}^T C \mathbf{a} \geq 0$;
@@ -360,23 +360,23 @@ $\displaystyle \lim_{n\to\infty} P(|X_n - X|\geq \varepsilon) = 0$ or $\displays
 
 - **Population** is the entire set of objects under study. A population is the totality of a certain (or some) quantitative indicator(s) of the objects, denoted $\mathcal{X}$.
 - An **Individual** is a single element of the population, denoted $X_i$. An individual can be viewed as a particular value of the population.
-- A **Sample** is a subset of individuals drawn from the population, denoted $\mathcal{X}_n = \\\{X_1, X_2, \ldots, X_n\\\}$, where $X_i$ is the $i$-th individual and $n$ is the *sample size*. The sequentially observed sample values are denoted $x_1, x_2, \ldots, x_n$, called a *sample observation* of size $n$ from population $\mathcal{X}$, or a *realization* of the sample, or simply the *sample values*.
+- A **Sample** is a subset of individuals drawn from the population, denoted $\mathcal{X}_n = \{X_1, X_2, \ldots, X_n\}$, where $X_i$ is the $i$-th individual and $n$ is the *sample size*. The sequentially observed sample values are denoted $x_1, x_2, \ldots, x_n$, called a *sample observation* of size $n$ from population $\mathcal{X}$, or a *realization* of the sample, or simply the *sample values*.
 - **Sample Space** is the set of all possible results of the sample observations, denoted $\Omega$.
 - **Simple Random Sample**. A sample drawn randomly from the population, where each individual is *independent* and *identically distributed*, is called a **simple random sample**.
-- **Statistic**. For a sample $\mathcal{X}_n = \\\{X_1, X_2, \ldots, X_n\\\}$, if a real-valued continuous function $T = T(X_1, X_2, \ldots, X_n)$ depends only on the random variables $X_1, X_2, \ldots, X_n$ and does not depend on unknown parameters of the population, then $T$ is called a **statistic**. *A statistic is itself a random variable.* Common statistics include:
+- **Statistic**. For a sample $\mathcal{X}_n = \{X_1, X_2, \ldots, X_n\}$, if a real-valued continuous function $T = T(X_1, X_2, \ldots, X_n)$ depends only on the random variables $X_1, X_2, \ldots, X_n$ and does not depend on unknown parameters of the population, then $T$ is called a **statistic**. *A statistic is itself a random variable.* Common statistics include:
   - **Sample mean** $\displaystyle\bar{X}=\frac{1}{n}\sum_{i=1}^{n}X_i$;
   - **Sample variance** $\displaystyle S^2 = \frac{1}{n-1}\sum_{i=1}^n (X_i - \bar{X})^2$;
   - **Sample standard deviation** $\displaystyle S = \sqrt{\frac{1}{n-1}\sum_{i=1}^n (X_i - \bar{X})^2}$;
   - **Sample $k$-th origin moment** $\displaystyle M_k=\frac{1}{n}\sum_{i=1}^n X_i^k$;
-  - **Sample $k$-th central moment** $\displaystyle (CM)\_k=\frac{1}{n}\sum_{i=1}^n (X_i - \bar{X})^k$.
+  - **Sample $k$-th central moment** $\displaystyle (CM)_k=\frac{1}{n}\sum_{i=1}^n (X_i - \bar{X})^k$.
 
-> - $\displaystyle (CM)\_2=M_2-\bar{X}^2=\frac{1}{n}\sum_{i=1}^nX_i^2-\bar{X}^2$.
+> - $\displaystyle (CM)_2=M_2-\bar{X}^2=\frac{1}{n}\sum_{i=1}^nX_i^2-\bar{X}^2$.
 > - $E(\bar{X})=\mu$.
 > - $D(\bar{X})=\displaystyle\frac{\sigma^2}{n}$.
 > - $E(S^2)=\sigma^2$.
 > - $E(CM_2)=\displaystyle\frac{n-1}{n}\sigma^2$.
 
-**Order Statistics**. For a sample $\mathcal{X} = \\\{X_1, X_2, \ldots, X_n\\\}$, arrange the random variables in increasing order: $X_{(1)} \leq X_{(2)} \leq \ldots \leq X_{(n)}$. Then $X_{(1)}, X_{(2)}, \ldots, X_{(n)}$ are called the **order statistics** of the sample, where $X_{(1)}$ is the **sample minimum**, $X_{(n)}$ is the **sample maximum**, and $X_{(k)}$ is the **$k$-th sample quantile**.
+**Order Statistics**. For a sample $\mathcal{X} = \{X_1, X_2, \ldots, X_n\}$, arrange the random variables in increasing order: $X_{(1)} \leq X_{(2)} \leq \ldots \leq X_{(n)}$. Then $X_{(1)}, X_{(2)}, \ldots, X_{(n)}$ are called the **order statistics** of the sample, where $X_{(1)}$ is the **sample minimum**, $X_{(n)}$ is the **sample maximum**, and $X_{(k)}$ is the **$k$-th sample quantile**.
 
 We can define:
 - **Range** $D_n = X_{(n)} - X_{(1)}$;
@@ -392,7 +392,9 @@ Let random variables $X_1, X_2, \ldots, X_n$ be independent, each following a st
 
 The density function of the chi-square distribution is:
 
-$$\displaystyle f_{\mathcal{X}^2(n)}(x) = \begin{cases} \frac{1}{2^{\frac{n}{2}}\Gamma\left(\frac{n}{2}\right)} x^{\frac{n}{2}-1} e^{-\frac{x}{2}}, & x>0 \\ 0, & \text{o.w.} \end{cases}$$
+$$
+\displaystyle f_{\mathcal{X}^2(n)}(x) = \begin{cases} \frac{1}{2^{\frac{n}{2}}\Gamma\left(\frac{n}{2}\right)} x^{\frac{n}{2}-1} e^{-\frac{x}{2}}, & x>0 \\ 0, & \text{o.w.} \end{cases}
+$$
 
 - $E(\mathcal{X}^2(n)) = n$;
 - $D(\mathcal{X}^2(n)) = 2n$;
@@ -436,7 +438,7 @@ Let the distribution of population $\mathcal{X}$ be determined by an unknown par
 
 #### Method of Moments
 
-Let the distribution of population $\mathcal{X}$ be determined by unknown parameter $\theta$, and suppose the $k$-th moment $E(X^k)$ of the population exists. Let sample $\mathcal{X}\_n = \\\{X_1, X_2, \ldots, X_n\\\}$. Then the $k$-th moment of the population can be estimated by the sample $k$-th origin moment $\displaystyle M_k = \frac{1}{n}\sum_{i=1}^n X_i^k$. 
+Let the distribution of population $\mathcal{X}$ be determined by unknown parameter $\theta$, and suppose the $k$-th moment $E(X^k)$ of the population exists. Let sample $\mathcal{X}_n = \{X_1, X_2, \ldots, X_n\}$. Then the $k$-th moment of the population can be estimated by the sample $k$-th origin moment $\displaystyle M_k = \frac{1}{n}\sum_{i=1}^n X_i^k$. 
 
 By equating the first $m$ sample origin moments to the corresponding population moments, we solve for the estimator $\hat{\theta}$ of parameter $\theta$, called the **method of moments estimator**.
 
@@ -446,7 +448,7 @@ Generally, regardless of the population distribution, as long as the population 
 
 #### Maximum Likelihood Estimation
 
-Let the distribution of population $\mathcal{X}$ be determined by unknown parameter $\theta$. The joint probability density function (or probability mass function) of sample $\mathcal{X}\_n = \\\{X_1, X_2, \ldots, X_n\\\}$ is $f(x_1, x_2, \ldots, x_n; \theta)$. Then the function $L(\theta) = f(x_1, x_2, \ldots, x_n; \theta)$ is called the *likelihood function* for the sample observations $x_1, x_2, \ldots, x_n$.
+Let the distribution of population $\mathcal{X}$ be determined by unknown parameter $\theta$. The joint probability density function (or probability mass function) of sample $\mathcal{X}_n = \{X_1, X_2, \ldots, X_n\}$ is $f(x_1, x_2, \ldots, x_n; \theta)$. Then the function $L(\theta) = f(x_1, x_2, \ldots, x_n; \theta)$ is called the *likelihood function* for the sample observations $x_1, x_2, \ldots, x_n$.
 
 By solving the equation $\displaystyle \frac{\partial L(\theta)}{\partial \theta} = 0$ (or $\displaystyle \frac{\partial \ln L(\theta)}{\partial \theta} = 0$), we obtain the estimator $\hat{\theta}$ of parameter $\theta$, called the **maximum likelihood estimator**.
 
@@ -460,7 +462,7 @@ Maximum likelihood estimators may not be unique.
 
 ### Criteria for Evaluating Point Estimators
 
-Let the distribution of population $\mathcal{X}$ be determined by unknown parameter $\theta$, and let sample $\mathcal{X}\_n = \left\\{X_1, X_2, \ldots, X_n\right\\}$.
+Let the distribution of population $\mathcal{X}$ be determined by unknown parameter $\theta$, and let sample $\mathcal{X}_n = \left\{X_1, X_2, \ldots, X_n\right\}$.
 
 **Unbiasedness**. If a point estimator $\hat{\theta}$ of parameter $\theta$ satisfies $E(\hat{\theta}) = \theta$, then $\hat{\theta}$ is called an *unbiased estimator* of $\theta$; if $E(\hat{\theta}) \neq \theta$, then $\hat{\theta}$ is called a *biased estimator*.
 
@@ -479,11 +481,11 @@ Then $\displaystyle D(\hat{\theta}) \geq \frac{1}{I(\theta)}$ (for independent s
 
 **Consistency**. If a point estimator $\hat{\theta}_n$ for $\theta$ satisfies $\displaystyle \hat{\theta}_n \xrightarrow[n\to\infty]{P} \theta$, then $\hat{\theta}_n$ is called a *consistent estimator* of $\theta$. Consistency does not require the estimator to be unbiased.
 
-If a point estimator $\hat{\theta}\_n$ for $\theta$ satisfies $\displaystyle \lim_{n\to\infty} E(\hat{\theta}\_n) = \theta$ and $\displaystyle \lim_{n\to\infty} D(\hat{\theta}\_n) = 0$, then $\hat{\theta}_n$ is a **consistent estimator** of $\theta$.
+If a point estimator $\hat{\theta}_n$ for $\theta$ satisfies $\displaystyle \lim_{n\to\infty} E(\hat{\theta}_n) = \theta$ and $\displaystyle \lim_{n\to\infty} D(\hat{\theta}_n) = 0$, then $\hat{\theta}_n$ is a **consistent estimator** of $\theta$.
 
 ### Interval Estimation
 
-Let the distribution of population $\mathcal{X}$ be determined by unknown parameter $\theta$, and let sample $\mathcal{X}\_n = \\\{X_1, X_2, \ldots, X_n\\\}$.
+Let the distribution of population $\mathcal{X}$ be determined by unknown parameter $\theta$, and let sample $\mathcal{X}_n = \{X_1, X_2, \ldots, X_n\}$.
 
 **Confidence Interval**. If random variables $L = L(X_1, X_2, \ldots, X_n)$ and $U = U(X_1, X_2, \ldots, X_n)$ satisfy $P(L < \theta < U) = 1 - \alpha$, then the interval $(L, U)$ is called a **confidence interval** for parameter $\theta$, where $1 - \alpha$ is the **confidence level** and $\alpha$ is the **significance level**.
 
@@ -516,7 +518,7 @@ For a normal population $\mathcal{X} \sim N(\mu, \sigma^2)$, we have:
 
 ### Basic Concepts
 
-Let the distribution of population $\mathcal{X}$ be determined by unknown parameter $\theta$, and let sample $\mathcal{X}_n = \\\{X_1, X_2, \ldots, X_n\\\}$.
+Let the distribution of population $\mathcal{X}$ be determined by unknown parameter $\theta$, and let sample $\mathcal{X}_n = \{X_1, X_2, \ldots, X_n\}$.
 
 - **Hypothesis Testing**.  The process of testing a hypothesis about the population parameter $\theta$ based on the sample observations $x_1, x_2, \ldots, x_n$ is called **hypothesis testing**.
 - **Null Hypothesis and Alternative Hypothesis**. In hypothesis testing, the hypothesis to be tested is usually called the **null hypothesis**, denoted $H_0$; the hypothesis opposite to the null is called the **alternative hypothesis**, denoted $H_1$.

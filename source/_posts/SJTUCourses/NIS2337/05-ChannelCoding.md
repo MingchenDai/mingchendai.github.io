@@ -62,32 +62,44 @@ An **error-correcting code** is a code capable of correcting errors. Its classif
 
 The goal of decoding, i.e., **optimal decoding**, is to find, given a received word $\vec{r}$, a codeword $\hat{\vec{c}}$ that is the **maximum a posteriori probability (MAP)** codeword for $\vec{r}$, i.e.,
 
-$$\hat{\vec{c}} = \arg\max\_{\vec{c}\in \mathcal{C}} P(\vec{c}|\vec{r})= \arg\max\_{\vec{c}\in \mathcal{C}} \frac{P(\vec{c}\_i)P(\vec{r}|\vec{c}\_i)}{P(\vec{r})}$$
+$$
+\hat{\vec{c}} = \arg\max_{\vec{c}\in \mathcal{C}} P(\vec{c}|\vec{r})= \arg\max_{\vec{c}\in \mathcal{C}} \frac{P(\vec{c}_i)P(\vec{r}|\vec{c}_i)}{P(\vec{r})}
+$$
 
 Since $P(\vec{r})$ is a constant for a particular received word $\vec{r}$, this can be simplified to:
 
-$$\hat{\vec{c}} = \arg\max\_{\vec{c}\in \mathcal{C}} P(\vec{c}\_i)P(\vec{r}|\vec{c}\_i)$$
+$$
+\hat{\vec{c}} = \arg\max_{\vec{c}\in \mathcal{C}} P(\vec{c}_i)P(\vec{r}|\vec{c}_i)
+$$
 
-In practical communication systems, it is usually assumed that the transmitted codewords $\vec{c}$ are equally likely, i.e., $\displaystyle P(\vec{c}\_i) = \frac{1}{|\mathcal{C}|}$, which can be further simplified to:
+In practical communication systems, it is usually assumed that the transmitted codewords $\vec{c}$ are equally likely, i.e., $\displaystyle P(\vec{c}_i) = \frac{1}{|\mathcal{C}|}$, which can be further simplified to:
 
-$$\hat{\vec{c}} = \arg\max_{\vec{c}\in \mathcal{C}} P(\vec{r}|\vec{c}_i)$$
+$$
+\hat{\vec{c}} = \arg\max_{\vec{c}\in \mathcal{C}} P(\vec{r}|\vec{c}_i)
+$$
 
 This is **Maximum Likelihood Decoding (MLD)**. The goal of maximum likelihood decoding is to find a codeword $\hat{\vec{c}}$ that maximizes the probability of receiving $\vec{r}$ given that $\hat{\vec{c}}$ was transmitted. For a memoryless channel,
 
-$$P(\vec{r}|\vec{c}\_i) = \prod\_{j=1}^n P(r\_j|c\_{ij})$$
+$$
+P(\vec{r}|\vec{c}_i) = \prod_{j=1}^n P(r_j|c_{ij})
+$$
 
 From the analysis of the BSC channel, we can observe a connection between MLD and Minimum Hamming Distance Decoding (MHDD). Let the crossover probability of the BSC be denoted by $p$. Then, for a specific received word $\vec{r}$, the probability of receiving $\vec{r}$ given that $\vec{c}_i$ was transmitted is:
 
-$$P(\vec{r}|\vec{c}\_i) = \prod\_{j=1}^n P(r\_j|c_{ij}) = p^{d(\vec{r}, \vec{c}_i)} (1-p)^{n-d(\vec{r}, \vec{c}_i)}$$
+$$
+P(\vec{r}|\vec{c}_i) = \prod_{j=1}^n P(r_j|c_{ij}) = p^{d(\vec{r}, \vec{c}_i)} (1-p)^{n-d(\vec{r}, \vec{c}_i)}
+$$
 
-where $d(\vec{r}, \vec{c}\_i)$ is the Hamming distance between $\vec{r}$ and $\vec{c}\_i$. Since $p<\dfrac{1}{2}$, $P(\vec{r}|\vec{c}_i)$ decreases as $d(\vec{r}, \vec{c}\_i)$ increases, so maximum likelihood decoding is equivalent to minimum Hamming distance decoding, i.e.,
+where $d(\vec{r}, \vec{c}_i)$ is the Hamming distance between $\vec{r}$ and $\vec{c}_i$. Since $p<\dfrac{1}{2}$, $P(\vec{r}|\vec{c}_i)$ decreases as $d(\vec{r}, \vec{c}_i)$ increases, so maximum likelihood decoding is equivalent to minimum Hamming distance decoding, i.e.,
 
 $$
-\hat{\vec{c}} = \arg\max_{\vec{c}\in \mathcal{C}} P(\vec{r}|\vec{c}\_i) = \arg\min_{\vec{c}\in \mathcal{C}} d(\vec{r}, \vec{c}_i)
+\hat{\vec{c}} = \arg\max_{\vec{c}\in \mathcal{C}} P(\vec{r}|\vec{c}_i) = \arg\min_{\vec{c}\in \mathcal{C}} d(\vec{r}, \vec{c}_i)
 $$
 
 **Fano's inequality**. The error probability $P_e$ of the channel and the channel equivocation $H(X|Y)$ satisfy the following inequality:
-$$H(X|Y)\le p_e\log(n-1)+H(p_e)$$
+$$
+H(X|Y)\le p_e\log(n-1)+H(p_e)
+$$
 where $n$ is the number of channel input symbols, $p_e$ is the channel error probability, and $H(p_e)$ is the binary entropy function. Fano's inequality states that the maximum possible entropy in the entire guessing process must be greater than the true uncertainty remaining in the system.
 
 ## Channel Coding Theorem
@@ -102,20 +114,22 @@ Engineers today have invented many sophisticated techniques for constructing err
 
 Suppose there are $k$ bits of information to be transmitted, encoded into $n$-bit codewords. Then there are $2^k$ distinct information sequences and $2^n$ distinct codewords. The idea of random coding is to randomly select $2^k$ codewords from the $2^n$ possible codewords to form the code space $\mathcal{C}$, and then map each information sequence to a unique codeword.
 
-Note that different information sequences to be encoded may be mapped to the same codeword. Consequently, there can be $q^{nq^k}$ different code sets, which cannot be counted using combinations. Thus, the probability that the $m$-th code set $\mathcal{c}\_m$ is selected is $\dfrac{1}{q^{nq^k}}$, and let the corresponding conditional error probability for this code set be $P_{em}$. Hence, the average error probability over all code sets is:
+Note that different information sequences to be encoded may be mapped to the same codeword. Consequently, there can be $q^{nq^k}$ different code sets, which cannot be counted using combinations. Thus, the probability that the $m$-th code set $\mathcal{c}_m$ is selected is $\dfrac{1}{q^{nq^k}}$, and let the corresponding conditional error probability for this code set be $P_{em}$. Hence, the average error probability over all code sets is:
 
 $$
-\begin{aligned}\bar{P}\_e = &\sum\_{m=1}^{q^{nq^k}} \frac{1}{q^{nq^k}} P\_{em} \\\\
-= &\frac{1}{q^{nq^k}} \sum\_{m=1}^{q^{nq^k}} P\_{em} \end{aligned}
+\begin{aligned}\bar{P}_e = &\sum_{m=1}^{q^{nq^k}} \frac{1}{q^{nq^k}} P_{em} \\
+= &\frac{1}{q^{nq^k}} \sum_{m=1}^{q^{nq^k}} P_{em} \end{aligned}
 $$
 
-That is, if $\bar{P}\_e\rightarrow 0$, then there must exist a family of code sets for which $P\_{em}\rightarrow 0$, thereby proving the existence of a coding scheme achieving arbitrarily small error probability.
+That is, if $\bar{P}_e\rightarrow 0$, then there must exist a family of code sets for which $P_{em}\rightarrow 0$, thereby proving the existence of a coding scheme achieving arbitrarily small error probability.
 
 The means to make $\bar{P}_e\rightarrow 0$ is simple: let $n-k\rightarrow\infty$, i.e., increase the redundancy. On average, the distribution of codewords becomes sparser and the space between codewords becomes larger, thereby reducing the error probability. But does $\bar{P}_e$ converge to zero? Gallager proved that $\bar{P}_e$ has an upper bound that converges exponentially, i.e.,
 
-$$\bar{P}_e \leq 2^{-nE\(R\)}$$
+$$
+\bar{P}_e \leq 2^{-nE(R)}
+$$
 
-where $E\(R\)$ is the **reliability function** or **error exponent**, and $R=\dfrac{k\log q}{n}$ is the code rate, which is the amount of information carried per code symbol.
+where $E(R)$ is the **reliability function** or **error exponent**, and $R=\dfrac{k\log q}{n}$ is the code rate, which is the amount of information carried per code symbol.
 
 The reliability function is a straight line with slope $-1$ in the interval $[0,R_0]$, and gradually converges to $0$ in the interval $[R_0,C]$, where $R_0$ is the **critical rate** and $C$ is the channel capacity. That is, as long as $R<C$, there exists a channel code and its corresponding decoder that, for a sufficiently long code length $n$, can achieve reliable communication with an arbitrarily small error probability; if $R>C$, then no matter what coding scheme is adopted, the error probability cannot be reduced to an acceptably low level.
 
@@ -140,20 +154,26 @@ The $q^k$ vectors selected for a $k$-dimensional linear block code form a subspa
 ### Construction of Linear Block Codes
 
 From the definition, the code set of a linear block code is essentially a $k$-dimensional subspace of an $n$-tuple linear space. Therefore, selecting $k$ basis vectors $g_1, g_2, \ldots, g_k$ of this subspace, every codeword in the space can be written as a linear combination of these $k$ basis vectors. Hence, the generator matrix $G$ of the linear block code can be formed from these $k$ basis vectors, i.e.,
-$$G = \begin{bmatrix}g_1 \\\\
-g_2 \\\\
-\vdots \\\\
-g_k\end{bmatrix}$$
+$$
+G = \begin{bmatrix}g_1 \\
+g_2 \\
+\vdots \\
+g_k\end{bmatrix}
+$$
 It is easy to see that $\text{rank}(G)=k$. A codeword $c$ can be expressed as the product of the information sequence $u$ and the generator matrix $G$, i.e.,
-$$c = uG$$
+$$
+c = uG
+$$
 
 Since the basis of a subspace is not unique, $G$ is also not unique. The same linear block code can have multiple different generator matrices. Different bases may generate the same code set; however, since coding involves both the code set and the mapping, codes with the same code set but different mappings cannot be considered the same code.
 
 From linear algebra, any generator matrix $G$ of an $(n,k)$ block code can be reduced to the systematic form $G_s$ through row operations and column permutations, while still retaining the basis form. In this case, $G$ and $G_s$ are said to be equivalent. That is,
-$$G_s = \begin{bmatrix}I_k & P\end{bmatrix}=\begin{bmatrix}g_1' \\\\
-g_2' \\\\
-\vdots \\\\
-g_k'\end{bmatrix}$$
+$$
+G_s = \begin{bmatrix}I_k & P\end{bmatrix}=\begin{bmatrix}g_1' \\
+g_2' \\
+\vdots \\
+g_k'\end{bmatrix}
+$$
 where $I_k$ is the $k$-dimensional identity matrix and $P$ is a $k \times (n-k)$ matrix.
 
 The systematic form of the generator matrix makes encoding simpler: the first $k$ bits of the information sequence $u$ directly become the first $k$ bits of the codeword; the remaining $n-k$ bits, defined as the redundancy bits or parity-check bits, are obtained by multiplying the first $k$ bits of the information sequence by the matrix $P$. This type of error-correcting code is called a **systematic code**. If $G$ is not in systematic form, it is called a **nonsystematic code**.
@@ -165,10 +185,14 @@ It is easy to see that the systematic transformation of the generator matrix doe
 As mentioned in the overview, linear block codes are easy to check because they only use $k$ dimensions of the $n$-tuple space, and the remaining $(n-k)$ dimensions constitute its null space. This means that if a vector $\vec{r}$ lies in the code space, it must satisfy $\vec{r}\cdot \vec{h} = 0$ for every vector $\vec{h}$ in the null space; conversely, if $\vec{r}$ does not lie in the code space, then there exists some vector $\vec{h}$ in the null space such that $\vec{r}\cdot \vec{h} \neq 0$.
 
 By definition, $GH=0$, and therefore:
-$$H=[-P^T\quad I_{n-k}]$$
+$$
+H=[-P^T\quad I_{n-k}]
+$$
 
 For a binary channel,
-$$H=[P^T\quad I_{n-k}]$$
+$$
+H=[P^T\quad I_{n-k}]
+$$
 
 ### Syndrome and Standard Array Decoding
 
@@ -207,7 +231,9 @@ Since at most $n-k$ linearly independent column vectors can be selected from $H$
 **Hamming bound**. From abstract algebra, it can be shown that for the entire set of channel codewords, $\langle \mathcal{C} \rangle$ is one of its cosets. Therefore, the number of distinct syndromes is $2^{n-k}$.
 
 Suppose the error-correction capability of this code is $t$. Then for each syndrome $\mathcal{S}$, the corresponding error pattern $\mathcal{E}$ must have a Hamming weight not exceeding $t$. Therefore, the number of syndromes satisfies:
-$$2^{n-k} \geq \sum_{i=0}^t \binom{n}{i}$$
+$$
+2^{n-k} \geq \sum_{i=0}^t \binom{n}{i}
+$$
 
 In other words, if we view the error-correction range of each codeword as a Hamming ball of radius $t$, these Hamming balls must cover the entire code space.
 
@@ -228,17 +254,21 @@ By appending one parity bit, the Golay code can be extended to a $(24,12)$ linea
 If for a linear block code $(n,k)$, every codeword $c=(c_0, c_1, \ldots, c_{n-1})$ satisfies the property that its cyclic right-shifted sequence $(c_{n-1}, c_0, c_1, \ldots, c_{n-2})$ is also a codeword, then this linear block code is called a **cyclic code**. The codewords of a cyclic code form a subspace of the $n$-tuple vector space that possesses the cyclic property.
 
 Describing such a cyclic linear space using matrices is rather complicated. Therefore, we introduce polynomials modulo $x^n-1$ to describe cyclic codes. Representing an $n$-tuple vector $c=(c_0, c_1, \ldots, c_{n-1})$ as a polynomial $c(x)=c_0+c_1x+c_2x^2+\cdots+c_{n-1}x^{n-1}$, a cyclic right shift is equivalent to multiplying this polynomial by $x$ and taking the result modulo $x^n-1$, i.e.,
-$$\begin{aligned}c'(x) &= xc(x) \mod (x^n-1) \\\\
-&= c_{n-1} + c_0x + c_1x^2 + \cdots + c_{n-2}x^{n-1}\end{aligned}$$
+$$
+\begin{aligned}c'(x) &= xc(x) \mod (x^n-1) \\
+&= c_{n-1} + c_0x + c_1x^2 + \cdots + c_{n-2}x^{n-1}\end{aligned}
+$$
 Furthermore, from abstract algebra, polynomials with integer coefficients possess the structure of a linear space, so the set of codewords of a cyclic code is also a linear space. However, while any cyclic shift of a codeword is still a codeword, not every codeword can be obtained by cyclically shifting a single codeword.
 
-**Generator polynomial**. If $\mathcal{C}$ is an $(n,k)$ cyclic code, then there exists one or more monic polynomials $g(x)$ such that $g(x)|x^n-1$, $\deg(g)=n-k$, and $\mathcal{C}=\\{c(x)=m(x)g(x): m(x)\in \mathbb{F}_q[x], \deg(m)<k\\}$. Here, $g(x)$ is called the generator polynomial of the cyclic code. However, such encoding does not produce a systematic code.
+**Generator polynomial**. If $\mathcal{C}$ is an $(n,k)$ cyclic code, then there exists one or more monic polynomials $g(x)$ such that $g(x)|x^n-1$, $\deg(g)=n-k$, and $\mathcal{C}=\{c(x)=m(x)g(x): m(x)\in \mathbb{F}_q[x], \deg(m)<k\}$. Here, $g(x)$ is called the generator polynomial of the cyclic code. However, such encoding does not produce a systematic code.
 
 **Generator matrix**. Once the generator polynomial $g(x)=g_0+g_1x+\cdots+g_{n-k}x^{n-k}$ is determined, the generator matrix $G$ is also determined. The $i$-th row of $G$ consists of the coefficients of the polynomial obtained by cyclically right-shifting $g(x)$ by $i-1$ positions. That is,
-$$G = \begin{bmatrix}g_0 & g_1 & \cdots & g_{n-k} & 0 & \cdots & 0 \\\\
-0 & g_0 & g_1 & \cdots & g_{n-k} & 0 & 0 \\\\
-\vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots \\\\
-0 & \cdots & 0 & g_0 & g_1 & \cdots & g_{n-k} \end{bmatrix}$$
+$$
+G = \begin{bmatrix}g_0 & g_1 & \cdots & g_{n-k} & 0 & \cdots & 0 \\
+0 & g_0 & g_1 & \cdots & g_{n-k} & 0 & 0 \\
+\vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots \\
+0 & \cdots & 0 & g_0 & g_1 & \cdots & g_{n-k} \end{bmatrix}
+$$
 
 The generator matrix obtained in this way is not in systematic form. To convert it to systematic form, consider the following encoding method:
 1. Multiply the message polynomial $m(x)$ by $x^{n-k}$, i.e., left-shift by $(n-k)$ bits;
@@ -249,8 +279,10 @@ The generator matrix obtained in this way is not in systematic form. To convert 
 Assuming $x^{n-k}m(x)=q(x)g(x)+r(x)$, then the constructed polynomial $\displaystyle c(x)=x^{n-k}m(x)+r(x)=x^{n-k}m(x)+q(x)g(x)+x^{n-k}m(x)=q(x)g(x)$ satisfies the definition of a cyclic code.
 
 The $i$-th row of the generator matrix $G_s$ of a systematic cyclic code consists of the coefficients of the remainder $r_i(x)$ obtained by dividing $x^{n-k}m(x)$ (with $m(x)=x^{k-i}$) by $g(x)$, together with the coefficients of the message polynomial $m(x)$. That is,
-$$G_s = \begin{bmatrix}1 & 0 & \cdots & 0 & r_1 & r_2 & \cdots & r_{n-k} \\\\
-0 & 1 & \cdots & 0 & r_1' & r_2' & \cdots & r_{n-k}' \\\\
-\vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots \\\\
-0 & 0 & \cdots & 1 & r_1^{(k)} & r_2^{(k)} & \cdots & r_{n-k}^{(k)} \end{bmatrix}$$
+$$
+G_s = \begin{bmatrix}1 & 0 & \cdots & 0 & r_1 & r_2 & \cdots & r_{n-k} \\
+0 & 1 & \cdots & 0 & r_1' & r_2' & \cdots & r_{n-k}' \\
+\vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots \\
+0 & 0 & \cdots & 1 & r_1^{(k)} & r_2^{(k)} & \cdots & r_{n-k}^{(k)} \end{bmatrix}
+$$
 

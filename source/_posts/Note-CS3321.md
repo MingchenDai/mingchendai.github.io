@@ -779,7 +779,9 @@ In the merge phase, we repeatedly merge $B-1$ sorted runs at a time using $B-1$ 
 
 **Cost Analysis**: The total cost of external merge sort can be expressed as:
 
-$$\text{Cost} = 2P(R) \left( \left\lceil \log_{B-1} \left\lceil \frac{P(R)}{B} \right\rceil \right\rceil +\frac{1}{2} \right)$$
+$$
+\text{Cost} = 2P(R) \left( \left\lceil \log_{B-1} \left\lceil \frac{P(R)}{B} \right\rceil \right\rceil +\frac{1}{2} \right)
+$$
 
 By same idea, we can implement **Sort-based Duplication Elimination**. Cost is the same as external merge sort.
 
@@ -855,7 +857,7 @@ System R reduces search space by only considering left-deep trees which enables 
 
 **A dynamic programming algorithm** is used to find the optimal left-deep join tree in a bottom-up manner. Firstly, we should find the optimal access path for each single relation. Then, we can build optimal plans for joining two relations based on the optimal single-relation plans. This process continues until we build the optimal plan for joining all $n$ relations.
 
-Thereby, the cost can be expressed as $\text{Opt\\\_cost}=\min_{R\in S}\{\text{Opt\\\_cost}(S-R)+\text{Join\\\_cost}(S-R,R)\}$.
+Thereby, the cost can be expressed as $\text{Opt\_cost}=\min_{R\in S}\{\text{Opt\_cost}(S-R)+\text{Join\_cost}(S-R,R)\}$.
 
 However, this algorithm is not effective for interesting orders problem, which can be solved by increasing the state space to keep track of interesting orders.
 

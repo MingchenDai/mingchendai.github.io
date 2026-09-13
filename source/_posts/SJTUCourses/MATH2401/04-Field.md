@@ -35,7 +35,7 @@ For $\alpha_1,\dots,\alpha_n\in K$, distinguish
 
 $$
 F[\alpha_1,\dots,\alpha_n]
-=\\\{f(\alpha_1,\dots,\alpha_n):f\in F[x_1,\dots,x_n]\\\}
+=\{f(\alpha_1,\dots,\alpha_n):f\in F[x_1,\dots,x_n]\}
 $$
 
 from the smallest subfield $F(\alpha_1,\dots,\alpha_n)$, whose elements are rational expressions with nonzero denominator.
@@ -147,7 +147,7 @@ Thus $(u_iv_j)_{(i,j)\in I\times J}$ is an $F$-basis of $L$, and $[L:F]=|I\times
 **Definition.** The *relative algebraic closure* of $F$ in $K$ is
 
 $$
-K_{\mathrm{alg}}=\\\{a\in K:a\text{ is algebraic over }F\\\}.
+K_{\mathrm{alg}}=\{a\in K:a\text{ is algebraic over }F\}.
 $$
 
 This is a subfield of $K$, and $K_{\mathrm{alg}}/F$ is algebraic. Indeed, if $a,b$ are algebraic, the finite extension $F(a,b)/F$ contains $a\pm b$, $ab$, and $a/b$ when $b\ne0$; every element of a finite extension is algebraic.

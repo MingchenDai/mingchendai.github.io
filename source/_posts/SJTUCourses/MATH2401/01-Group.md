@@ -38,7 +38,7 @@ This article develops  the basic language of groups, from binary operations and 
 **Example.** The general linear group $GL_n(\mathbb R)$ consists of the invertible real $n\times n$ matrices. It is nonabelian for $n\ge2$. The special linear group
 
 $$
-SL_n(\mathbb R)=\\\{A\in GL_n(\mathbb R):\det A=1\\\}
+SL_n(\mathbb R)=\{A\in GL_n(\mathbb R):\det A=1\}
 $$
 
 is a subgroup of $GL_n(\mathbb R)$.
@@ -94,8 +94,8 @@ The converse statement "$(\mathbb Z/n\mathbb Z)^\times$ cyclic implies $n$ prime
 **Example.** The smallest noncyclic group has order $4$: the Klein four-group
 
 $$
-V_4=\left\\\{\begin{pmatrix}\varepsilon_1&0\\\\0&\varepsilon_2\end{pmatrix}
- :\varepsilon_1,\varepsilon_2\in\{1,-1\}\right\\\}.
+V_4=\left\{\begin{pmatrix}\varepsilon_1&0\\0&\varepsilon_2\end{pmatrix}
+ :\varepsilon_1,\varepsilon_2\in\{1,-1\}\right\}.
 $$
 
 ## Homomorphisms
@@ -103,8 +103,8 @@ $$
 **Definition.** A *homomorphism* $\phi:G\to H$ satisfies $\phi(ab)=\phi(a)\phi(b)$. Its kernel and image are
 
 $$
-\ker\phi=\\\{g\in G:\phi(g)=e_H\\\},\qquad
- \operatorname{im}\phi=\\\{\phi(g):g\in G\\\}.
+\ker\phi=\{g\in G:\phi(g)=e_H\},\qquad
+ \operatorname{im}\phi=\{\phi(g):g\in G\}.
 $$
 
 A bijective homomorphism is an *isomorphism*; an isomorphism $G\to G$ is an *automorphism*.
@@ -117,7 +117,7 @@ A bijective homomorphism is an *isomorphism*; an isomorphism $G\to G$ is an *aut
 
 3.  $|\phi(g)|$ divides $|g|$ when $|g|<\infty$; equality holds if and only if $\phi$ is injective on $\langle g\rangle$;
 
-4.  $\phi$ is injective if and only if $\ker\phi=\\\{e_G\\\}$.
+4.  $\phi$ is injective if and only if $\ker\phi=\{e_G\}$.
 
 **Theorem.** **Cayley.** Every group $G$ is isomorphic to a subgroup of the symmetric group $\operatorname{Sym}(G)$. If $|G|=n<\infty$, then $G$ is isomorphic to a subgroup of $S_n$.
 
@@ -134,7 +134,7 @@ For $g\in G$, *conjugation by $g$* is the automorphism $c_g(x)=gxg^{-1}$.
 
 ## Equivalence relations and partitions
 
-**Definition.** An *equivalence relation* $\sim$ on $S$ is reflexive, symmetric, and transitive. The equivalence class of $a$ is $[a]=\\\{x\in S:x\sim a\\\}$; any element of a class is a representative.
+**Definition.** An *equivalence relation* $\sim$ on $S$ is reflexive, symmetric, and transitive. The equivalence class of $a$ is $[a]=\{x\in S:x\sim a\}$; any element of a class is a representative.
 
 **Theorem.** The equivalence classes of an equivalence relation form a partition of $S$. Conversely, every partition of $S$ defines an equivalence relation by declaring two elements equivalent exactly when they lie in the same part.
 
@@ -180,7 +180,7 @@ For $n>0$, define $a\equiv b\pmod n$ when $n\mid(a-b)$. Its equivalence classes 
 
 $$
 \varphi(n)=| (\mathbb Z/n\mathbb Z)^\times |
- =|\\\{1\le k\le n:\gcd(k,n)=1\\\}|.
+ =|\{1\le k\le n:\gcd(k,n)=1\}|.
 $$
 
 ## The correspondence theorem
@@ -212,7 +212,7 @@ $$
 **Theorem.** **Internal direct product criterion.** Suppose $H_1,\dots,H_n\trianglelefteq G$, the subgroups generate $G$, and
 
 $$
-H_i\cap\prod_{j\ne i}H_j=\\\{e\\\}\qquad(1\le i\le n).
+H_i\cap\prod_{j\ne i}H_j=\{e\}\qquad(1\le i\le n).
 $$
 
 Then the multiplication map
@@ -228,7 +228,7 @@ is an isomorphism. In this situation $G$ is the internal direct product of the $
 
 $$
 [h_i,h_j]=h_ih_jh_i^{-1}h_j^{-1}\in H_i\cap H_j
- \subseteq H_i\cap\prod_{k\ne i}H_k=\\\{e\\\}.
+ \subseteq H_i\cap\prod_{k\ne i}H_k=\{e\}.
 $$
 
 Therefore $h_ih_j=h_jh_i$: elements belonging to distinct factors commute. ◻
