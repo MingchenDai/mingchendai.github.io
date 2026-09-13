@@ -74,12 +74,6 @@
 
 
 
-  
-
-  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"all","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
-<script src="../../js/third-party/math/mathjax.js" defer></script>
-
-
 
   <noscript>
     <link rel="stylesheet" href="../../css/noscript.css">
@@ -397,7 +391,7 @@ mjx-container[display="true"] + br {
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2026-09-11 19:08:56" itemprop="dateModified" datetime="2026-09-11T19:08:56+08:00">2026-09-11</time>
+      <time title="Modified: 2026-09-13 22:21:14" itemprop="dateModified" datetime="2026-09-13T22:21:14+08:00">2026-09-13</time>
     </span>
 
   
@@ -425,7 +419,12 @@ mjx-container[display="true"] + br {
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>Supplementary material on information theory. This document collects the proofs of key theorems and derivation details referenced in the main text, organized into five sections: Mathematical Tools, Channel, Rate-Distortion Function, Source Coding, and Channel Coding. All conclusions marked “see Appendix for proof” in the main text can be found here.</p>
+          <p>Supplementary material on information theory. This document collects
+the proofs of key theorems and derivation details referenced in the main
+text, organized into five sections: Mathematical Tools, Channel,
+Rate-Distortion Function, Source Coding, and Channel Coding. All
+conclusions marked “see Appendix for proof” in the main text can be
+found here.</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="../../SJTUCourses/NIS2337/06-Appendix/#more" rel="contents">
@@ -495,7 +494,7 @@ mjx-container[display="true"] + br {
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2026-09-11 19:08:56" itemprop="dateModified" datetime="2026-09-11T19:08:56+08:00">2026-09-11</time>
+      <time title="Modified: 2026-09-13 22:21:14" itemprop="dateModified" datetime="2026-09-13T22:21:14+08:00">2026-09-13</time>
     </span>
 
   
@@ -524,13 +523,50 @@ mjx-container[display="true"] + br {
     
     <div class="post-body" itemprop="articleBody">
           <blockquote>
-<p>– “What is this all about? Can’t we just have coding schemes with no redundancy at all?”</p>
-<p>– “Page after page, this is no different from lossy source coding. We have to account for noise, understand?”</p>
+<p>– “What is this all about? Can’t we just have coding schemes with no
+redundancy at all?”</p>
+<p>– “Page after page, this is no different from lossy source coding. We
+have to account for noise, understand?”</p>
 </blockquote>
-<p>Before delving into channel coding, the author feels it is necessary to clarify the relationship between source coding and channel coding. While reading the material in this section, the author often found it puzzling: the source coding process can be abstracted as a form of generalized transmission, so why must we spare a precious four lecture hours out of an eight-week course to study channel coding? In the preceding chapters, the author painstakingly attempted to remove redundancy from information, yet the purpose of channel coding is precisely to add redundancy?</p>
-<p>First, source coding and channel coding do not describe the same thing in information theory – they actually address two independent problems in the field: leaving aside the channel, how should we compress information? Leaving aside the source, since noise is inevitable in a channel, how should we resist its interference? Source coding achieves a transmission rate close to the entropy of the source by compressing its redundant parts to the utmost; channel coding, on the other hand, introduces redundancy to counteract noise, thereby bringing the transmission rate close to the channel capacity. Thus, source coding and channel coding are two independent areas of research in information theory.</p>
-<p>In fact, a unified theory does exist – joint source-channel coding. However, the Shannon separation theorem shows that, under lossless conditions, source coding and channel coding can be performed separately without any loss of performance. Since theory supports this decoupling, why not consider the two problems independently to achieve greater generality? Engineers working on the H.265 algorithm need not know whether the data stream they encode will be transmitted via optical disc or 5G, and 5G communications engineers need not know whether the data they transmit is a livestream of a SJTU premium course or a popular forum post. Such decoupling makes system development more flexible and efficient.</p>
-<p>With that motivation, we arrive at this chapter: <strong>Channel Coding</strong>. In this chapter, we study errors in channel transmission, how to decode in order to minimize the probability of errors, how the channel coding theorem proves the existence of error-free coding schemes under certain conditions, and the construction and performance analysis of several classical linear block codes. In the analysis of linear block codes, we will employ some elegant properties of linear spaces and cyclic polynomials.</p>
+<p>Before delving into channel coding, the author feels it is necessary
+to clarify the relationship between source coding and channel coding.
+While reading the material in this section, the author often found it
+puzzling: the source coding process can be abstracted as a form of
+generalized transmission, so why must we spare a precious four lecture
+hours out of an eight-week course to study channel coding? In the
+preceding chapters, the author painstakingly attempted to remove
+redundancy from information, yet the purpose of channel coding is
+precisely to add redundancy?</p>
+<p>First, source coding and channel coding do not describe the same
+thing in information theory – they actually address two independent
+problems in the field: leaving aside the channel, how should we compress
+information? Leaving aside the source, since noise is inevitable in a
+channel, how should we resist its interference? Source coding achieves a
+transmission rate close to the entropy of the source by compressing its
+redundant parts to the utmost; channel coding, on the other hand,
+introduces redundancy to counteract noise, thereby bringing the
+transmission rate close to the channel capacity. Thus, source coding and
+channel coding are two independent areas of research in information
+theory.</p>
+<p>In fact, a unified theory does exist – joint source-channel coding.
+However, the Shannon separation theorem shows that, under lossless
+conditions, source coding and channel coding can be performed separately
+without any loss of performance. Since theory supports this decoupling,
+why not consider the two problems independently to achieve greater
+generality? Engineers working on the H.265 algorithm need not know
+whether the data stream they encode will be transmitted via optical disc
+or 5G, and 5G communications engineers need not know whether the data
+they transmit is a livestream of a SJTU premium course or a popular
+forum post. Such decoupling makes system development more flexible and
+efficient.</p>
+<p>With that motivation, we arrive at this chapter: <strong>Channel
+Coding</strong>. In this chapter, we study errors in channel
+transmission, how to decode in order to minimize the probability of
+errors, how the channel coding theorem proves the existence of
+error-free coding schemes under certain conditions, and the construction
+and performance analysis of several classical linear block codes. In the
+analysis of linear block codes, we will employ some elegant properties
+of linear spaces and cyclic polynomials.</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="../../SJTUCourses/NIS2337/05-ChannelCoding/#more" rel="contents">
@@ -600,7 +636,7 @@ mjx-container[display="true"] + br {
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2026-09-11 19:08:56" itemprop="dateModified" datetime="2026-09-11T19:08:56+08:00">2026-09-11</time>
+      <time title="Modified: 2026-09-13 22:21:14" itemprop="dateModified" datetime="2026-09-13T22:21:14+08:00">2026-09-13</time>
     </span>
 
   
@@ -629,14 +665,24 @@ mjx-container[display="true"] + br {
     
     <div class="post-body" itemprop="articleBody">
           <blockquote>
-<p>“Information has three great desires: compression rate, efficiency, and accuracy. Among these three desires, compression rate satisfies the need for compression survival, so the pursuit of compression rate takes the highest priority. If effective compression can be achieved during transmission, it also makes channel transmission extremely efficient. In real life, there exist codes that persistently pursue such efficiency. We usually refer to this type of code as an optimal code, and the encoder is specifically tailored for those channels weary of transmission distortion, providing source coding that matches their channel capacity.”</p>
+<p>“Information has three great desires: compression rate, efficiency,
+and accuracy. Among these three desires, compression rate satisfies the
+need for compression survival, so the pursuit of compression rate takes
+the highest priority. If effective compression can be achieved during
+transmission, it also makes channel transmission extremely efficient. In
+real life, there exist codes that persistently pursue such efficiency.
+We usually refer to this type of code as an optimal code, and the
+encoder is specifically tailored for those channels weary of
+transmission distortion, providing source coding that matches their
+channel capacity.”</p>
 </blockquote>
-<p>The role of source coding can be summarized as follows:</p>
-<ul>
-<li><strong>Symbol Transformation</strong>: To match the output symbols of the source with the input symbols of the channel;</li>
-<li><strong>Information Matching</strong>: To match the information output by the source with the transmission capability of the channel;</li>
-<li><strong>Redundancy Compression</strong>: To reduce redundant information in the source output, thereby improving transmission efficiency.</li>
-</ul>
+<p>The role of source coding can be summarized as follows: -
+<strong>Symbol Transformation</strong>: To match the output symbols of
+the source with the input symbols of the channel; - <strong>Information
+Matching</strong>: To match the information output by the source with
+the transmission capability of the channel; - <strong>Redundancy
+Compression</strong>: To reduce redundant information in the source
+output, thereby improving transmission efficiency.</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="../../SJTUCourses/NIS2337/04-SourceCoding/#more" rel="contents">
@@ -706,7 +752,7 @@ mjx-container[display="true"] + br {
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2026-09-11 19:08:56" itemprop="dateModified" datetime="2026-09-11T19:08:56+08:00">2026-09-11</time>
+      <time title="Modified: 2026-09-13 22:21:14" itemprop="dateModified" datetime="2026-09-13T22:21:14+08:00">2026-09-13</time>
     </span>
 
   
@@ -734,8 +780,18 @@ mjx-container[display="true"] + br {
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>In the discussions on the <a href="/SJTUCourses/NIS2337/01-Source">source</a> and the <a href="/SJTUCourses/NIS2337/02-Channel">channel</a>, we typically consider distortionless communication systems, i.e., systems where the messages produced by the source are transmitted to the receiver without error. However, in practical communication systems, completely distortionless transmission is often infeasible. Therefore, we need to introduce the concept of <strong>distortion</strong> to describe the information loss in communication systems.</p>
-<p>Nevertheless, the distortion discussed in this section differs from noise. Noise refers to random interference introduced by the channel, whereas distortion refers to the discrepancy between output and input caused by deliberate compression during encoding or transmission due to excessive message length.</p>
+          <p>In the discussions on the <a href="/SJTUCourses/NIS2337/01-Source">source</a> and the <a href="/SJTUCourses/NIS2337/02-Channel">channel</a>, we typically
+consider distortionless communication systems, i.e., systems where the
+messages produced by the source are transmitted to the receiver without
+error. However, in practical communication systems, completely
+distortionless transmission is often infeasible. Therefore, we need to
+introduce the concept of <strong>distortion</strong> to describe the
+information loss in communication systems.</p>
+<p>Nevertheless, the distortion discussed in this section differs from
+noise. Noise refers to random interference introduced by the channel,
+whereas distortion refers to the discrepancy between output and input
+caused by deliberate compression during encoding or transmission due to
+excessive message length.</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="../../SJTUCourses/NIS2337/03-RateDistortion/#more" rel="contents">
@@ -805,7 +861,7 @@ mjx-container[display="true"] + br {
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2026-09-11 19:08:56" itemprop="dateModified" datetime="2026-09-11T19:08:56+08:00">2026-09-11</time>
+      <time title="Modified: 2026-09-13 22:21:14" itemprop="dateModified" datetime="2026-09-13T22:21:14+08:00">2026-09-13</time>
     </span>
 
   
@@ -903,7 +959,7 @@ mjx-container[display="true"] + br {
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2026-09-11 19:08:56" itemprop="dateModified" datetime="2026-09-11T19:08:56+08:00">2026-09-11</time>
+      <time title="Modified: 2026-09-13 22:21:14" itemprop="dateModified" datetime="2026-09-13T22:21:14+08:00">2026-09-13</time>
     </span>
 
   
@@ -931,7 +987,10 @@ mjx-container[display="true"] + br {
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>This section introduces the classification of sources and their mathematical models, and defines basic concepts such as self-information, mutual information, entropy, and relative entropy for both discrete and continuous sources.</p>
+          <p>This section introduces the classification of sources and their
+mathematical models, and defines basic concepts such as
+self-information, mutual information, entropy, and relative entropy for
+both discrete and continuous sources.</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="../../SJTUCourses/NIS2337/01-Source/#more" rel="contents">
@@ -1001,7 +1060,7 @@ mjx-container[display="true"] + br {
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2026-09-11 19:08:56" itemprop="dateModified" datetime="2026-09-11T19:08:56+08:00">2026-09-11</time>
+      <time title="Modified: 2026-09-13 22:21:14" itemprop="dateModified" datetime="2026-09-13T22:21:14+08:00">2026-09-13</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1038,8 +1097,19 @@ mjx-container[display="true"] + br {
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>This is the note of <strong>CS3321 Database System Technology</strong>(数据库技术), a course offered to Grade 3 Computer Science undergraduates at SJTU focusing on mathematical principle of relational normalizations and design theory of database instead usage of database. If you focus on practical usage of database systems such as writing SQL queries and building database applications, you may consider <del><a href="./NIS3351-Database-Principle-and-Security">NIS3351 Database Principle and Security</a></del> (unavailable) instead. Sacastically, NIS3351 has nothing to do with database security.</p>
-<p>Some pictures and content in this note are taken from slides, which can be checked at <a target="_blank" rel="noopener" href="https://wiki.pdy.app:8443/s/d087fcd4-7c93-4f17-b631-68910a064353">course homepage</a> or <a target="_blank" rel="noopener" href="https://basics.sjtu.edu.cn/~qyin/">homepage of Qiang Yin</a>, the lecturer.</p>
+          <p>This is the note of <strong>CS3321 Database System
+Technology</strong>(数据库技术), a course offered to Grade 3 Computer
+Science undergraduates at SJTU focusing on mathematical principle of
+relational normalizations and design theory of database instead usage of
+database. If you focus on practical usage of database systems such as
+writing SQL queries and building database applications, you may consider
+<del><a href="./NIS3351-Database-Principle-and-Security">NIS3351
+Database Principle and Security</a></del> (unavailable) instead.
+Sacastically, NIS3351 has nothing to do with database security.</p>
+<p>Some pictures and content in this note are taken from slides, which
+can be checked at <a target="_blank" rel="noopener" href="https://wiki.pdy.app:8443/s/d087fcd4-7c93-4f17-b631-68910a064353">course
+homepage</a> or <a target="_blank" rel="noopener" href="https://basics.sjtu.edu.cn/~qyin/">homepage of
+Qiang Yin</a>, the lecturer.</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="../../Note-CS3321/#more" rel="contents">
@@ -1109,7 +1179,7 @@ mjx-container[display="true"] + br {
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2026-09-11 19:08:56" itemprop="dateModified" datetime="2026-09-11T19:08:56+08:00">2026-09-11</time>
+      <time title="Modified: 2026-09-13 22:21:14" itemprop="dateModified" datetime="2026-09-13T22:21:14+08:00">2026-09-13</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1150,9 +1220,18 @@ mjx-container[display="true"] + br {
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>This blog, run by GitHub Actions and Hexo, is regularly updated. Although git commit messages provide some insight into the changes made, this log offers a more detailed overview of significant updates and modifications.</p>
-<p>Root repository of this blog locates at <a target="_blank" rel="noopener" href="https://github.com/MingchenDai/mingchendai.github.io">Github - MingchenDai/mingchendai.github.io</a>. You can check the changes there directly, or refer to this log for a summarized view of the updates in reverse chronological order.</p>
-<p>Update logs are edited manually since February 2nd, 2026. Normal update of this post (including adding new update message and modifying existing commit ids) and <a href="/about/">About</a> page will not be recorded here.</p>
+          <p>This blog, run by GitHub Actions and Hexo, is regularly updated.
+Although git commit messages provide some insight into the changes made,
+this log offers a more detailed overview of significant updates and
+modifications.</p>
+<p>Root repository of this blog locates at <a target="_blank" rel="noopener" href="https://github.com/MingchenDai/mingchendai.github.io">Github -
+MingchenDai/mingchendai.github.io</a>. You can check the changes there
+directly, or refer to this log for a summarized view of the updates in
+reverse chronological order.</p>
+<p>Update logs are edited manually since February 2nd, 2026. Normal
+update of this post (including adding new update message and modifying
+existing commit ids) and <a href="/about/">About</a> page will not be
+recorded here.</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="../../Blog-Update-Log/#more" rel="contents">
@@ -1222,7 +1301,7 @@ mjx-container[display="true"] + br {
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2026-09-11 19:08:56" itemprop="dateModified" datetime="2026-09-11T19:08:56+08:00">2026-09-11</time>
+      <time title="Modified: 2026-09-13 22:21:14" itemprop="dateModified" datetime="2026-09-13T22:21:14+08:00">2026-09-13</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1263,8 +1342,16 @@ mjx-container[display="true"] + br {
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>Counted by a VSCode plugin, the platform I spent the most time on is Debian via SSH remote connection from MacOS. However, Windows is still an important platform I use frequently, especially for some specific software that only runs on Windows or have requirements for a powerful GPU. This post records some issues I encountered when using Windows 11 on my Lenovo laptop, and their solutions.</p>
-<p>As my computer is a dual-booting system with Arch Linux, some issues are related to dual-booting systems. These issues and their solutions will not appear in this post - please check <a href="/2026/01/15/Arch-Linux-Installation/">Arch Linux - Windows Dual-Booting System Installation Guide</a> for details.</p>
+          <p>Counted by a VSCode plugin, the platform I spent the most time on is
+Debian via SSH remote connection from MacOS. However, Windows is still
+an important platform I use frequently, especially for some specific
+software that only runs on Windows or have requirements for a powerful
+GPU. This post records some issues I encountered when using Windows 11
+on my Lenovo laptop, and their solutions.</p>
+<p>As my computer is a dual-booting system with Arch Linux, some issues
+are related to dual-booting systems. These issues and their solutions
+will not appear in this post - please check <a href="/2026/01/15/Arch-Linux-Installation/">Arch Linux - Windows
+Dual-Booting System Installation Guide</a> for details.</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="../../Windows-Issues/#more" rel="contents">
@@ -1334,7 +1421,7 @@ mjx-container[display="true"] + br {
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2026-09-11 19:08:56" itemprop="dateModified" datetime="2026-09-11T19:08:56+08:00">2026-09-11</time>
+      <time title="Modified: 2026-09-13 22:21:14" itemprop="dateModified" datetime="2026-09-13T22:21:14+08:00">2026-09-13</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1371,10 +1458,19 @@ mjx-container[display="true"] + br {
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>This is a note of <strong>MATH1207 Probability and Mathematical Statistics</strong> (概率论与数理统计) taught at SJTU. It is originally written in Chinese to keep consistency with lecture language and translated into English later.</p>
-<p>The note covers all contents of the course taught in 2025-2026-1 semester, including random events and probability, random variables and their distributions, numerical characteristics of random variables, joint distributions of multiple random variables, random samples and sampling distributions, estimation, and hypothesis testing.</p>
+          <p>This is a note of <strong>MATH1207 Probability and Mathematical
+Statistics</strong> (概率论与数理统计) taught at SJTU. It is originally
+written in Chinese to keep consistency with lecture language and
+translated into English later.</p>
+<p>The note covers all contents of the course taught in 2025-2026-1
+semester, including random events and probability, random variables and
+their distributions, numerical characteristics of random variables,
+joint distributions of multiple random variables, random samples and
+sampling distributions, estimation, and hypothesis testing.</p>
 <blockquote>
-<p><strong>Quick Navigation</strong> to check <a href="#Discrete-Random-Variables">Common Discrete Random Variables and Their Properties</a> and <a href="#Continuous-Random-Variables">Common Continuous Random Variables and Their Properties</a>.</p>
+<p><strong>Quick Navigation</strong> to check <a href="#Discrete-Random-Variables">Common Discrete Random Variables and
+Their Properties</a> and <a href="#Continuous-Random-Variables">Common
+Continuous Random Variables and Their Properties</a>.</p>
 </blockquote>
           <!--noindex-->
             <div class="post-button">

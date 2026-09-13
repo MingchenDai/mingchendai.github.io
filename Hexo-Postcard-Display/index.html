@@ -28,7 +28,7 @@
 <meta property="og:description" content="This post introduces how to display a postcard map in a Hexo blog using data exported from Postcrossing or in a custom format.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-11-28T11:11:45.000Z">
-<meta property="article:modified_time" content="2026-09-11T11:08:56.632Z">
+<meta property="article:modified_time" content="2026-09-13T14:21:14.520Z">
 <meta property="article:author" content="Dimethyl">
 <meta property="article:tag" content="Blog">
 <meta property="article:tag" content="Hexo">
@@ -75,12 +75,6 @@
   
 
 
-
-
-  
-
-  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"all","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
-<script src="../js/third-party/math/mathjax.js" defer></script>
 
 
 
@@ -286,7 +280,9 @@ mjx-container[display="true"] + br {
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Overview"><span class="nav-number">1.</span> <span class="nav-text">Overview</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#File-Structure"><span class="nav-number">2.</span> <span class="nav-text">File Structure</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#source-postcard-index-html"><span class="nav-number">2.1.</span> <span class="nav-text">source&#x2F;postcard&#x2F;index.html</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#source-postcard-cardData-json"><span class="nav-number">2.2.</span> <span class="nav-text">source&#x2F;postcard&#x2F;cardData.json</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#source-postcard-leaflet-js-and-source-postcard-leaflet-curve-js"><span class="nav-number">2.3.</span> <span class="nav-text">source&#x2F;postcard&#x2F;leaflet.js and source&#x2F;postcard&#x2F;leaflet.curve.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#source-postcard-graph-js"><span class="nav-number">2.4.</span> <span class="nav-text">source&#x2F;postcard&#x2F;graph.js</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Use-Implementation-in-Hexo"><span class="nav-number">3.</span> <span class="nav-text">Use Implementation in Hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Prerequisites"><span class="nav-number">3.1.</span> <span class="nav-text">Prerequisites</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Copy-the-Postcard-Assets"><span class="nav-number">3.2.</span> <span class="nav-text">Copy the Postcard Assets</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Add-or-Edit-Postcard-Data"><span class="nav-number">3.3.</span> <span class="nav-text">Add or Edit Postcard Data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-and-Preview-Your-Site"><span class="nav-number">3.4.</span> <span class="nav-text">Generate and Preview Your Site</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#overview"><span class="nav-number">1.</span> <span class="nav-text">Overview</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#file-structure"><span class="nav-number">2.</span> <span class="nav-text">File Structure</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sourcepostcardindex.html"><span class="nav-number">2.1.</span> <span class="nav-text">source&#x2F;postcard&#x2F;index.html</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sourcepostcardcarddata.json"><span class="nav-number">2.2.</span> <span class="nav-text">source&#x2F;postcard&#x2F;cardData.json</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sourcepostcardleaflet.js-and-sourcepostcardleaflet.curve.js"><span class="nav-number">2.3.</span> <span class="nav-text">source&#x2F;postcard&#x2F;leaflet.js
+and source&#x2F;postcard&#x2F;leaflet.curve.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sourcepostcardgraph.js"><span class="nav-number">2.4.</span> <span class="nav-text">source&#x2F;postcard&#x2F;graph.js</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#use-implementation-in-hexo"><span class="nav-number">3.</span> <span class="nav-text">Use Implementation in Hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#prerequisites"><span class="nav-number">3.1.</span> <span class="nav-text">Prerequisites</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#copy-the-postcard-assets"><span class="nav-number">3.2.</span> <span class="nav-text">Copy the Postcard Assets</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#add-or-edit-postcard-data"><span class="nav-number">3.3.</span> <span class="nav-text">Add or Edit Postcard Data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#generate-and-preview-your-site"><span class="nav-number">3.4.</span> <span class="nav-text">Generate and Preview Your
+Site</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -402,7 +398,7 @@ mjx-container[display="true"] + br {
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2026-09-11 19:08:56" itemprop="dateModified" datetime="2026-09-11T19:08:56+08:00">2026-09-11</time>
+      <time title="Modified: 2026-09-13 22:21:14" itemprop="dateModified" datetime="2026-09-13T22:21:14+08:00">2026-09-13</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -438,60 +434,90 @@ mjx-container[display="true"] + br {
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>This post introduces how to display a postcard map in a Hexo blog using data exported from <a target="_blank" rel="noopener" href="https://www.postcrossing.com/">Postcrossing</a> or in a custom format.</p>
+    <div class="post-body" itemprop="articleBody"><p>This post introduces how to display a postcard map in a Hexo blog
+using data exported from <a target="_blank" rel="noopener" href="https://www.postcrossing.com/">Postcrossing</a> or in a custom
+format.</p>
 <span id="more"></span>
 <blockquote>
-<p>A demo can be checked at <a href="/postcard">Postcard</a> page and source code can be found at <code>source/postcard</code> folder of my <a target="_blank" rel="noopener" href="https://github.com/mingchendai/mingchendai.github.io">Hexo Blog Repository</a>.</p>
+<p>A demo can be checked at <a href="/postcard">Postcard</a> page and
+source code can be found at <code>source/postcard</code> folder of my <a target="_blank" rel="noopener" href="https://github.com/mingchendai/mingchendai.github.io">Hexo Blog
+Repository</a>.</p>
 </blockquote>
-<h2 id="Overview">Overview</h2>
-<p>The Postcard feature shows a world map with markers for each postcard you have received or want to display. It is implemented as a <strong>standalone Hexo page</strong> backed by:</p>
+<h2 id="overview">Overview</h2>
+<p>The Postcard feature shows a world map with markers for each postcard
+you have received or want to display. It is implemented as a
+<strong>standalone Hexo page</strong> backed by:</p>
 <ul>
 <li>A JSON data file describing postcards.</li>
 <li>A static HTML layout for the map page.</li>
-<li>JavaScript using <a target="_blank" rel="noopener" href="https://leafletjs.com/">Leaflet</a> and a curve plugin to render the map and connections.</li>
-<li>Supporting CSS/JS assets copied under <code>public/postcard</code>.</li>
+<li>JavaScript using <a target="_blank" rel="noopener" href="https://leafletjs.com/">Leaflet</a> and a
+curve plugin to render the map and connections.</li>
+<li>Supporting CSS/JS assets copied under
+<code>public/postcard</code>.</li>
 </ul>
 <p>In this repository, the implementation lives under:</p>
 <ul>
-<li><code>source/postcard/index.html</code> – main postcard map page.</li>
-<li><code>source/postcard/cardData.json</code> – postcard data (title, description, coordinates, etc.).</li>
-<li><code>source/postcard/leaflet.js</code>, <code>source/postcard/leaflet.curve.js</code> – Leaflet library and plugin.</li>
-<li><code>source/postcard/graph.js</code> – main JavaScript to load postcard data and draw the map.</li>
+<li><code>source/postcard/index.html</code> – main postcard map
+page.</li>
+<li><code>source/postcard/cardData.json</code> – postcard data (title,
+description, coordinates, etc.).</li>
+<li><code>source/postcard/leaflet.js</code>,
+<code>source/postcard/leaflet.curve.js</code> – Leaflet library and
+plugin.</li>
+<li><code>source/postcard/graph.js</code> – main JavaScript to load
+postcard data and draw the map.</li>
 </ul>
-<p>When Hexo generates the site, these files are copied directly into <code>public/postcard</code>, which makes the page available at <code>/postcard/</code>.</p>
-<h2 id="File-Structure">File Structure</h2>
-<p>Below is a more detailed description of each file so you can understand or customize the implementation.</p>
-<h3 id="source-postcard-index-html"><code>source/postcard/index.html</code></h3>
-<p>This file is a standalone HTML entry for the postcard map. It typically includes:</p>
+<p>When Hexo generates the site, these files are copied directly into
+<code>public/postcard</code>, which makes the page available at
+<code>/postcard/</code>.</p>
+<h2 id="file-structure">File Structure</h2>
+<p>Below is a more detailed description of each file so you can
+understand or customize the implementation.</p>
+<h3 id="sourcepostcardindex.html"><code>source/postcard/index.html</code></h3>
+<p>This file is a standalone HTML entry for the postcard map. It
+typically includes:</p>
 <ul>
 <li>A container <code>&lt;div&gt;</code> for the Leaflet map.</li>
-<li>Links to the required CSS (Leaflet styles and any custom styles).</li>
+<li>Links to the required CSS (Leaflet styles and any custom
+styles).</li>
 <li><code>&lt;script&gt;</code> tags that load:
 <ul>
 <li><code>leaflet.js</code> and <code>leaflet.curve.js</code>.</li>
-<li><code>cardData.json</code> (via AJAX/fetch in <code>graph.js</code>).</li>
+<li><code>cardData.json</code> (via AJAX/fetch in
+<code>graph.js</code>).</li>
 <li><code>graph.js</code> which initializes the map and markers.</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<p>It is treated as a static asset by Hexo, so the content is copied to <code>public/postcard/index.html</code> without template processing.</p>
-<h3 id="source-postcard-cardData-json"><code>source/postcard/cardData.json</code></h3>
-<p>This JSON file contains all postcard data with same format of Postcrossing. In fact, it is an array consisting of:</p>
+<p>It is treated as a static asset by Hexo, so the content is copied to
+<code>public/postcard/index.html</code> without template processing.</p>
+<h3 id="sourcepostcardcarddata.json"><code>source/postcard/cardData.json</code></h3>
+<p>This JSON file contains all postcard data with same format of
+Postcrossing. In fact, it is an array consisting of:</p>
 <ul>
 <li>A dictionary of homes, in the other words, places of user.</li>
 <li>A dictionary of sent postcards.</li>
 <li>A dictionary of received postcards.</li>
 </ul>
-<p>If you are not a Postcrossing user, you can still create your own postcard data in the same format, but please make sure to follow the structure which can be refered from <code>source/postcard/cardData.json</code> in this blog repository.</p>
-<p><code>graph.js</code> reads this JSON and turns each entry into a Leaflet marker and, optionally, curved lines connecting locations.</p>
-<h3 id="source-postcard-leaflet-js-and-source-postcard-leaflet-curve-js"><code>source/postcard/leaflet.js</code> and <code>source/postcard/leaflet.curve.js</code></h3>
+<p>If you are not a Postcrossing user, you can still create your own
+postcard data in the same format, but please make sure to follow the
+structure which can be refered from
+<code>source/postcard/cardData.json</code> in this blog repository.</p>
+<p><code>graph.js</code> reads this JSON and turns each entry into a
+Leaflet marker and, optionally, curved lines connecting locations.</p>
+<h3 id="sourcepostcardleaflet.js-and-sourcepostcardleaflet.curve.js"><code>source/postcard/leaflet.js</code>
+and <code>source/postcard/leaflet.curve.js</code></h3>
 <p>These files provide the map rendering capability:</p>
 <ul>
-<li><code>leaflet.js</code>: Core Leaflet library that handles interactive maps, tiles, zooming, and markers.</li>
-<li><code>leaflet.curve.js</code>: A plugin for drawing curved lines/arcs between points, useful for visualizing connections between postcards.</li>
+<li><code>leaflet.js</code>: Core Leaflet library that handles
+interactive maps, tiles, zooming, and markers.</li>
+<li><code>leaflet.curve.js</code>: A plugin for drawing curved
+lines/arcs between points, useful for visualizing connections between
+postcards.</li>
 </ul>
-<p>You can replace these with newer versions from the Leaflet website/CDN if needed, but make sure the versions are compatible with each other and your <code>graph.js</code> code.</p>
-<h3 id="source-postcard-graph-js"><code>source/postcard/graph.js</code></h3>
+<p>You can replace these with newer versions from the Leaflet
+website/CDN if needed, but make sure the versions are compatible with
+each other and your <code>graph.js</code> code.</p>
+<h3 id="sourcepostcardgraph.js"><code>source/postcard/graph.js</code></h3>
 <p>This is the main script controlling the postcard map:</p>
 <ul>
 <li>Initializes the Leaflet map (center, zoom level, tile layer).</li>
@@ -500,22 +526,26 @@ mjx-container[display="true"] + br {
 <ul>
 <li>Adds a marker at (lat, lng).</li>
 <li>Binds a popup showing title and description.</li>
+</ul></li>
+<li>Optionally draws arcs/curves between locations using
+<code>leaflet.curve.js</code>.</li>
 </ul>
-</li>
-<li>Optionally draws arcs/curves between locations using <code>leaflet.curve.js</code>.</li>
-</ul>
-<p>If you want to customize behavior (cluster markers, change popup format, different tile provider, etc.), this is the primary file to modify.</p>
-<h2 id="Use-Implementation-in-Hexo">Use Implementation in Hexo</h2>
-<h3 id="Prerequisites">Prerequisites</h3>
+<p>If you want to customize behavior (cluster markers, change popup
+format, different tile provider, etc.), this is the primary file to
+modify.</p>
+<h2 id="use-implementation-in-hexo">Use Implementation in Hexo</h2>
+<h3 id="prerequisites">Prerequisites</h3>
 <ul>
 <li>A working Hexo blog (Node.js + Hexo installed).</li>
-<li>Basic familiarity with Hexo’s folder structure (source, public, etc.).</li>
+<li>Basic familiarity with Hexo’s folder structure (source, public,
+etc.).</li>
 <li>Git access to this repository to copy files.</li>
 </ul>
-<h3 id="Copy-the-Postcard-Assets">Copy the Postcard Assets</h3>
+<h3 id="copy-the-postcard-assets">Copy the Postcard Assets</h3>
 <p>Create the postcard folder in your own Hexo project:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p <span class="built_in">source</span>/postcard</span><br></pre></td></tr></table></figure>
-<p>Copy the implementation files from this repository (either by cloning or manually downloading):</p>
+<p>Copy the implementation files from this repository (either by cloning
+or manually downloading):</p>
 <ul>
 <li><code>source/postcard/index.html</code></li>
 <li><code>source/postcard/cardData.json</code></li>
@@ -525,19 +555,32 @@ mjx-container[display="true"] + br {
 </ul>
 <p>After copying, your own project should contain:</p>
 <figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">your-blog/</span><br><span class="line">  source/</span><br><span class="line">    postcard/</span><br><span class="line">      <span class="keyword">index</span>.html</span><br><span class="line">      cardData.json</span><br><span class="line">      leaflet.js</span><br><span class="line">      leaflet.curve.js</span><br><span class="line">      graph.js</span><br></pre></td></tr></table></figure>
-<p>Hexo treats anything under <code>source/</code> (that is not a post or special template) as a static asset, so <code>source/postcard</code> will be copied as‑is to <code>public/postcard</code> on build.</p>
-<h3 id="Add-or-Edit-Postcard-Data">Add or Edit Postcard Data</h3>
-<p>Open <code>source/postcard/cardData.json</code> and add your own postcard entries.</p>
-<p>For Postcrossing users, visit <code>view-source:https://www.postcrossing.com/user/your_username/map</code> and search keyword <code>homes</code>, <code>sentPostcards</code> and <code>receivedPostcards</code> to find your own data in JSON format, then arrange them in the order:</p>
+<p>Hexo treats anything under <code>source/</code> (that is not a post
+or special template) as a static asset, so <code>source/postcard</code>
+will be copied as‑is to <code>public/postcard</code> on build.</p>
+<h3 id="add-or-edit-postcard-data">Add or Edit Postcard Data</h3>
+<p>Open <code>source/postcard/cardData.json</code> and add your own
+postcard entries.</p>
+<p>For Postcrossing users, visit
+<code>view-source:https://www.postcrossing.com/user/your_username/map</code>
+and search keyword <code>homes</code>, <code>sentPostcards</code> and
+<code>receivedPostcards</code> to find your own data in JSON format,
+then arrange them in the order:</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">[</span></span><br><span class="line">    <span class="punctuation">{</span> <span class="comment">/* homes data */</span> <span class="punctuation">}</span><span class="punctuation">,</span></span><br><span class="line">    <span class="punctuation">{</span> <span class="comment">/* sentPostcards data */</span> <span class="punctuation">}</span><span class="punctuation">,</span></span><br><span class="line">    <span class="punctuation">{</span> <span class="comment">/* receivedPostcards data */</span> <span class="punctuation">}</span></span><br><span class="line"><span class="punctuation">]</span></span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>Postcrossing does not provide an official API for exporting postcard data, so you may need to manually copy the JSON from the page source.</p>
+<p>Postcrossing does not provide an official API for exporting postcard
+data, so you may need to manually copy the JSON from the page
+source.</p>
 </blockquote>
-<p>For non-Postcrossing users, create your own postcard entries following the same format.</p>
+<p>For non-Postcrossing users, create your own postcard entries
+following the same format.</p>
 <p>A valid data sample looks like this:</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">[</span></span><br><span class="line">  <span class="punctuation">{</span></span><br><span class="line">    <span class="attr">"900001"</span><span class="punctuation">:</span> <span class="punctuation">{</span> <span class="attr">"lat"</span><span class="punctuation">:</span> <span class="number">40.7128</span><span class="punctuation">,</span> <span class="attr">"lon"</span><span class="punctuation">:</span> <span class="number">-74.0060</span> <span class="punctuation">}</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">"900002"</span><span class="punctuation">:</span> <span class="punctuation">{</span> <span class="attr">"lat"</span><span class="punctuation">:</span> <span class="number">51.5074</span><span class="punctuation">,</span> <span class="attr">"lon"</span><span class="punctuation">:</span> <span class="number">-0.1278</span> <span class="punctuation">}</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">"900003"</span><span class="punctuation">:</span> <span class="punctuation">{</span> <span class="attr">"lat"</span><span class="punctuation">:</span> <span class="number">35.6895</span><span class="punctuation">,</span> <span class="attr">"lon"</span><span class="punctuation">:</span> <span class="number">139.6917</span> <span class="punctuation">}</span></span><br><span class="line">  <span class="punctuation">}</span><span class="punctuation">,</span></span><br><span class="line">  <span class="punctuation">{</span></span><br><span class="line">    <span class="attr">"US-999999"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">      <span class="attr">"from"</span><span class="punctuation">:</span> <span class="number">900001</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">"to"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">        <span class="attr">"username"</span><span class="punctuation">:</span> <span class="string">"Sample_User_A"</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">"lat"</span><span class="punctuation">:</span> <span class="number">48.8566</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">"lon"</span><span class="punctuation">:</span> <span class="number">2.3522</span></span><br><span class="line">      <span class="punctuation">}</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">"received_date"</span><span class="punctuation">:</span> <span class="string">"1700000000"</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">"days"</span><span class="punctuation">:</span> <span class="number">12</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">"dist"</span><span class="punctuation">:</span> <span class="string">"5,836 km"</span></span><br><span class="line">    <span class="punctuation">}</span></span><br><span class="line">  <span class="punctuation">}</span><span class="punctuation">,</span></span><br><span class="line">  <span class="punctuation">{</span></span><br><span class="line">    <span class="attr">"JP-888888"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">      <span class="attr">"from"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">        <span class="attr">"username"</span><span class="punctuation">:</span> <span class="string">"Sample_User_B"</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">"lat"</span><span class="punctuation">:</span> <span class="number">-33.8688</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">"lon"</span><span class="punctuation">:</span> <span class="number">151.2093</span></span><br><span class="line">      <span class="punctuation">}</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">"to"</span><span class="punctuation">:</span> <span class="number">900003</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">"received_date"</span><span class="punctuation">:</span> <span class="string">"1705000000"</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">"days"</span><span class="punctuation">:</span> <span class="number">27</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">"dist"</span><span class="punctuation">:</span> <span class="string">"7,821 km"</span></span><br><span class="line">    <span class="punctuation">}</span></span><br><span class="line">  <span class="punctuation">}</span></span><br><span class="line"><span class="punctuation">]</span></span><br></pre></td></tr></table></figure>
-<h3 id="Generate-and-Preview-Your-Site">Generate and Preview Your Site</h3>
-<p>Run Hexo’s usual commands in your blog root, then visit: <code>localhost:&lt;port&gt;/postcard/</code> to see your postcard map. You should now see your own interactive postcard map.</p>
+<h3 id="generate-and-preview-your-site">Generate and Preview Your
+Site</h3>
+<p>Run Hexo’s usual commands in your blog root, then visit:
+<code>localhost:&lt;port&gt;/postcard/</code> to see your postcard map.
+You should now see your own interactive postcard map.</p>
 
     </div>
 

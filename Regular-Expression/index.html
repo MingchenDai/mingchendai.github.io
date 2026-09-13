@@ -28,7 +28,7 @@
 <meta property="og:description" content="Reference: Regular Expressions Tutorial  Regular expressions is a sequence of characters that forms a search pattern and own common shortands regex or regexp. Engines are programs that can process re">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-07-31T10:33:35.000Z">
-<meta property="article:modified_time" content="2026-09-11T11:08:56.648Z">
+<meta property="article:modified_time" content="2026-09-13T14:21:14.536Z">
 <meta property="article:author" content="Dimethyl">
 <meta property="article:tag" content="SQL">
 <meta name="twitter:card" content="summary">
@@ -74,12 +74,6 @@
   
 
 
-
-
-  
-
-  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"all","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
-<script src="../js/third-party/math/mathjax.js" defer></script>
 
 
 
@@ -285,7 +279,8 @@ mjx-container[display="true"] + br {
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Literal-Characters-and-Special-Characters"><span class="nav-number">1.</span> <span class="nav-text">Literal Characters and Special Characters</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Literal-Characters"><span class="nav-number">1.1.</span> <span class="nav-text">Literal Characters</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Special-Characters"><span class="nav-number">1.2.</span> <span class="nav-text">Special Characters</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Non-Printable-Characters"><span class="nav-number">2.</span> <span class="nav-text">Non-Printable Characters</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Line-Breaks"><span class="nav-number">2.1.</span> <span class="nav-text">Line Breaks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Octal-Escapes"><span class="nav-number">2.2.</span> <span class="nav-text">Octal Escapes</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Regular-Expression-Engines"><span class="nav-number">3.</span> <span class="nav-text">Regular Expression Engines</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#literal-characters-and-special-characters"><span class="nav-number">1.</span> <span class="nav-text">Literal Characters
+and Special Characters</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#literal-characters"><span class="nav-number">1.1.</span> <span class="nav-text">Literal Characters</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#special-characters"><span class="nav-number">1.2.</span> <span class="nav-text">Special Characters</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#non-printable-characters"><span class="nav-number">2.</span> <span class="nav-text">Non-Printable Characters</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#line-breaks"><span class="nav-number">2.1.</span> <span class="nav-text">Line Breaks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#octal-escapes"><span class="nav-number">2.2.</span> <span class="nav-text">Octal Escapes</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#regular-expression-engines"><span class="nav-number">3.</span> <span class="nav-text">Regular Expression Engines</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -401,7 +396,7 @@ mjx-container[display="true"] + br {
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2026-09-11 19:08:56" itemprop="dateModified" datetime="2026-09-11T19:08:56+08:00">2026-09-11</time>
+      <time title="Modified: 2026-09-13 22:21:14" itemprop="dateModified" datetime="2026-09-13T22:21:14+08:00">2026-09-13</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -438,49 +433,107 @@ mjx-container[display="true"] + br {
     
     
     <div class="post-body" itemprop="articleBody"><blockquote>
-<p>Reference: <a target="_blank" rel="noopener" href="https://www.regular-expressions.info/tutorial.html">Regular Expressions Tutorial</a></p>
+<p>Reference: <a target="_blank" rel="noopener" href="https://www.regular-expressions.info/tutorial.html">Regular
+Expressions Tutorial</a></p>
 </blockquote>
-<p><strong>Regular expressions</strong> is a sequence of characters that forms a <em>search pattern</em> and own common shortands <strong>regex</strong> or <strong>regexp</strong>.</p>
-<p><strong>Engines</strong> are programs that can process regular expressions, trying to match the pattern to the given string. Different engines may have different syntax and features.</p>
+<p><strong>Regular expressions</strong> is a sequence of characters that
+forms a <em>search pattern</em> and own common shortands
+<strong>regex</strong> or <strong>regexp</strong>.</p>
+<p><strong>Engines</strong> are programs that can process regular
+expressions, trying to match the pattern to the given string. Different
+engines may have different syntax and features.</p>
 <span id="more"></span>
-<h2 id="Literal-Characters-and-Special-Characters">Literal Characters and Special Characters</h2>
-<h3 id="Literal-Characters">Literal Characters</h3>
-<p>Most basic regular expression consists of literal characters that match the first occurrence of the characters in the string. The engine will search for the next occurrence of the characters only if you tell it to do so.</p>
+<h2 id="literal-characters-and-special-characters">Literal Characters
+and Special Characters</h2>
+<h3 id="literal-characters">Literal Characters</h3>
+<p>Most basic regular expression consists of literal characters that
+match the first occurrence of the characters in the string. The engine
+will search for the next occurrence of the characters only if you tell
+it to do so.</p>
 <p>Regular expressions are case-sensitive by default.</p>
-<h3 id="Special-Characters">Special Characters</h3>
-<p>There are 12 special characters in regular expressions: backslash <code>\</code>, caret <code>^</code>, dollar sign <code>$</code>, dot <code>.</code>, asterisk <code>*</code>, plus sign <code>+</code>, question mark <code>?</code>, opening parentheses <code>(</code>, closing parentheses <code>)</code>, opening square brackets <code>[</code>, opening curly braces <code>{</code>, pipe <code>|</code>. If you want to use these characters literally, you need to escape them with a backslash <code>\</code>.</p>
-<p>All other characters should not be escaped with a backslash because backslash with non-special characters may have special meanings.</p>
+<h3 id="special-characters">Special Characters</h3>
+<p>There are 12 special characters in regular expressions: backslash
+<code>\</code>, caret <code>^</code>, dollar sign <code>$</code>, dot
+<code>.</code>, asterisk <code>*</code>, plus sign <code>+</code>,
+question mark <code>?</code>, opening parentheses <code>(</code>,
+closing parentheses <code>)</code>, opening square brackets
+<code>[</code>, opening curly braces <code>{</code>, pipe
+<code>|</code>. If you want to use these characters literally, you need
+to escape them with a backslash <code>\</code>.</p>
+<p>All other characters should not be escaped with a backslash because
+backslash with non-special characters may have special meanings.</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1\+1=2 # Literally matches "1+1=2"</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>Most regular expression engines treat the brace <code>{</code> as a literal character unless it is part of a repetition operator. Some engines support the <code>\Q...\E</code> escape sequence and all characters between <code>\Q</code> and <code>\E</code> are treated as literal characters. In some engines <code>\E</code> may be omitted.</p>
+<p>Most regular expression engines treat the brace <code>{</code> as a
+literal character unless it is part of a repetition operator. Some
+engines support the <code>\Q...\E</code> escape sequence and all
+characters between <code>\Q</code> and <code>\E</code> are treated as
+literal characters. In some engines <code>\E</code> may be omitted.</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\Q1+1=2\E # Literally matches "1+1=2"</span><br></pre></td></tr></table></figure>
 </blockquote>
-<p>If you use regular expressions in a programming, you may need to escape the special charaters of the programming language as well so the final expression may seem a bit complicated. For example in Python you should write <code>\\\\</code> to match a single backslash <code>\</code>.</p>
-<h2 id="Non-Printable-Characters">Non-Printable Characters</h2>
-<p>You can use special characters to match non-printable characters in you regular expression.</p>
+<p>If you use regular expressions in a programming, you may need to
+escape the special charaters of the programming language as well so the
+final expression may seem a bit complicated. For example in Python you
+should write <code>\\\\</code> to match a single backslash
+<code>\</code>.</p>
+<h2 id="non-printable-characters">Non-Printable Characters</h2>
+<p>You can use special characters to match non-printable characters in
+you regular expression.</p>
 <blockquote>
-<p>In some engines <code>\v</code> represents a vertical tab (ASCII 11) while in other engines it is a shortand for any vertical whitespace character including vertical tab, form feed and all line breaks.</p>
-<p>Many regex engine support control tokens <code>\cA</code> to <code>\cZ</code> to match control characters from ASCII 1 to ASCII 26. In this case <code>\cA</code> indicates Control+A and <code>\cZ</code> indicates Control+Z. They are equal to <code>\x01</code> and <code>\x1A</code> respectively.</p>
-<p>It is not suggested to use characters other than letters after <code>\c</code> expressions because the behaviour is inconsistent across different engines. Some may take the last 5 bits that character index in the code page of its Unicode code point to form an ASCII control character while some just flip bit 0x40. Some engines treat <code>\c</code> expression with other characters as error.</p>
+<p>In some engines <code>\v</code> represents a vertical tab (ASCII 11)
+while in other engines it is a shortand for any vertical whitespace
+character including vertical tab, form feed and all line breaks.</p>
+<p>Many regex engine support control tokens <code>\cA</code> to
+<code>\cZ</code> to match control characters from ASCII 1 to ASCII 26.
+In this case <code>\cA</code> indicates Control+A and <code>\cZ</code>
+indicates Control+Z. They are equal to <code>\x01</code> and
+<code>\x1A</code> respectively.</p>
+<p>It is not suggested to use characters other than letters after
+<code>\c</code> expressions because the behaviour is inconsistent across
+different engines. Some may take the last 5 bits that character index in
+the code page of its Unicode code point to form an ASCII control
+character while some just flip bit 0x40. Some engines treat
+<code>\c</code> expression with other characters as error.</p>
 </blockquote>
-<p><code>\uFFFF</code> or <code>\x{FFFF}</code> can be used to match a Unicode character if the engine supports Unicode.</p>
-<p>If the engine works with 8-bit code pages instead of Unicode, any character can be includes in regular expressions if its position in the code page is known. For example, <code>\x09</code> matches the character at position 9 in the code page (the 0 is required!).</p>
-<h3 id="Line-Breaks">Line Breaks</h3>
-<p><code>\R</code> is a special escape that matches any line break sequence including Unicode line breaks. It will match the whole CRLF pair instead of just matches the <code>\r</code>.</p>
-<p>However, the <code>\r\R</code> pair can match a whole CRLF pair and this behaviour is consistent.</p>
+<p><code>\uFFFF</code> or <code>\x{FFFF}</code> can be used to match a
+Unicode character if the engine supports Unicode.</p>
+<p>If the engine works with 8-bit code pages instead of Unicode, any
+character can be includes in regular expressions if its position in the
+code page is known. For example, <code>\x09</code> matches the character
+at position 9 in the code page (the 0 is required!).</p>
+<h3 id="line-breaks">Line Breaks</h3>
+<p><code>\R</code> is a special escape that matches any line break
+sequence including Unicode line breaks. It will match the whole CRLF
+pair instead of just matches the <code>\r</code>.</p>
+<p>However, the <code>\r\R</code> pair can match a whole CRLF pair and
+this behaviour is consistent.</p>
 <blockquote>
-<p><strong>LF</strong> (Line Feed) is a single character <code>\n</code> used as the line-ending character on Unix-based systems like Linux and macOS.</p>
-<p><strong>CRLF</strong> (Carriage Return + Line Feed) is a two-character sequence <code>\r\n</code> used as the line-ending character on Windows.</p>
-<p>Modern tools can be configured to automatically convert the line endings to prevent issues in cross-platform projects.</p>
+<p><strong>LF</strong> (Line Feed) is a single character <code>\n</code>
+used as the line-ending character on Unix-based systems like Linux and
+macOS.</p>
+<p><strong>CRLF</strong> (Carriage Return + Line Feed) is a
+two-character sequence <code>\r\n</code> used as the line-ending
+character on Windows.</p>
+<p>Modern tools can be configured to automatically convert the line
+endings to prevent issues in cross-platform projects.</p>
 </blockquote>
-<h3 id="Octal-Escapes">Octal Escapes</h3>
-<p>Many engines support octal escapes like <code>\0</code>, <code>\0255</code>, <code>\377</code> and so on. The first digit can be omitted if it is 0. The octal escape will match the character at the position of the octal number in the code page.</p>
-<p>There are huge variations in the support of octal escapes accross different engines on whether a introductory 0 is required or not, whether the <code>\0</code> without additional digits is allowed, and whether the octal escape can be used in character classes. So octal escapes are not recommended in regular expressions.</p>
+<h3 id="octal-escapes">Octal Escapes</h3>
+<p>Many engines support octal escapes like <code>\0</code>,
+<code>\0255</code>, <code>\377</code> and so on. The first digit can be
+omitted if it is 0. The octal escape will match the character at the
+position of the octal number in the code page.</p>
+<p>There are huge variations in the support of octal escapes accross
+different engines on whether a introductory 0 is required or not,
+whether the <code>\0</code> without additional digits is allowed, and
+whether the octal escape can be used in character classes. So octal
+escapes are not recommended in regular expressions.</p>
 <blockquote>
 <p>Some engines support <code>\o{1}</code> for octal escapes.</p>
 </blockquote>
-<h2 id="Regular-Expression-Engines">Regular Expression Engines</h2>
-<p>There are basically two kinds of regular expression engines: text-directed engines and regex-directed engines. Most modern use regex-directed engines because some special features.</p>
+<h2 id="regular-expression-engines">Regular Expression Engines</h2>
+<p>There are basically two kinds of regular expression engines:
+text-directed engines and regex-directed engines. Most modern use
+regex-directed engines because some special features.</p>
 
     </div>
 
