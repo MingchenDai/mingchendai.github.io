@@ -8,7 +8,7 @@
     "clean": "hexo clean",
     "deploy": "hexo deploy",
     "format:math": "node tools/normalize-math.js --write",
-    "server": "hexo server",
+    "server": "hexo server -i 127.0.0.1",
     "test:math-normalizer": "node --test tools/normalize-math.test.js"
   },
   "hexo": {
