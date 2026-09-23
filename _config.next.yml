@@ -29,7 +29,7 @@ custom_file_path:
   #bodyEnd: source/_data/body-end.njk
   #variable: source/_data/variables.styl
   #mixin: source/_data/mixins.styl
-  #style: source/_data/styles.styl
+  style: source/_data/styles.styl
 
 
 # ---------------------------------------------------------------
@@ -444,7 +444,7 @@ github_banner:
 # ---------------------------------------------------------------
 
 font:
-  enable: false
+  enable: true
 
   # Uri of fonts host, e.g. https://fonts.googleapis.com (Default).
   host:
@@ -456,8 +456,8 @@ font:
 
   # Global font settings used for all elements inside <body>.
   global:
-    external: true
-    family: Lato
+    external: false
+    family: Latin Modern Sans
     size:
 
   # Font settings for site title (.site-title).
@@ -474,8 +474,8 @@ font:
 
   # Font settings for posts (.post-body).
   posts:
-    external: true
-    family:
+    external: false
+    family: Latin Modern Sans
 
   # Font settings for <code> and code blocks.
   codes:
