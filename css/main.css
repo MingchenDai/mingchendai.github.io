@@ -1558,7 +1558,7 @@ pre code {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #ffff42;
+  background: #90a7ff;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -3151,4 +3151,7 @@ header.header {
   font-style: italic;
   font-weight: 700;
   font-display: swap;
+}
+.post-body {
+  line-height: 1.5;
 }
